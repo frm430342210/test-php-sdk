@@ -4,6 +4,7 @@
  * Date: 2018/08/08 10:00
  */
 namespace src\model\request;
+
 class TokenGetName{
     private $contractName;
 

@@ -14,13 +14,13 @@ use Google\Protobuf\Internal\GPBUtil;
 class ConsensusValueValidation extends \Google\Protobuf\Internal\Message
 {
     /**
-     *contract execute expired
+     *Contract execution expired
      *
      * Generated from protobuf field <code>repeated int32 expire_tx_ids = 1;</code>
      */
     private $expire_tx_ids;
     /**
-     *may contain other check
+     *May contain other checks
      *
      * Generated from protobuf field <code>repeated int32 error_tx_ids = 2;</code>
      */
@@ -33,9 +33,9 @@ class ConsensusValueValidation extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int[]|\Google\Protobuf\Internal\RepeatedField $expire_tx_ids
-     *          contract execute expired
+     *          Contract execution expired
      *     @type int[]|\Google\Protobuf\Internal\RepeatedField $error_tx_ids
-     *          may contain other check
+     *          May contain other checks
      * }
      */
     public function __construct($data = NULL) {
@@ -44,7 +44,7 @@ class ConsensusValueValidation extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *contract execute expired
+     *Contract execution expired
      *
      * Generated from protobuf field <code>repeated int32 expire_tx_ids = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
@@ -55,7 +55,7 @@ class ConsensusValueValidation extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *contract execute expired
+     *Contract execution expired
      *
      * Generated from protobuf field <code>repeated int32 expire_tx_ids = 1;</code>
      * @param int[]|\Google\Protobuf\Internal\RepeatedField $var
@@ -70,7 +70,7 @@ class ConsensusValueValidation extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *may contain other check
+     *May contain other checks
      *
      * Generated from protobuf field <code>repeated int32 error_tx_ids = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
@@ -81,7 +81,7 @@ class ConsensusValueValidation extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *may contain other check
+     *May contain other checks
      *
      * Generated from protobuf field <code>repeated int32 error_tx_ids = 2;</code>
      * @param int[]|\Google\Protobuf\Internal\RepeatedField $var

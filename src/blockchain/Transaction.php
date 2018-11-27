@@ -60,6 +60,7 @@ use \src\model\response\result\TransactionSubmitResult;
 use \src\model\response\result\TransactionGetInfoResult;
 
 use \src\account\operation\AccountOperation;
+use src\SDK;
 use \src\token\operation\AssetOperation;
 use \src\token\operation\BUOperation;
 use \src\contract\operation\ContractOperation;
@@ -144,8 +145,12 @@ class Transaction {
             $transaction->setFeeLimit($feeLimit);
             $transaction->setGasPrice($gasPrice);
             $transaction->setOperations($operationArray);
+            $chainId = SDK::getConfigure()->getChainId();
+            if (is_int($chainId) && $chainId > 0) {
+                $transaction->setChainId($chainId);
+            }
             if (!Tools::isNULL($ceilLedgerSeq)) {
-                $baseUrl = General::blockGetNumberUrl();
+                $baseUrl = General::getInstance()->blockGetNumberUrl();
                 $result = Http::get($baseUrl);
                 $blockGetNumberResponse = Tools::jsonToClass($result, new BlockGetNumberResponse());
                 $errorCode = $blockGetNumberResponse->error_code;
@@ -244,7 +249,7 @@ class Transaction {
             if (Tools::isEmpty($operations)) {
                 throw new SDKException("OPERATIONS_EMPTY_ERROR", null);
             }
-            if (Tools::isEmpty(General::$url)) {
+            if (Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
             }
             $operationArray = $this->buildOperations($operations, $sourceAddress);
@@ -258,7 +263,7 @@ class Transaction {
             $transaction->setNonce($nonce);
             $transaction->setOperations($operationArray);
             if (!Tools::isNULL($ceilLedgerSeq)) {
-                $baseUrl = General::blockGetNumberUrl();
+                $baseUrl = General::getInstance()->blockGetNumberUrl();
                 $result = Http::get($baseUrl);
                 $blockGetNumberResponse = Tools::jsonToClass($result, new BlockGetNumberResponse());
                 $errorCode = $blockGetNumberResponse->error_code;
@@ -278,7 +283,7 @@ class Transaction {
             $transactionItem = new TransactionItem();
             $transactionItem->transaction_json = $transactionInfo;
             $transactionTestRequest->items[0] = $transactionItem;
-            $baseUrl = General::transactionEvaluationFee();
+            $baseUrl = General::getInstance()->transactionEvaluationFee();
             $result = Http::post($baseUrl, json_encode($transactionTestRequest));
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -389,7 +394,7 @@ class Transaction {
             $transactionItems->items[0] = $transactionItem;
 
             // submit
-            $baseUrl = General::transactionSubmitUrl();
+            $baseUrl = General::getInstance()->transactionSubmitUrl();
             $result = Http::post($baseUrl, json_encode($transactionItems));
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -432,7 +437,7 @@ class Transaction {
             if (Tools::isEmpty($hash) || strlen($hash) != Constant::HASH_HEX_LENGTH) {
                 throw new SDKException("INVALID_HASH_ERROR", null);
             }
-            $baseUrl = General::transactionGetInfoUrl($hash);
+            $baseUrl = General::getInstance()->transactionGetInfoUrl($hash);
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -529,6 +534,7 @@ class Transaction {
         }
         $transactionInfo->fee_limit = $transaction->getFeeLimit();
         $transactionInfo->gas_price = $transaction->getGasPrice();
+        $transactionInfo->chain_id = $transaction->getChainId();
 
         $operationArray = array();
         for ($i = 0; $i < $operations->count(); $i++) {

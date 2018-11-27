@@ -49,10 +49,10 @@ class Contract {
             if(Tools::isEmpty($isValid)) {
                 throw new SDKException("INVALID_CONTRACTADDRESS_ERROR", null);
             }
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
-            $baseUrl = General::accountGetInfoUrl($contractAddress);
+            $baseUrl = General::getInstance()->accountGetInfoUrl($contractAddress);
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -92,11 +92,11 @@ class Contract {
             if(Tools::isEmpty($hash) || !is_string($hash) || strlen($hash) != Constant::HASH_HEX_LENGTH) {
                 throw new SDKException("INVALID_HASH_ERROR", null);
             }
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
 
-            $baseUrl = General::transactionGetInfoUrl($hash);
+            $baseUrl = General::getInstance()->transactionGetInfoUrl($hash);
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -157,10 +157,10 @@ class Contract {
             if(Tools::isEmpty($isValid)) {
                 throw new SDKException("INVALID_CONTRACTADDRESS_ERROR", null);
             }
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
-            $baseUrl = General::accountGetInfoUrl($contractAddress);
+            $baseUrl = General::getInstance()->accountGetInfoUrl($contractAddress);
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -241,7 +241,7 @@ class Contract {
             if (!Tools::isNULL($gasPrice) && (!is_int($gasPrice) || $gasPrice < Constant::GAS_PRICE_MIN)) {
                 throw new SDKException("INPUT_NOT_STRING_ERROR", null);
             }
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
 
@@ -268,7 +268,7 @@ class Contract {
                 $contractCallInput->gas_price = $gasPrice;
             }
 
-            $contractGetInfoUrl = General::contractCallUrl();
+            $contractGetInfoUrl = General::getInstance()->contractCallUrl();
             $result = Http::post($contractGetInfoUrl, json_encode($contractCallInput));
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);

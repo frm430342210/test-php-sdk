@@ -14,7 +14,7 @@ use Google\Protobuf\Internal\GPBUtil;
 class AssetStore extends \Google\Protobuf\Internal\Message
 {
     /**
-     *required
+     *Required
      *
      * Generated from protobuf field <code>.protocol.AssetKey key = 1;</code>
      */
@@ -35,7 +35,7 @@ class AssetStore extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Protocol\AssetKey $key
-     *          required
+     *          Required
      *     @type int|string $amount
      *     @type \Protocol\AssetProperty $property
      * }
@@ -46,7 +46,7 @@ class AssetStore extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *required
+     *Required
      *
      * Generated from protobuf field <code>.protocol.AssetKey key = 1;</code>
      * @return \Protocol\AssetKey
@@ -57,7 +57,7 @@ class AssetStore extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *required
+     *Required
      *
      * Generated from protobuf field <code>.protocol.AssetKey key = 1;</code>
      * @param \Protocol\AssetKey $var

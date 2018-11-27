@@ -18,7 +18,7 @@ class OperationSetThreshold extends \Google\Protobuf\Internal\Message
      */
     private $tx_threshold = 0;
     /**
-     *type:threshold, threshold:0 indicate deleting this type
+     *type:threshold, threshold:0 indicates deleting this type
      *
      * Generated from protobuf field <code>repeated .protocol.OperationTypeThreshold type_thresholds = 2;</code>
      */
@@ -32,7 +32,7 @@ class OperationSetThreshold extends \Google\Protobuf\Internal\Message
      *
      *     @type int|string $tx_threshold
      *     @type \Protocol\OperationTypeThreshold[]|\Google\Protobuf\Internal\RepeatedField $type_thresholds
-     *          type:threshold, threshold:0 indicate deleting this type
+     *          type:threshold, threshold:0 indicates deleting this type
      * }
      */
     public function __construct($data = NULL) {
@@ -63,7 +63,7 @@ class OperationSetThreshold extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *type:threshold, threshold:0 indicate deleting this type
+     *type:threshold, threshold:0 indicates deleting this type
      *
      * Generated from protobuf field <code>repeated .protocol.OperationTypeThreshold type_thresholds = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
@@ -74,7 +74,7 @@ class OperationSetThreshold extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *type:threshold, threshold:0 indicate deleting this type
+     *type:threshold, threshold:0 indicates deleting this type
      *
      * Generated from protobuf field <code>repeated .protocol.OperationTypeThreshold type_thresholds = 2;</code>
      * @param \Protocol\OperationTypeThreshold[]|\Google\Protobuf\Internal\RepeatedField $var

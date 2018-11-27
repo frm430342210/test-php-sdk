@@ -10,6 +10,7 @@ class TransactionInfo {
     public  $nonce;
     public  $ceil_ledger_seq;
     public  $metadata;
+    public  $chain_id;
     /**
      * @var \src\model\response\result\data\Operation[]
      */

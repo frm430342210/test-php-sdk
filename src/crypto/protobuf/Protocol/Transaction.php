@@ -41,6 +41,10 @@ class Transaction extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .protocol.Operation operations = 7;</code>
      */
     private $operations;
+    /**
+     * Generated from protobuf field <code>int64 chain_id = 8;</code>
+     */
+    private $chain_id = 0;
 
     /**
      * Constructor.
@@ -55,6 +59,7 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *     @type int|string $ceil_ledger_seq
      *     @type string $metadata
      *     @type \Protocol\Operation[]|\Google\Protobuf\Internal\RepeatedField $operations
+     *     @type int|string $chain_id
      * }
      */
     public function __construct($data = NULL) {
@@ -212,6 +217,28 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Protocol\Operation::class);
         $this->operations = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 chain_id = 8;</code>
+     * @return int|string
+     */
+    public function getChainId()
+    {
+        return $this->chain_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 chain_id = 8;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setChainId($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->chain_id = $var;
 
         return $this;
     }

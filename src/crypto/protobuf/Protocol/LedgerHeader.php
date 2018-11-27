@@ -59,6 +59,10 @@ class LedgerHeader extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string reserve = 11;</code>
      */
     private $reserve = '';
+    /**
+     * Generated from protobuf field <code>int64 chain_id = 12;</code>
+     */
+    private $chain_id = 0;
 
     /**
      * Constructor.
@@ -78,6 +82,7 @@ class LedgerHeader extends \Google\Protobuf\Internal\Message
      *           hash
      *     @type string $fees_hash
      *     @type string $reserve
+     *     @type int|string $chain_id
      * }
      */
     public function __construct($data = NULL) {
@@ -327,6 +332,28 @@ class LedgerHeader extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->reserve = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 chain_id = 12;</code>
+     * @return int|string
+     */
+    public function getChainId()
+    {
+        return $this->chain_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 chain_id = 12;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setChainId($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->chain_id = $var;
 
         return $this;
     }

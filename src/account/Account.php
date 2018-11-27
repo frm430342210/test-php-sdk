@@ -104,10 +104,10 @@ class Account {
             if(Tools::isEmpty($isValid)) {
                 throw new SDKException("INVALID_ADDRESS_ERROR", null);
             }
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
-            $baseUrl = General::accountGetInfoUrl($address);
+            $baseUrl = General::getInstance()->accountGetInfoUrl($address);
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -145,10 +145,10 @@ class Account {
             if(Tools::isEmpty($isValid)) {
                 throw new SDKException("INVALID_ADDRESS_ERROR", null);
             }
-            if(Tools::isEmpty(General::$url)){
+            if(Tools::isEmpty(General::getInstance()->getUrl())){
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
-            $baseUrl = General::accountGetInfoUrl($address);
+            $baseUrl = General::getInstance()->accountGetInfoUrl($address);
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -189,10 +189,10 @@ class Account {
             if(Tools::isEmpty($isValid)) {
                 throw new SDKException("INVALID_ADDRESS_ERROR", null);
             }
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
-            $baseUrl = General::accountGetInfoUrl($address);
+            $baseUrl = General::getInstance()->accountGetInfoUrl($address);
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -230,10 +230,10 @@ class Account {
             if(Tools::isEmpty($isValid)) {
                 throw new SDKException("INVALID_ADDRESS_ERROR", null);
             }
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
-            $baseUrl = General::accountGetAssetsUrl($address);
+            $baseUrl = General::getInstance()->accountGetAssetsUrl($address);
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -280,10 +280,10 @@ class Account {
                 throw new SDKException("INVALID_DATAKEY_ERROR", null);
             }
 
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
-            $baseUrl = General::accountGetMetadataUrl($address,$key);
+            $baseUrl = General::getInstance()->accountGetMetadataUrl($address,$key);
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -324,10 +324,10 @@ class Account {
             if(Tools::isEmpty($isValid)) {
                 throw new SDKException("INVALID_ADDRESS_ERROR", null);
             }
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
-            $baseUrl = General::accountGetInfoUrl($address);
+            $baseUrl = General::getInstance()->accountGetInfoUrl($address);
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);

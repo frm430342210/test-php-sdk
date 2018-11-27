@@ -14,13 +14,13 @@ use Google\Protobuf\Internal\GPBUtil;
 class OperationSetSignerWeight extends \Google\Protobuf\Internal\Message
 {
     /**
-     *required, [-1,MAX(UINT32)] -1: indicate no setting
+     *required, [-1,MAX(UINT32)] -1: indicates no setting
      *
      * Generated from protobuf field <code>int64 master_weight = 1;</code>
      */
     private $master_weight = 0;
     /**
-     *address:weight, if weight is 0 indicate deleting this signer
+     *address:weight, if weight is 0, it indicates deleting this signer
      *
      * Generated from protobuf field <code>repeated .protocol.Signer signers = 2;</code>
      */
@@ -33,9 +33,9 @@ class OperationSetSignerWeight extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int|string $master_weight
-     *          required, [-1,MAX(UINT32)] -1: indicate no setting
+     *          required, [-1,MAX(UINT32)] -1: indicates no setting
      *     @type \Protocol\Signer[]|\Google\Protobuf\Internal\RepeatedField $signers
-     *          address:weight, if weight is 0 indicate deleting this signer
+     *          address:weight, if weight is 0, it indicates deleting this signer
      * }
      */
     public function __construct($data = NULL) {
@@ -44,7 +44,7 @@ class OperationSetSignerWeight extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *required, [-1,MAX(UINT32)] -1: indicate no setting
+     *required, [-1,MAX(UINT32)] -1: indicates no setting
      *
      * Generated from protobuf field <code>int64 master_weight = 1;</code>
      * @return int|string
@@ -55,7 +55,7 @@ class OperationSetSignerWeight extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *required, [-1,MAX(UINT32)] -1: indicate no setting
+     *required, [-1,MAX(UINT32)] -1: indicates no setting
      *
      * Generated from protobuf field <code>int64 master_weight = 1;</code>
      * @param int|string $var
@@ -70,7 +70,7 @@ class OperationSetSignerWeight extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *address:weight, if weight is 0 indicate deleting this signer
+     *address:weight, if weight is 0, it indicates deleting this signer
      *
      * Generated from protobuf field <code>repeated .protocol.Signer signers = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
@@ -81,7 +81,7 @@ class OperationSetSignerWeight extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *address:weight, if weight is 0 indicate deleting this signer
+     *address:weight, if weight is 0, it indicates deleting this signer
      *
      * Generated from protobuf field <code>repeated .protocol.Signer signers = 2;</code>
      * @param \Protocol\Signer[]|\Google\Protobuf\Internal\RepeatedField $var

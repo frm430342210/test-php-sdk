@@ -14,7 +14,7 @@ use Google\Protobuf\Internal\GPBUtil;
 class AccountThreshold extends \Google\Protobuf\Internal\Message
 {
     /**
-     *required, [-1,MAX(INT64)] -1: indicate no setting
+     *required, [-1,MAX(INT64)] -1: indicates no setting
      *
      * Generated from protobuf field <code>int64 tx_threshold = 1;</code>
      */
@@ -31,7 +31,7 @@ class AccountThreshold extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int|string $tx_threshold
-     *          required, [-1,MAX(INT64)] -1: indicate no setting
+     *          required, [-1,MAX(INT64)] -1: indicates no setting
      *     @type \Protocol\OperationTypeThreshold[]|\Google\Protobuf\Internal\RepeatedField $type_thresholds
      * }
      */
@@ -41,7 +41,7 @@ class AccountThreshold extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *required, [-1,MAX(INT64)] -1: indicate no setting
+     *required, [-1,MAX(INT64)] -1: indicates no setting
      *
      * Generated from protobuf field <code>int64 tx_threshold = 1;</code>
      * @return int|string
@@ -52,7 +52,7 @@ class AccountThreshold extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *required, [-1,MAX(INT64)] -1: indicate no setting
+     *required, [-1,MAX(INT64)] -1: indicates no setting
      *
      * Generated from protobuf field <code>int64 tx_threshold = 1;</code>
      * @param int|string $var

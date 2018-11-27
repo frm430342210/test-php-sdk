@@ -43,11 +43,11 @@ class Asset {
             if(Tools::isEmpty($isIssuerValid)) {
                 throw new SDKException("INVALID_ISSUER_ADDRESS_ERROR", null);
             }
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
 
-            $baseUrl = General::assetGetUrl($address, $code, $issuer);
+            $baseUrl = General::getInstance()->assetGetUrl($address, $code, $issuer);
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);

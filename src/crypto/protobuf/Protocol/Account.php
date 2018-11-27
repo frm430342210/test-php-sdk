@@ -18,7 +18,7 @@ class Account extends \Google\Protobuf\Internal\Message
      */
     private $address = '';
     /**
-     *last transaction seq
+     *Last transaction seq
      *
      * Generated from protobuf field <code>int64 nonce = 2;</code>
      */
@@ -56,7 +56,7 @@ class Account extends \Google\Protobuf\Internal\Message
      *
      *     @type string $address
      *     @type int|string $nonce
-     *          last transaction seq
+     *          Last transaction seq
      *     @type \Protocol\AccountPrivilege $priv
      *     @type string $metadatas_hash
      *          metadatas_hash = merklehash(metadatas);
@@ -94,7 +94,7 @@ class Account extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *last transaction seq
+     *Last transaction seq
      *
      * Generated from protobuf field <code>int64 nonce = 2;</code>
      * @return int|string
@@ -105,7 +105,7 @@ class Account extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *last transaction seq
+     *Last transaction seq
      *
      * Generated from protobuf field <code>int64 nonce = 2;</code>
      * @param int|string $var

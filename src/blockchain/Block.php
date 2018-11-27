@@ -53,10 +53,10 @@ class Block {
         $blockGetNumberResponse = new BlockGetNumberResponse();
         $blockGetNumberResult = new BlockGetNumberResult();
         try{
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
-            $baseUrl = General::blockGetNumberUrl();
+            $baseUrl = General::getInstance()->blockGetNumberUrl();
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -80,10 +80,10 @@ class Block {
         $blockCheckStatusResponse = new BlockCheckStatusResponse();
         $blockCheckStatusResult = new BlockCheckStatusResult();
         try{
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
-            $baseUrl = General::blockCheckStatusUrl();
+            $baseUrl = General::getInstance()->blockCheckStatusUrl();
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -130,10 +130,10 @@ class Block {
             if (Tools::isEmpty($blockNumber) || !is_int($blockNumber) || $blockNumber < 1) {
                 throw new SDKException("INVALID_BLOCKNUMBER_ERROR", null);
             }
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
-            $baseUrl = General::blockGetInfoUrl($blockNumber);
+            $baseUrl = General::getInstance()->blockGetInfoUrl($blockNumber);
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -162,10 +162,10 @@ class Block {
         $blockGetLatestInfoResponse = new BlockGetLatestInfoResponse();
         $blockGetLatestInfoResult = new BlockGetLatestInfoResult();
         try {
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
-            $baseUrl = General::blockGetLatestInfoUrl();
+            $baseUrl = General::getInstance()->blockGetLatestInfoUrl();
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -197,10 +197,10 @@ class Block {
             if (Tools::isEmpty($blockNumber) || !is_int($blockNumber) || $blockNumber < 1) {
                 throw new SDKException("INVALID_BLOCKNUMBER_ERROR", null);
             }
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
-            $baseUrl = General::blockGetValidatorsUrl($blockNumber);
+            $baseUrl = General::getInstance()->blockGetValidatorsUrl($blockNumber);
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -229,10 +229,10 @@ class Block {
         $blockGetLatestValidatorsResponse = new BlockGetLatestValidatorsResponse();
         $blockGetLatestValidatorsResult = new BlockGetLatestValidatorsResult();
         try{
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
-            $baseUrl = General::blockGetLatestValidatorsUrl();
+            $baseUrl = General::getInstance()->blockGetLatestValidatorsUrl();
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -264,10 +264,10 @@ class Block {
             if (Tools::isEmpty($blockNumber) || !is_int($blockNumber) || $blockNumber < 1) {
                 throw new SDKException("INVALID_BLOCKNUMBER_ERROR", null);
             }
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
-            $baseUrl = General::blockGetRewardUrl($blockNumber);
+            $baseUrl = General::getInstance()->blockGetRewardUrl($blockNumber);
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -312,10 +312,10 @@ class Block {
         $blockGetLatestRewardResponse = new BlockGetLatestRewardResponse();
         $blockGetLatestRewardResult = new BlockGetLatestRewardResult();
         try{
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
-            $baseUrl = General::blockGetLatestRewardUrl();
+            $baseUrl = General::getInstance()->blockGetLatestRewardUrl();
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -364,10 +364,10 @@ class Block {
             if (Tools::isEmpty($blockNumber) || !is_int($blockNumber) || $blockNumber < 1) {
                 throw new SDKException("INVALID_BLOCKNUMBER_ERROR", null);
             }
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
-            $baseUrl = General::blockGetFeesUrl($blockNumber);
+            $baseUrl = General::getInstance()->blockGetFeesUrl($blockNumber);
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);
@@ -396,10 +396,10 @@ class Block {
         $blockGetLatestFeesResponse = new BlockGetLatestFeesResponse();
         $blockGetLatestFeesResult = new BlockGetLatestFeesResult();
         try{
-            if(Tools::isEmpty(General::$url)) {
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);
             }
-            $baseUrl = General::blockGetLatestFeeUrl();
+            $baseUrl = General::getInstance()->blockGetLatestFeeUrl();
             $result = Http::get($baseUrl);
             if (Tools::isEmpty($result)) {
                 throw new SDKException("CONNECTNETWORK_ERROR", null);

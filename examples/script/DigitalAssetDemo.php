@@ -268,7 +268,10 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
     /** @test */
     public function transactionBuildBlob() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
+        $sdkConfigure = new \src\model\request\SDKConfigure();
+        $sdkConfigure->setChainId(10);
+        $sdkConfigure->setUrl("http://127.0.0.1:36002");
+        $sdk = \src\SDK::getInstanceWithConfigure($sdkConfigure);
         $transaction =  $sdk->getTransaction();
 
         // Init variable

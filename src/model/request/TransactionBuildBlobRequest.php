@@ -3,6 +3,7 @@
  * @author [zjl] <[<email address>]>
  */
 namespace src\model\request;
+
 class TransactionBuildBlobRequest{
     private $sourceAddress; //String 
     private $nonce;//Long 
