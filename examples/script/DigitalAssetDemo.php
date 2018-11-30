@@ -6,7 +6,7 @@
  * Time: 10:19
  */
 
-include_once dirname(dirname(dirname(__FILE__))) . "/src/autoload.php";
+include_once dirname(dirname(dirname(__FILE__))) . "/autoload.php";
 
 class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
@@ -29,6 +29,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         $response = $account->create();
         $json_response = json_encode($response);
         var_dump($json_response);
+        //$this->assertSame($json_response->error_code, 0);
     }
 
     /** @test */

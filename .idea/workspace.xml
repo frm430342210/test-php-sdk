@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43897963-d783-48f6-b6c0-231fe7a9e5ee" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/autoload.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" beforeDir="false" afterPath="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autoload.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,23 +21,24 @@
     <session id="-526938527">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="json" value="4" />
-          <entry key="php" value="45" />
+          <entry key="php" value="52" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="4" />
-          <entry key="PHP" value="45" />
+          <entry key="PHP" value="52" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.composer.actions">
@@ -42,19 +46,19 @@
           <entry key="install_from_ComposerEditorNotificationPanel" value="5" />
           <entry key="install_from_ProjectViewPopup" value="1" />
           <entry key="updateAll_from_ComposerEditorNotificationPanel" value="4" />
-          <entry key="updateAll_from_ProjectViewPopup" value="1" />
+          <entry key="updateAll_from_ProjectViewPopup" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="json" value="48" />
-          <entry key="php" value="327" />
+          <entry key="php" value="392" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="48" />
-          <entry key="PHP" value="327" />
+          <entry key="PHP" value="392" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -66,73 +70,74 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SDK.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
-              <folding>
-                <element signature="e#109#134#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/examples/script/DigitalAssetDemo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4878">
-              <caret line="276" column="24" selection-start-line="276" selection-start-column="24" selection-end-line="276" selection-end-column="24" />
+            <state relative-caret-position="136">
+              <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/autoload.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../test/test_ed25519.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/response/AccountCreateResponse.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/response/BaseResponse.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_5.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2700">
+              <caret line="150" column="9" selection-start-line="150" selection-start-column="9" selection-end-line="150" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/response/result/AccountCreateResult.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/blockchain/Transaction.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="324">
-              <caret line="23" column="75" lean-forward="true" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/response/TransactionParseBlobResponse.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/response/result/TransactionParseBlobResult.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/response/result/data/TransactionInfo.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/request/SDKConfigure.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/request/ContractGetInfoRequest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+              <caret line="23" column="75" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -161,6 +166,7 @@
     <findStrings>
       <find>General::</find>
       <find>General::getInstance()-&gt;$url</find>
+      <find>TransactionBuildBlobRequest</find>
     </findStrings>
     <replaceStrings>
       <replace>General::getInstance()-&gt;</replace>
@@ -190,10 +196,12 @@
         <option value="$PROJECT_DIR$/src/model/request/ContractGetInfoRequest.php" />
         <option value="$PROJECT_DIR$/src/model/request/TokenGetName.php" />
         <option value="$PROJECT_DIR$/src/model/request/TransactionBuildBlobRequest.php" />
-        <option value="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" />
         <option value="$PROJECT_DIR$/src/SDK.php" />
         <option value="$PROJECT_DIR$/src/model/response/result/data/TransactionInfo.php" />
         <option value="$PROJECT_DIR$/src/blockchain/Transaction.php" />
+        <option value="$PROJECT_DIR$/src/autoload.php" />
+        <option value="$PROJECT_DIR$/autoload.php" />
+        <option value="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" />
       </list>
     </option>
   </component>
@@ -212,11 +220,10 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="1440" />
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="1057" />
+    <option name="width" value="1440" />
+    <option name="height" value="805" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -233,7 +240,29 @@
             <path>
               <item name="myRepertory" type="b2602c69:ProjectViewProjectNode" />
               <item name="myRepertory" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myRepertory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myRepertory" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myRepertory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myRepertory" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myRepertory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myRepertory" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myRepertory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myRepertory" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="composer" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -252,6 +281,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/crypto/protobuf" />
     </key>
   </component>
@@ -267,7 +298,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.DigitalAssetDemo.transactionBuildBlob">
+  <component name="RunManager" selected="PHPUnit.DigitalAssetDemo.accountGetBalance">
+    <configuration name="DigitalAssetDemo.accountCreate" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="DigitalAssetDemo" file="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" method="accountCreate" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="DigitalAssetDemo.accountGetBalance" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="DigitalAssetDemo" file="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" method="accountGetBalance" scope="Method" />
       <method v="2" />
@@ -276,32 +311,28 @@
       <TestRunner class="DigitalAssetDemo" file="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" method="accountGetInfo" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="DigitalAssetDemo.blockGetLatestInfo" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="DigitalAssetDemo" file="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" method="blockGetLatestInfo" scope="Method" />
+    <configuration name="DigitalAssetDemo.accountGetNonce" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="DigitalAssetDemo" file="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" method="accountGetNonce" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="DigitalAssetDemo.transactionBuildBlob" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="DigitalAssetDemo" file="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" method="transactionBuildBlob" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="DigitalAssetDemo.transactionGetInfo" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="DigitalAssetDemo" file="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" method="transactionGetInfo" scope="Method" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="PHPUnit.DigitalAssetDemo.blockGetLatestInfo" />
-      <item itemvalue="PHPUnit.DigitalAssetDemo.transactionGetInfo" />
       <item itemvalue="PHPUnit.DigitalAssetDemo.accountGetInfo" />
       <item itemvalue="PHPUnit.DigitalAssetDemo.accountGetBalance" />
       <item itemvalue="PHPUnit.DigitalAssetDemo.transactionBuildBlob" />
+      <item itemvalue="PHPUnit.DigitalAssetDemo.accountCreate" />
+      <item itemvalue="PHPUnit.DigitalAssetDemo.accountGetNonce" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.DigitalAssetDemo.transactionBuildBlob" />
         <item itemvalue="PHPUnit.DigitalAssetDemo.accountGetBalance" />
+        <item itemvalue="PHPUnit.DigitalAssetDemo.accountGetNonce" />
         <item itemvalue="PHPUnit.DigitalAssetDemo.accountGetInfo" />
-        <item itemvalue="PHPUnit.DigitalAssetDemo.transactionGetInfo" />
-        <item itemvalue="PHPUnit.DigitalAssetDemo.blockGetLatestInfo" />
+        <item itemvalue="PHPUnit.DigitalAssetDemo.accountCreate" />
+        <item itemvalue="PHPUnit.DigitalAssetDemo.transactionBuildBlob" />
       </list>
     </recent_temporary>
   </component>
@@ -319,55 +350,57 @@
       <workItem from="1541991426884" duration="489000" />
       <workItem from="1543306980250" duration="1813000" />
       <workItem from="1543578535323" duration="260000" />
+      <workItem from="1543582798727" duration="3048000" />
+      <workItem from="1543587095574" duration="423000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.11.27 at 16h 45m 38s.xml">
+    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.11.30 at 21h 31m 26s.xml">
       <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.11.27 at 16h 45m 46s.xml">
-      <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="DigitalAssetDemo_accountCreate - 2018.11.30 at 22h 12m 45s.xml">
+      <configuration name="DigitalAssetDemo.accountCreate" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.11.27 at 16h 46m 02s.xml">
-      <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="DigitalAssetDemo_accountCreate - 2018.11.30 at 22h 13m 53s.xml">
+      <configuration name="DigitalAssetDemo.accountCreate" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.11.27 at 16h 46m 32s.xml">
-      <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="DigitalAssetDemo_accountCreate - 2018.11.30 at 22h 14m 55s.xml">
+      <configuration name="DigitalAssetDemo.accountCreate" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.11.27 at 16h 46m 44s.xml">
-      <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="DigitalAssetDemo_accountCreate - 2018.11.30 at 22h 15m 17s.xml">
+      <configuration name="DigitalAssetDemo.accountCreate" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.11.27 at 16h 48m 53s.xml">
-      <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="DigitalAssetDemo_accountCreate - 2018.11.30 at 22h 17m 04s.xml">
+      <configuration name="DigitalAssetDemo.accountCreate" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.11.27 at 16h 50m 27s.xml">
-      <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="DigitalAssetDemo_accountCreate - 2018.11.30 at 22h 17m 25s.xml">
+      <configuration name="DigitalAssetDemo.accountCreate" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.11.27 at 16h 50m 45s.xml">
-      <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="DigitalAssetDemo_accountCreate - 2018.11.30 at 22h 17m 40s.xml">
+      <configuration name="DigitalAssetDemo.accountCreate" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.11.30 at 19h 50m 01s.xml">
-      <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="DigitalAssetDemo_accountCreate - 2018.11.30 at 22h 18m 06s.xml">
+      <configuration name="DigitalAssetDemo.accountCreate" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.11.30 at 19h 50m 29s.xml">
-      <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="DigitalAssetDemo_accountCreate - 2018.11.30 at 22h 18m 30s.xml">
+      <configuration name="DigitalAssetDemo.accountCreate" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3466000" />
+    <option name="totallyTimeSpent" value="6937000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="23" width="1920" height="1057" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="803" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19062833" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26251787" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.42072538" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.42053446" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.40112203" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -492,20 +525,10 @@
     <entry file="file://$PROJECT_DIR$/src/token/Asset.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/autoload.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/account/Account.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="106" column="66" selection-start-line="106" selection-start-column="66" selection-end-line="106" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -518,18 +541,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SDK.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
+        <state relative-caret-position="666">
           <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
           <folding>
             <element signature="e#109#134#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/script/DigitalAssetDemo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4878">
-          <caret line="276" column="24" selection-start-line="276" selection-start-column="24" selection-end-line="276" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -564,6 +580,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/account/Account.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="71" column="29" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/response/AccountCreateResponse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/response/BaseResponse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_5.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2700">
+          <caret line="150" column="9" selection-start-line="150" selection-start-column="9" selection-end-line="150" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/response/result/AccountCreateResult.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blockchain/Transaction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="23" column="75" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/request/TokenGetName.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -578,10 +636,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/blockchain/Transaction.php">
+    <entry file="file://$PROJECT_DIR$/../test/test_ed25519.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="23" column="75" lean-forward="true" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
+        <state relative-caret-position="54">
+          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/script/DigitalAssetDemo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
         </state>
       </provider>
     </entry>
