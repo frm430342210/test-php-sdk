@@ -33,7 +33,7 @@ class Http {
         if($header) {
             curl_setopt($ch,CURLOPT_HTTPHEADER,$header);
         }
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15 * 1000);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15);
         $result = curl_exec ($ch);
 
         curl_close($ch);
@@ -56,7 +56,7 @@ class Http {
         if($header) {
             curl_setopt($ch,CURLOPT_HTTPHEADER,$header);
         }
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15 * 1000);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15);
         $result = curl_exec ($ch);
         curl_close($ch);
         return $result;

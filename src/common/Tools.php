@@ -59,8 +59,7 @@ class Tools{
        try {
            $mapper = new JsonMapper();
            $mapper->bStrictNullTypes = false;
-           $resultObject = json_decode($json, false, 512, JSON_BIGINT_AS_STRING);
-           //var_dump($resultObject);
+           $resultObject = json_decode($json);
            $classContent = $mapper->map($resultObject, $class);
        }
        catch (\Exception $exception) {
@@ -73,7 +72,7 @@ class Tools{
        try {
            $mapper = new JsonMapper();
            $mapper->bStrictNullTypes = false;
-           $resultObject = json_decode($jsonArray, false, 512, JSON_BIGINT_AS_STRING);
+           $resultObject = json_decode($jsonArray);
            $classContent = $mapper->mapArray($resultObject, array(), $className);
        }
        catch (\Exception $exception) {

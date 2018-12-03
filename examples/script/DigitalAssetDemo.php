@@ -8,272 +8,278 @@
 
 include_once dirname(dirname(dirname(__FILE__))) . "/autoload.php";
 
+//$sdk = \src\SDK::getInstance("http://seed1.bumotest.io:26002");
+$sdk = \src\SDK::getInstance("http://127.0.0.1:36002"); // localhost
+
 class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
+    public function setSDKConfigure($chainId) {
+        $sdkConfigure = new \src\model\request\SDKConfigure();
+        $sdkConfigure->setChainId($chainId);
+        $sdkConfigure->setUrl("http://127.0.0.1:36002");
+        $GLOBALS['sdk'] = \src\SDK::getInstanceWithConfigure($sdkConfigure);
+    }
     /** @test */
     public function accountCheckValid() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $account = $sdk->getAccount();
+        $this->setSDKConfigure(10);
+        $account = $GLOBALS['sdk']->getAccount();
 
         $request = new \src\model\request\AccountCheckValidRequest();
         $request->setAddress("buQecWYFHemdH8s9bTYsWuk6bvdswnJJaCT3");
         $response = $account->checkValid($request);
-        $json_result = json_encode($response);
+        $json_result = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_result);
     }
 
     /** @test */
     public function accountCreate() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $account = $sdk->getAccount();
+        $this->setSDKConfigure(10);
+        $account = $GLOBALS['sdk']->getAccount();
 
         $response = $account->create();
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
         //$this->assertSame($json_response->error_code, 0);
     }
 
     /** @test */
     public function accountGetInfo() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $account = $sdk->getAccount();
+        $this->setSDKConfigure(10);
+        $account = $GLOBALS['sdk']->getAccount();
 
         $accountGetInfoRequest = new \src\model\request\AccountGetInfoRequest();
-        $accountGetInfoRequest->setAddress("buQemmMwmRQY1JkcU7w3nhruoX5N3j6C29uo");
+        $accountGetInfoRequest->setAddress("buQq9DshgX8zUV66YoK6fApok3MZpyy2XiPA");
         $response = $account->getInfo($accountGetInfoRequest);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function accountGetNonce() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $account = $sdk->getAccount();
+        $this->setSDKConfigure(10);
+        $account = $GLOBALS['sdk']->getAccount();
 
         $accountGetNonceRequest = new \src\model\request\AccountGetNonceRequest();
         $accountGetNonceRequest->setAddress("buQemmMwmRQY1JkcU7w3nhruoX5N3j6C29uo");
         $response = $account->getNonce($accountGetNonceRequest);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function accountGetBalance() {
-        $sdk = \src\SDK::getInstance("http://127.0.01:36002");
-        $account = $sdk->getAccount();
+        $this->setSDKConfigure(10);
+        $account = $GLOBALS['sdk']->getAccount();
 
         $accountGetBalanceRequest = new \src\model\request\AccountGetBalanceRequest();
         $accountGetBalanceRequest->setAddress("buQjRsKFr7HfNrBTWWgQ44fUfAQ5NwgVhaBt");
         $response = $account->getBalance($accountGetBalanceRequest);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function accountGetAssets() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $account = $sdk->getAccount();
+        
+        $account = $GLOBALS['sdk']->getAccount();
 
         $accountGetAssetsRequest = new \src\model\request\AccountGetAssetsRequest();
-        $accountGetAssetsRequest->setAddress("buQsurH1M4rjLkfjzkxR9KXJ6jSu2r9xBNEw");
+        $accountGetAssetsRequest->setAddress("buQq9DshgX8zUV66YoK6fApok3MZpyy2XiPA");
         $response = $account->getAssets($accountGetAssetsRequest);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function accountGetMetadata() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $account = $sdk->getAccount();
+        $this->setSDKConfigure(10);
+        $account = $GLOBALS['sdk']->getAccount();
 
         $accountGetMetadataRequest = new \src\model\request\AccountGetMetadataRequest();
         $accountGetMetadataRequest->setAddress("buQemmMwmRQY1JkcU7w3nhruoX5N3j6C29uo");
         $accountGetMetadataRequest->setKey("1");
         $response = $account->getMetadata($accountGetMetadataRequest);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function accountCheckActivated() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $account = $sdk->getAccount();
+        $this->setSDKConfigure(10);
+        $account = $GLOBALS['sdk']->getAccount();
 
         $accountCheckActivatedRequest = new \src\model\request\AccountCheckActivatedRequest();
         $accountCheckActivatedRequest->setAddress("buQcVjBKRv4791StzLf2csB7HnZQk2RPAMYD");
         $response = $account->checkActivated($accountCheckActivatedRequest);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function assetGetInfo() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $asset = $sdk->getAsset();
+        $this->setSDKConfigure(10);
+        $asset = $GLOBALS['sdk']->getAsset();
 
         $assetGetInfoRequest = new \src\model\request\AssetGetInfoRequest();
-        $assetGetInfoRequest->setAddress("buQsurH1M4rjLkfjzkxR9KXJ6jSu2r9xBNEw");
-        $assetGetInfoRequest->setCode("HNC");
-        $assetGetInfoRequest->setIssuer("buQBjJD1BSJ7nzAbzdTenAhpFjmxRVEEtmxH");
+        $assetGetInfoRequest->setAddress("");
+        $assetGetInfoRequest->setCode("ATP资产");
+        $assetGetInfoRequest->setIssuer("buQq9DshgX8zUV66YoK6fApok3MZpyy2XiPA");
         $response = $asset->getInfo($assetGetInfoRequest);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function contractGetInfo() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $contract = $sdk->getContract();
+        $this->setSDKConfigure(10);
+        $contract = $GLOBALS['sdk']->getContract();
 
         $contractGetInfoRequest = new \src\model\request\ContractGetInfoRequest();
         $contractGetInfoRequest->setContractAddress("buQfnVYgXuMo3rvCEpKA6SfRrDpaz8D8A9Ea");
         $response = $contract->getInfo($contractGetInfoRequest);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function contractGetAddress() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $contract = $sdk->getContract();
+        $this->setSDKConfigure(10);
+        $contract = $GLOBALS['sdk']->getContract();
 
         $contractGetAddressRequest = new \src\model\request\ContractGetAddressRequest();
         $contractGetAddressRequest->setHash("44246c5ba1b8b835a5cbc29bdc9454cdb9a9d049870e41227f2dcfbcf7a07689");
         $response = $contract->getAddress($contractGetAddressRequest);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function contractCheckValid() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $contract = $sdk->getContract();
+        $this->setSDKConfigure(10);
+        $contract = $GLOBALS['sdk']->getContract();
 
         $contractCheckValidRequest = new \src\model\request\ContractCheckValidRequest();
         $contractCheckValidRequest->setContractAddress("buQsurH1M4rjLkfjzkxR9KXJ6jSu2r9xBNEw");
         $response = $contract->checkValid($contractCheckValidRequest);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function contractCall() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $contract = $sdk->getContract();
+        $this->setSDKConfigure(10);
+        $contract = $GLOBALS['sdk']->getContract();
 
         $contractCallRequest = new \src\model\request\ContractCallRequest();
         $contractCallRequest->setContractAddress("buQfnVYgXuMo3rvCEpKA6SfRrDpaz8D8A9Ea");
         $contractCallRequest->setFeeLimit(10000000000);
         $contractCallRequest->setOptType(1);
         $response = $contract->call($contractCallRequest);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function blockCheckStatus() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $block = $sdk->getBlock();
+        $this->setSDKConfigure(10);
+        $block = $GLOBALS['sdk']->getBlock();
 
         $response = $block->checkStatus();
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function blockGetInfo() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $block = $sdk->getBlock();
+        $this->setSDKConfigure(10);
+        $block = $GLOBALS['sdk']->getBlock();
 
         $request = new \src\model\request\BlockGetInfoRequest();
         $request->setBlockNumber(10000);
         $response = $block->getInfo($request);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function blockGetLatestInfo() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $block = $sdk->getBlock();
+        $this->setSDKConfigure(10);
+        $block = $GLOBALS['sdk']->getBlock();
 
         $response = $block->getLatestInfo();
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function blockGetReward() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $block = $sdk->getBlock();
+        $this->setSDKConfigure(10);
+        $block = $GLOBALS['sdk']->getBlock();
 
         $request = new \src\model\request\BlockGetRewardRequest();
         $request->setBlockNumber(10000);
         $response = $block->GetReward($request);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function blockGetLatestReward() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $block = $sdk->getBlock();
+        $this->setSDKConfigure(10);
+        $block = $GLOBALS['sdk']->getBlock();
 
         $response = $block->GetLatestReward();
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function blockGetValidators() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $block = $sdk->getBlock();
+        $this->setSDKConfigure(10);
+        $block = $GLOBALS['sdk']->getBlock();
 
         $request = new \src\model\request\BlockGetValidatorsRequest();
         $request->setBlockNumber(1637292);
         $response = $block->GetValidators($request);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function blockGetLatestValidators() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $block = $sdk->getBlock();
+        $this->setSDKConfigure(10);
+        $block = $GLOBALS['sdk']->getBlock();
 
         $response = $block->GetLatestValidators();
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function blockGetFees() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $block = $sdk->getBlock();
+        $this->setSDKConfigure(10);
+        $block = $GLOBALS['sdk']->getBlock();
 
         $request = new \src\model\request\BlockGetFeesRequest();
         $request->setBlockNumber(1637292);
         $response = $block->getFees($request);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function blockGetLatestFees() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $block = $sdk->getBlock();
+        $this->setSDKConfigure(10);
+        $block = $GLOBALS['sdk']->getBlock();
 
         $response = $block->GetLatestFees();
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function transactionBuildBlob() {
-        $sdkConfigure = new \src\model\request\SDKConfigure();
-        $sdkConfigure->setChainId(10);
-        $sdkConfigure->setUrl("http://127.0.0.1:36002");
-        $sdk = \src\SDK::getInstanceWithConfigure($sdkConfigure);
-        $transaction =  $sdk->getTransaction();
+        $this->setSDKConfigure(10);
+        $transaction =  $GLOBALS['sdk']->getTransaction();
 
         // Init variable
         $senderAddress = "buQfnVYgXuMo3rvCEpKA6SfRrDpaz8D8A9Ea";
@@ -307,27 +313,27 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
         // Call buildBlob
         $response = $transaction->buildBlob($request);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function transactionParseBlob() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $transaction =  $sdk->getTransaction();
+        $this->setSDKConfigure(10);
+        $transaction =  $GLOBALS['sdk']->getTransaction();
 
         $transactionBlob = "0a24627551666e56596758754d6f3372764345704b4136536652724470617a38443841394561100218c0843d20e8073a5608071224627551666e56596758754d6f3372764345704b4136536652724470617a38443841394561522c0a2462755173757248314d34726a4c6b666a7a6b7852394b584a366a537532723978424e45771080a9e08704";
         $request = new \src\model\request\TransactionParseBlobRequest();
         $request->setBlob($transactionBlob);
         $response = $transaction->parseBlob($request);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function transactionEvaluteFee() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $transaction =  $sdk->getTransaction();
+        $this->setSDKConfigure(10);
+        $transaction =  $GLOBALS['sdk']->getTransaction();
 
         // Init variable
         $senderAddress = "buQfnVYgXuMo3rvCEpKA6SfRrDpaz8D8A9Ea";
@@ -353,39 +359,41 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
         // Call evaluateFees
         $response = $transaction->evaluateFee($request);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function transactionSign() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $transaction =  $sdk->getTransaction();
+        $this->setSDKConfigure(10);
+        $transaction =  $GLOBALS['sdk']->getTransaction();
 
         $transactionBlob = "0a24627551666e56596758754d6f3372764345704b4136536652724470617a38443841394561100218c0843d20e8073a5608071224627551666e56596758754d6f3372764345704b4136536652724470617a38443841394561522c0a2462755173757248314d34726a4c6b666a7a6b7852394b584a366a537532723978424e45771080a9e08704";
         $request = new \src\model\request\TransactionSignRequest();
         $request->setBlob($transactionBlob);
         $request->addPrivateKey("privbyQCRp7DLqKtRFCqKQJr81TurTqG6UKXMMtGAmPG3abcM9XHjWvq");
         $response = $transaction->sign($request);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function transactionGetInfo() {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $transaction =  $sdk->getTransaction();
+        $this->setSDKConfigure(10);
+        $transaction =  $GLOBALS['sdk']->getTransaction();
 
         $request = new \src\model\request\TransactionGetInfoRequest();
-        $hash = "f0d719e6b4a06fe1b0bfbcbd0714f568486ab4119a8368dee49af6785890cb2f";
+        $hash = "cb25eb0cb1972eea10690f8d002a22ea9af74d1fba42ddf0519e93fd2df15955";
         $request->setHash($hash);
         $response = $transaction->getInfo($request);
-        $json_response = json_encode($response);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
     }
 
     /** @test */
     public function accountActivate() {
+        $this->setSDKConfigure(10);
+
         // The account private key to activate a new account
         $activatePrivateKey = "privbyJsNEz6oGFmXCXBHtCKSerTFidxd86Swe5JfKxyUQ5Mqt48Rg22";
         $initBalance = \src\common\Tools::BU2MO(0.1);
@@ -426,6 +434,8 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
     /** @test */
     public function accountSetMetadata() {
+        $this->setSDKConfigure(10);
+
         // Init variable
         // The account private key to set metadata
         $accountPrivateKey = "privbyJsNEz6oGFmXCXBHtCKSerTFidxd86Swe5JfKxyUQ5Mqt48Rg22";
@@ -465,6 +475,8 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
     /** @test */
     public function accountSetPrivilege() {
+        $this->setSDKConfigure(10);
+
         // Init variable
         // The account private key to set privilege
         $accountPrivateKey = "privbyJsNEz6oGFmXCXBHtCKSerTFidxd86Swe5JfKxyUQ5Mqt48Rg22";
@@ -509,11 +521,13 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
     /** @test */
     public function assetIssue() {
+        $this->setSDKConfigure(10);
+
         // Init variable
         // The account private key to issue asset
-        $issuerPrivateKey = "privbyJsNEz6oGFmXCXBHtCKSerTFidxd86Swe5JfKxyUQ5Mqt48Rg22";
+        $issuerPrivateKey = "privbUaV6dK4kLUjbLzmvJeYJeBjxTaNu1RQm5BgCrYkAwueFKGzdabH";
         // The asset code
-        $assetCode = "buQhapCK83xPPdjQeDuBLJtFNvXYZEKb6tKB";
+        $assetCode = "ATP资产";
         // The asset amount
         $assetAmount = 10000000000000;
         // The txThreshold
@@ -551,6 +565,8 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
     /** @test */
     public function assetSend() {
+        $this->setSDKConfigure(10);
+
         // The account private key to send asset
         $senderPrivateKey = "privbyJsNEz6oGFmXCXBHtCKSerTFidxd86Swe5JfKxyUQ5Mqt48Rg22";
         // The account to receive asset
@@ -596,8 +612,10 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
     /** @test */
     public function buSend() {
+        $this->setSDKConfigure(10);
+
         // The account private key to send bu
-        $senderPrivateKey = "privbyJsNEz6oGFmXCXBHtCKSerTFidxd86Swe5JfKxyUQ5Mqt48Rg22";
+        $senderPrivateKey = "privbUaV6dK4kLUjbLzmvJeYJeBjxTaNu1RQm5BgCrYkAwueFKGzdabH";
         // The account to receive bu
         $destAddress = "buQhapCK83xPPdjQeDuBLJtFNvXYZEKb6tKB";
         // The amount to be sent
@@ -607,7 +625,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         //Set up the maximum cost 0.01BU
         $feeLimit = \src\common\Tools::BU2MO(50.01);
         // Metadata
-        $metadata = "send asset";
+        $metadata = "发送BU资产";
 
         // 1. Get the account address to send this transaction
         $accountAddress = \src\crypto\key\KeyPair::getEncAddressByPrivateKey($senderPrivateKey);
@@ -635,6 +653,8 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
     /** @test */
     public function logCreate() {
+        $this->setSDKConfigure(10);
+
         // The account private key to create log
         $createLogPrivateKey = "privbyJsNEz6oGFmXCXBHtCKSerTFidxd86Swe5JfKxyUQ5Mqt48Rg22";
         // Log topic
@@ -675,8 +695,8 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     }
 
     private function getAccountNonce($accountAddress) {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $account = $sdk->getAccount();
+        $this->setSDKConfigure(10);
+        $account = $GLOBALS['sdk']->getAccount();
 
         $accountGetNonceRequest = new \src\model\request\AccountGetNonceRequest();
         $accountGetNonceRequest->setAddress($accountAddress);
@@ -688,8 +708,8 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     }
 
     private function buildBlobAndSignAndSubmit($privateKeys, $sourceAddress, $nonce, $gasPrice, $feeLimit, $metadata, $operations) {
-        $sdk = \src\SDK::getInstance("http://127.0.0.1:36002");
-        $transaction =  $sdk->getTransaction();
+        $this->setSDKConfigure(10);
+        $transaction =  $GLOBALS['sdk']->getTransaction();
 
         // Build blob
         $buildBlobRequest = new \src\model\request\TransactionBuildBlobRequest();
