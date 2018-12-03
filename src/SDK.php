@@ -26,6 +26,7 @@ class SDK {
     static public function getInstance($baseUrl) {
         if(!self::$instance instanceof self){
             self::$instance = new self();
+            SDK::$configure = new SDKConfigure();
         }
         SDK::$url = $baseUrl;
         return self::$instance;
