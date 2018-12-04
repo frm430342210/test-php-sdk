@@ -130,9 +130,9 @@ $sdk = \src\SDK::getInstance($url);
 $account = $sdk->getAccount();
 $response = $account->create();
 if (0 == $response->error_code) {
-    echo $response->$response->result->private_key . "\n";
-    echo $response->$response->result->public_key . "\n";
-    echo $response->$response->result->address . "\n";
+    echo $response->result->private_key . "\n";
+    echo $response->result->public_key . "\n";
+    echo $response->result->address . "\n";
 }
 ```
 
@@ -232,9 +232,9 @@ $buildBlobRequest->addOperation($operation);
 $buildBlobResponse = $sdk->getTransactionService()->buildBlob($buildBlobRequest);
 if ($buildBlobResponse->error_code == 0) {
     $result = $buildBlobResponse->result;
-    echo "txHash: " . $result->hash . ", blob: " . $result->);
+    echo "txHash: " . $result->hash . ", blob: " . $result->transaction_blob . "\n";
 } else {
-    System.out.println("error: " + buildBlobResponse.getErrorDesc());
+    echo "error: " . $buildBlobResponse->error_desc . "\n";
 }
 ```
 
@@ -244,20 +244,17 @@ if ($buildBlobResponse->error_code == 0) {
 ```
 // 初始化请求参数
 $senderPrivateKey = "privbyQCRp7DLqKtRFCqKQJr81TurTqG6UKXMMtGAmPG3abcM9XHjWvq";
-$signerPrivateKeyArr = {senderPrivateKey};
-TransactionSignRequest signRequest = new TransactionSignRequest();
-signRequest.setBlob(transactionBlob);
-for (int i = 0; i < signerPrivateKeyArr.length; i++) {
-    signRequest.addPrivateKey(signerPrivateKeyArr[i]);
-}
+$signRequest = new \src\model\request\TransactionSignRequest();
+$signRequest->addPrivateKey($senderPrivateKey);
+$signRequest->setBlob($transactionBlob);
 
 // 调用sign接口
-TransactionSignResponse signResponse = sdk.getTransactionService().sign(signRequest);
-if (signResponse.getErrorCode() == 0) {
-    TransactionSignResult result = signResponse.getResult();
-    System.out.println(JSON.toJSONString(result, true));
+$signResponse = $sdk->getTransactionService()->sign($signRequest);
+if ($signResponse->error_code == 0) {
+    $result = $signResponse->result;
+    echo json_encode($result, JSON_UNESCAPED_UNICODE) . "\n";
 } else {
-    System.out.println("error: " + signResponse.getErrorDesc());
+    echo "error: " . $signResponse->error_desc . "\n";
 }
 ```
 
@@ -266,16 +263,16 @@ if (signResponse.getErrorCode() == 0) {
 该接口用于向BU区块链发送交易请求，触发交易的执行。其中transactionBlob和signResult是上面接口得到的，接口调用如下：
 ```
 // 初始化请求参数
-TransactionSubmitRequest submitRequest = new TransactionSubmitRequest();
-submitRequest.setTransactionBlob(transactionBlob);
-submitRequest.setSignatures(signResult.getSignatures());
+$submitRequest = new \src\model\request\TransactionSubmitRequest();
+$submitRequest->setTransactionBlob($transactionBlob);
+$submitRequest->setSignatures($signResult->signatures);
 
 // 调用submit接口
-TransactionSubmitResponse response = sdk.getTransactionService().submit(submitRequest);
-if (0 == response.getErrorCode()) {
-    System.out.println("交易广播成功，hash=" + response.getResult().getHash());
+$response = $sdk->getTransactionService()->submit($submitRequest);
+if (0 == $response->error_code) {
+    echo "交易广播成功，hash=" . $response->result0>hash . "\n";
 } else {
-    System.out.println("error: " + response.getErrorDesc());
+    echo "error: " . $response->error_desc . "\n";
 }
 ```
 
@@ -290,7 +287,14 @@ if (0 == response.getErrorCode()) {
 
 > 调用方法
 
-AccounCheckValidResponse checkValid(AccountCheckValidRequest)
+```php
+/**
+ * Check the availability of address
+ * @param AccountCheckValidRequest $accountCheckValidRequest
+ * @return AccountCheckValidResponse
+ */
+public function checkValid($accountCheckValidRequest);
+```
 
 > 请求参数
 
@@ -302,7 +306,7 @@ address     |   String     |  必填，待检查的区块链账户地址
 
    参数      |     类型     |        描述       
 ----------- | ------------ | ---------------- 
-isValid     |   String     |  是否有效   
+is_valid     | boolean |  是否有效   
 
 > 错误码
 
@@ -316,11 +320,11 @@ SYSTEM_ERROR |   20000     |  System error
 ```
 // 初始化请求参数
 String address = "buQemmMwmRQY1JkcU7w3nhruoX5N3j6C29uo";
-AccountCheckValidRequest request = new AccountCheckValidRequest();
-request.setAddress(address);
+$request = new \src\model\request\AccountCheckValidRequest();
+$request->setAddress(address);
 
 // 调用checkValid
-AccountCheckValidResponse response = sdk.getAccountService().checkValid(request);
+$response = $sdk->getAccountService()->checkValid($request);
 if(0 == response.getErrorCode()) {
 	System.out.println(response.getResult().isValid());
 } else {

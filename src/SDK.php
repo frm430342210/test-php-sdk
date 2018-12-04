@@ -58,19 +58,19 @@ class SDK {
     static public function getConfigure() {
         return SDK::$configure;
     }
-    public function getAccount() {
+    public function getAccountService() {
         return new Account();
     }
-    public function getAsset() {
+    public function getAssetService() {
         return new Asset();
     }
-    public function getContract() {
+    public function getContractService() {
         return new Contract();
     }
-    public function getTransaction() {
+    public function getTransactionService() {
         return new Transaction();
     }
-    public function getBlock() {
+    public function getBlockService() {
         return new Block();
     }
 }
