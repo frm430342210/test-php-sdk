@@ -8,6 +8,7 @@
 namespace src\blockchain;
 
 use \src\model\request\BlockGetInfoRequest;
+use src\model\request\BlockGetTransactionsRequest;
 use \src\model\request\BlockGetValidatorsRequest;
 use \src\model\request\BlockGetRewardRequest;
 use \src\model\request\BlockGetFeesRequest;
@@ -17,6 +18,7 @@ use \src\model\response\BlockCheckStatusLedgerSeqResponse;
 use \src\model\response\BlockCheckStatusResponse;
 use \src\model\response\BlockGetInfoResponse;
 use \src\model\response\BlockGetLatestInfoResponse;
+use src\model\response\BlockGetTransactionsResponse;
 use \src\model\response\BlockGetValidatorsResponse;
 use \src\model\response\BlockGetLatestValidatorsResponse;
 use \src\model\response\BlockGetRewardResponse;
@@ -29,6 +31,7 @@ use \src\model\response\result\BlockGetNumberResult;
 use \src\model\response\result\BlockCheckStatusResult;
 use \src\model\response\result\BlockGetInfoResult;
 use \src\model\response\result\BlockGetLatestInfoResult;
+use src\model\response\result\BlockGetTransactionsResult;
 use \src\model\response\result\BlockGetValidatorsResult;
 use \src\model\response\result\BlockGetLatestValidatorsResult;
 use \src\model\response\result\BlockGetRewardResult;
@@ -112,6 +115,45 @@ class Block {
             $blockCheckStatusResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $blockCheckStatusResult);
         }
         return $blockCheckStatusResponse;
+    }
+
+    /**
+     * Get the transactions of specific block
+     * @param BlockGetTransactionsRequest $blockGetTransactionsRequest
+     * @return BlockGetTransactionsResponse
+     */
+    function getTransactions($blockGetTransactionsRequest) {
+        $blockGetTransactionsResponse = new BlockGetTransactionsResponse();
+        $blockGetTransactionsResult = new BlockGetTransactionsResult();
+        try {
+            if (Tools::isEmpty($blockGetTransactionsRequest)) {
+                throw new SDKException("REQUEST_NULL_ERROR", null);
+            }
+            $blockNumber = $blockGetTransactionsRequest->getBlockNumber();
+            if (Tools::isEmpty($blockNumber) || !is_int($blockNumber) || $blockNumber < 1) {
+                throw new SDKException("INVALID_BLOCKNUMBER_ERROR", null);
+            }
+            if(Tools::isEmpty(General::getInstance()->getUrl())) {
+                throw new SDKException("URL_EMPTY_ERROR", null);
+            }
+            $baseUrl = General::getInstance()->blockGetTransactionsUrl($blockNumber);
+            $result = Http::get($baseUrl);
+            if (Tools::isEmpty($result)) {
+                throw new SDKException("CONNECTNETWORK_ERROR", null);
+            }
+            $blockGetInfoResponse = Tools::jsonToClass($result, $blockGetTransactionsResponse);
+            $errorCode = $blockGetInfoResponse->error_code;
+            if (4 == $errorCode) {
+                $errorDesc = $blockGetInfoResponse->error_desc;
+                throw new SDKException($errorCode, is_null($errorDesc)? "Block(" . $blockNumber . ") does not exist" : $errorDesc);
+            }
+        } catch(SDKException $e) {
+            $blockGetTransactionsResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $blockGetTransactionsResult);
+        }
+        catch (\Exception $e) {
+            $blockGetTransactionsResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $blockGetTransactionsResult);
+        }
+        return $blockGetTransactionsResponse;
     }
 
     /**
