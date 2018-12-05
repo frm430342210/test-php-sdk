@@ -127,7 +127,7 @@ $sdk = \src\SDK::getInstance($url);
 
 此接口生成BU区块链账户的公钥、私钥和地址，直接调用账户服务下的create接口即可，调用如下：
 ```php
-$account = $sdk->getAccount();
+$account = $sdk->getAccountService();
 $response = $account->create();
 if (0 == $response->error_code) {
     echo $response->result->private_key . "\n";
