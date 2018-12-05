@@ -113,7 +113,7 @@ Note：
 2. errorDesc: error description
 3. result: result: returns the result. A structure whose class name is [Service Name][Method Name]Result, whose members are members of the return value of each interface. For example, the result class name of the getNonce interface in Account Services is AccountGetNonceResult, and the member has a nonce. The complete structure is as follows:
 
-```php
+​```php
 class AccountGetNonceResult {
 	$nonce; // long
 }
@@ -722,13 +722,14 @@ asset	    | [AssetInfo](#AssetInfo)[] |Account asset
 > Error Code
 
    Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
-INVALID_ADDRESS_ERROR|11006|Invalid address
-REQUEST_NULL_ERROR|12001|Request parameter cannot be null
-CONNECTNETWORK_ERROR|11007|Failed to connect to the network
-INVALID_ASSET_CODE_ERROR|11023|The length of asset code must be between 1 and 64
-INVALID_ISSUER_ADDRESS_ERROR|11027|Invalid issuer address
-SYSTEM_ERROR|20000|System error
+-----------  | ----------- | -------- |-----------  
+INVALID_ADDRESS_ERROR|11006|Invalid address|
+REQUEST_NULL_ERROR|12001|Request parameter cannot be null|
+CONNECTNETWORK_ERROR|11007|Failed to connect to the network|
+INVALID_ASSET_CODE_ERROR|11023|The length of asset code must be between 1 and 64|
+INVALID_ISSUER_ADDRESS_ERROR|11027|Invalid issuer address|
+ NO_ASSET_ERROR               | 11009      | The account does not have this token              |
+SYSTEM_ERROR|20000|System error|
 
 > Example
 

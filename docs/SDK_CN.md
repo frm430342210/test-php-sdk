@@ -706,13 +706,14 @@ asset	    | [AssetInfo](#AssetInfo)[] |账户资产
 > 错误码
 
    异常       |     错误码   |   描述   |
------------  | ----------- | -------- |
-INVALID_ADDRESS_ERROR|11006|Invalid address
-REQUEST_NULL_ERROR|12001|Request parameter cannot be null
-CONNECTNETWORK_ERROR|11007|Failed to connect to the network
-INVALID_ASSET_CODE_ERROR|11023|The length of asset code must be between 1 and 64
-INVALID_ISSUER_ADDRESS_ERROR|11027|Invalid issuer address
-SYSTEM_ERROR|20000|System error
+-----------  | ----------- | -------- |-----------  
+INVALID_ADDRESS_ERROR|11006|Invalid address|
+REQUEST_NULL_ERROR|12001|Request parameter cannot be null|
+CONNECTNETWORK_ERROR|11007|Failed to connect to the network|
+INVALID_ASSET_CODE_ERROR|11023|The length of asset code must be between 1 and 64|
+INVALID_ISSUER_ADDRESS_ERROR|11027|Invalid issuer address|
+ NO_ASSET_ERROR               | 11009  | The account does not have this token              |
+SYSTEM_ERROR|20000|System error|
 
 > 示例
 
