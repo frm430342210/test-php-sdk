@@ -909,9 +909,9 @@ $request->setHash("44246c5ba1b8b835a5cbc29bdc9454cdb9a9d049870e41227f2dcfbcf7a07
 // 调用getAddress接口
 $response = $sdk->getContractService()->getAddress($request);
 if ($response->error_code == 0) {
-echo json_encode($response->result, JSON_UNESCAPED_UNICODE);
+   echo json_encode($response->result, JSON_UNESCAPED_UNICODE);
 } else {
-echo "error: " . $response->error_desc;
+   echo "error: " . $response->error_desc;
 }
 ```
 
@@ -1387,13 +1387,13 @@ if ($response->error_code == 0) {
 
 > 调用方法
 
-```
+```php
 /**
  * Evaluate the fee of a transaction
  * @param TransactionEvaluateFeeRequest $transactionEvaluateFeeRequest
  * @return TransactionEvaluateFeeResponse
  */
-public function evaluateFee($transactionEvaluateFeeRequest)
+public function evaluateFee($transactionEvaluateFeeRequest);
 ```
 
 > 请求参数
@@ -1445,33 +1445,33 @@ SYSTEM_ERROR|20000|System error|
 
 > 示例
 
-```
+```php
 // 初始化变量
 $senderAddresss = "buQnnUEBREw2hB6pWHGPzwanX7d28xk6KVcp";
 $destAddress = "buQfnVYgXuMo3rvCEpKA6SfRrDpaz8D8A9Ea";
-$buAmount = \src\common\Tools::BU2MO("10.9");
+$buAmount = \src\common\Tools::BU2MO(10.9);
 $gasPrice = 1000;
-$feeLimit = \src\common\Tools::BU2MO("0.01");
+$feeLimit = \src\common\Tools::BU2MO(0.01);
 $nonce = 51;
 
 // 构建sendBU操作
-BUSendOperation buSendOperation = new \src\model\request\operation\BUSendOperation();
-buSend$operation->setSourceAddress(senderAddresss);
-buSend$operation->setDestAddress(destAddress);
-buSend$operation->setAmount(buAmount);
+$buSendOperation = new \src\model\request\operation\BUSendOperation();
+$buSendOperation->setSourceAddress($senderAddresss);
+$buSendOperation->setDestAddress($destAddress);
+$buSendOperation->setAmount($buAmount);
 
 // 初始化评估交易请求参数
-TransactionEvaluateFeeRequest request = new \src\model\request\TransactionEvaluateFeeRequest();
-$request->addOperation(buSendOperation);
-$request->setSourceAddress(senderAddresss);
-$request->setNonce(nonce);
+$request = new \src\model\request\TransactionEvaluateFeeRequest();
+$request->addOperation($buSendOperation);
+$request->setSourceAddress($senderAddresss);
+$request->setNonce($nonce);
 $request->setSignatureNumber(1);
-$request->setMetadata(HexFormat.byteToHex("evaluate fees".getBytes()));
+$request->setMetadata("evaluate fees");
 
 // 调用evaluateFee接口
-TransactionEvaluateFeeResponse response = $sdk->getTransactionService().evaluateFee($request);
+$response = $sdk->getTransactionService().evaluateFee($request);
 if ($response->error_code == 0) {
-    TransactionEvaluateFeeResult result = $response->result;
+    $result = $response->result;
     echo json_encode($result, JSON_UNESCAPED_UNICODE);
 } else {
     echo "error: " . $response->error_desc;
@@ -1711,7 +1711,7 @@ SYSTEM_ERROR|20000|System error
 
 > 示例
 
-```
+```php
 // 调用getNumber接口
 $response = $sdk->getBlockService()->getNumber();
 if(0 == $response->error_code){
@@ -1769,8 +1769,6 @@ if(0 == $response->error_code){
    该接口用于查询指定区块高度下的所有交易
 
 > 调用方法
-
-   
 
 ```php
 /**
