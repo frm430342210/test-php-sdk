@@ -117,11 +117,11 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function assetGetInfo() {
         $this->setSDKConfigure(10);
-        $asset = $GLOBALS['sdk']->getAccountService();
+        $asset = $GLOBALS['sdk']->getAssetService();
 
         $assetGetInfoRequest = new \src\model\request\AssetGetInfoRequest();
-        $assetGetInfoRequest->setAddress("");
-        $assetGetInfoRequest->setCode("ATP资产");
+        $assetGetInfoRequest->setAddress("buQjRsKFr7HfNrBTWWgQ44fUfAQ5NwgVhaBt");
+        $assetGetInfoRequest->setCode("ATP");
         $assetGetInfoRequest->setIssuer("buQq9DshgX8zUV66YoK6fApok3MZpyy2XiPA");
         $response = $asset->getInfo($assetGetInfoRequest);
         $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
