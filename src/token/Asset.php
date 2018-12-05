@@ -32,7 +32,7 @@ class Asset {
             $address = $assetGetInfoRequest->getAddress();
             $isValid = KeyPair::isAddressValid($address);
             if(Tools::isEmpty($isValid)) {
-                throw new SDKException("INVALID_SOURCEADDRESS_ERROR", null);
+                throw new SDKException("INVALID_ADDRESS_ERROR", null);
             }
             $code = $assetGetInfoRequest->getCode();
             if(Tools::isEmpty($code) || !is_string($code) || strlen($code) > Constant::ASSET_CODE_MAX) {

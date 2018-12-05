@@ -21,7 +21,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function accountCheckValid() {
         $this->setSDKConfigure(10);
-        $account = $GLOBALS['sdk']->getAccount();
+        $account = $GLOBALS['sdk']->getAccountService();
 
         $request = new \src\model\request\AccountCheckValidRequest();
         $request->setAddress("buQecWYFHemdH8s9bTYsWuk6bvdswnJJaCT3");
@@ -33,7 +33,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function accountCreate() {
         $this->setSDKConfigure(10);
-        $account = $GLOBALS['sdk']->getAccount();
+        $account = $GLOBALS['sdk']->getAccountService();
 
         $response = $account->create();
         $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
@@ -44,10 +44,10 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function accountGetInfo() {
         $this->setSDKConfigure(10);
-        $account = $GLOBALS['sdk']->getAccount();
+        $account = $GLOBALS['sdk']->getAccountService();
 
         $accountGetInfoRequest = new \src\model\request\AccountGetInfoRequest();
-        $accountGetInfoRequest->setAddress("buQq9DshgX8zUV66YoK6fApok3MZpyy2XiPA");
+        $accountGetInfoRequest->setAddress("");
         $response = $account->getInfo($accountGetInfoRequest);
         $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
@@ -56,7 +56,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function accountGetNonce() {
         $this->setSDKConfigure(10);
-        $account = $GLOBALS['sdk']->getAccount();
+        $account = $GLOBALS['sdk']->getAccountService();
 
         $accountGetNonceRequest = new \src\model\request\AccountGetNonceRequest();
         $accountGetNonceRequest->setAddress("buQemmMwmRQY1JkcU7w3nhruoX5N3j6C29uo");
@@ -68,7 +68,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function accountGetBalance() {
         $this->setSDKConfigure(10);
-        $account = $GLOBALS['sdk']->getAccount();
+        $account = $GLOBALS['sdk']->getAccountService();
 
         $accountGetBalanceRequest = new \src\model\request\AccountGetBalanceRequest();
         $accountGetBalanceRequest->setAddress("buQjRsKFr7HfNrBTWWgQ44fUfAQ5NwgVhaBt");
@@ -92,7 +92,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function accountGetMetadata() {
         $this->setSDKConfigure(10);
-        $account = $GLOBALS['sdk']->getAccount();
+        $account = $GLOBALS['sdk']->getAccountService();
 
         $accountGetMetadataRequest = new \src\model\request\AccountGetMetadataRequest();
         $accountGetMetadataRequest->setAddress("buQemmMwmRQY1JkcU7w3nhruoX5N3j6C29uo");
@@ -105,7 +105,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function accountCheckActivated() {
         $this->setSDKConfigure(10);
-        $account = $GLOBALS['sdk']->getAccount();
+        $account = $GLOBALS['sdk']->getAccountService();
 
         $accountCheckActivatedRequest = new \src\model\request\AccountCheckActivatedRequest();
         $accountCheckActivatedRequest->setAddress("buQcVjBKRv4791StzLf2csB7HnZQk2RPAMYD");
@@ -117,7 +117,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function assetGetInfo() {
         $this->setSDKConfigure(10);
-        $asset = $GLOBALS['sdk']->getAsset();
+        $asset = $GLOBALS['sdk']->getAccountService();
 
         $assetGetInfoRequest = new \src\model\request\AssetGetInfoRequest();
         $assetGetInfoRequest->setAddress("");
@@ -131,7 +131,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function contractGetInfo() {
         $this->setSDKConfigure(10);
-        $contract = $GLOBALS['sdk']->getContract();
+        $contract = $GLOBALS['sdk']->getContractService();
 
         $contractGetInfoRequest = new \src\model\request\ContractGetInfoRequest();
         $contractGetInfoRequest->setContractAddress("buQfnVYgXuMo3rvCEpKA6SfRrDpaz8D8A9Ea");
@@ -143,7 +143,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function contractGetAddress() {
         $this->setSDKConfigure(10);
-        $contract = $GLOBALS['sdk']->getContract();
+        $contract = $GLOBALS['sdk']->getContractService();
 
         $contractGetAddressRequest = new \src\model\request\ContractGetAddressRequest();
         $contractGetAddressRequest->setHash("44246c5ba1b8b835a5cbc29bdc9454cdb9a9d049870e41227f2dcfbcf7a07689");
@@ -155,7 +155,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function contractCheckValid() {
         $this->setSDKConfigure(10);
-        $contract = $GLOBALS['sdk']->getContract();
+        $contract = $GLOBALS['sdk']->getContractService();
 
         $contractCheckValidRequest = new \src\model\request\ContractCheckValidRequest();
         $contractCheckValidRequest->setContractAddress("buQsurH1M4rjLkfjzkxR9KXJ6jSu2r9xBNEw");
@@ -167,7 +167,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function contractCall() {
         $this->setSDKConfigure(10);
-        $contract = $GLOBALS['sdk']->getContract();
+        $contract = $GLOBALS['sdk']->getContractService();
 
         $contractCallRequest = new \src\model\request\ContractCallRequest();
         $contractCallRequest->setContractAddress("buQfnVYgXuMo3rvCEpKA6SfRrDpaz8D8A9Ea");
@@ -181,7 +181,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function blockCheckStatus() {
         $this->setSDKConfigure(10);
-        $block = $GLOBALS['sdk']->getBlock();
+        $block = $GLOBALS['sdk']->getBlockService();
 
         $response = $block->checkStatus();
         $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
@@ -191,7 +191,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function blockGetInfo() {
         $this->setSDKConfigure(10);
-        $block = $GLOBALS['sdk']->getBlock();
+        $block = $GLOBALS['sdk']->getBlockService();
 
         $request = new \src\model\request\BlockGetInfoRequest();
         $request->setBlockNumber(10000);
@@ -203,7 +203,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function blockGetLatestInfo() {
         $this->setSDKConfigure(10);
-        $block = $GLOBALS['sdk']->getBlock();
+        $block = $GLOBALS['sdk']->getBlockService();
 
         $response = $block->getLatestInfo();
         $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
@@ -213,7 +213,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function blockGetReward() {
         $this->setSDKConfigure(10);
-        $block = $GLOBALS['sdk']->getBlock();
+        $block = $GLOBALS['sdk']->getBlockService();
 
         $request = new \src\model\request\BlockGetRewardRequest();
         $request->setBlockNumber(10000);
@@ -225,7 +225,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function blockGetLatestReward() {
         $this->setSDKConfigure(10);
-        $block = $GLOBALS['sdk']->getBlock();
+        $block = $GLOBALS['sdk']->getBlockService();
 
         $response = $block->GetLatestReward();
         $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
@@ -235,7 +235,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function blockGetValidators() {
         $this->setSDKConfigure(10);
-        $block = $GLOBALS['sdk']->getBlock();
+        $block = $GLOBALS['sdk']->getBlockService();
 
         $request = new \src\model\request\BlockGetValidatorsRequest();
         $request->setBlockNumber(1637292);
@@ -247,7 +247,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function blockGetLatestValidators() {
         $this->setSDKConfigure(10);
-        $block = $GLOBALS['sdk']->getBlock();
+        $block = $GLOBALS['sdk']->getBlockService();
 
         $response = $block->GetLatestValidators();
         $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
@@ -257,7 +257,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function blockGetFees() {
         $this->setSDKConfigure(10);
-        $block = $GLOBALS['sdk']->getBlock();
+        $block = $GLOBALS['sdk']->getBlockService();
 
         $request = new \src\model\request\BlockGetFeesRequest();
         $request->setBlockNumber(1637292);
@@ -269,7 +269,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function blockGetLatestFees() {
         $this->setSDKConfigure(10);
-        $block = $GLOBALS['sdk']->getBlock();
+        $block = $GLOBALS['sdk']->getBlockService();
 
         $response = $block->GetLatestFees();
         $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
@@ -320,7 +320,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function transactionParseBlob() {
         $this->setSDKConfigure(10);
-        $transaction =  $GLOBALS['sdk']->getTransaction();
+        $transaction =  $GLOBALS['sdk']->getTransactionService();
 
         $transactionBlob = "0a24627551666e56596758754d6f3372764345704b4136536652724470617a38443841394561100218c0843d20e8073a5608071224627551666e56596758754d6f3372764345704b4136536652724470617a38443841394561522c0a2462755173757248314d34726a4c6b666a7a6b7852394b584a366a537532723978424e45771080a9e08704";
         $request = new \src\model\request\TransactionParseBlobRequest();
@@ -333,7 +333,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function transactionEvaluteFee() {
         $this->setSDKConfigure(10);
-        $transaction =  $GLOBALS['sdk']->getTransaction();
+        $transaction =  $GLOBALS['sdk']->getTransactionService();
 
         // Init variable
         $senderAddress = "buQfnVYgXuMo3rvCEpKA6SfRrDpaz8D8A9Ea";
@@ -366,7 +366,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function transactionSign() {
         $this->setSDKConfigure(10);
-        $transaction =  $GLOBALS['sdk']->getTransaction();
+        $transaction =  $GLOBALS['sdk']->getTransactionService();
 
         $transactionBlob = "0a24627551666e56596758754d6f3372764345704b4136536652724470617a38443841394561100218c0843d20e8073a5608071224627551666e56596758754d6f3372764345704b4136536652724470617a38443841394561522c0a2462755173757248314d34726a4c6b666a7a6b7852394b584a366a537532723978424e45771080a9e08704";
         $request = new \src\model\request\TransactionSignRequest();
@@ -380,7 +380,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function transactionGetInfo() {
         $this->setSDKConfigure(10);
-        $transaction =  $GLOBALS['sdk']->getTransaction();
+        $transaction =  $GLOBALS['sdk']->getTransactionService();
 
         $request = new \src\model\request\TransactionGetInfoRequest();
         $hash = "cb25eb0cb1972eea10690f8d002a22ea9af74d1fba42ddf0519e93fd2df15955";
@@ -709,7 +709,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
     private function buildBlobAndSignAndSubmit($privateKeys, $sourceAddress, $nonce, $gasPrice, $feeLimit, $metadata, $operations) {
         $this->setSDKConfigure(10);
-        $transaction =  $GLOBALS['sdk']->getTransaction();
+        $transaction =  $GLOBALS['sdk']->getTransactionService();
 
         // Build blob
         $buildBlobRequest = new \src\model\request\TransactionBuildBlobRequest();
