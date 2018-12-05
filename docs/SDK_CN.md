@@ -705,15 +705,15 @@ asset	    | [AssetInfo](#AssetInfo)[] |账户资产
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- |-----------  
-INVALID_ADDRESS_ERROR|11006|Invalid address|
-REQUEST_NULL_ERROR|12001|Request parameter cannot be null|
-CONNECTNETWORK_ERROR|11007|Failed to connect to the network|
-INVALID_ASSET_CODE_ERROR|11023|The length of asset code must be between 1 and 64|
-INVALID_ISSUER_ADDRESS_ERROR|11027|Invalid issuer address|
- NO_ASSET_ERROR               | 11009  | The account does not have this token              |
-SYSTEM_ERROR|20000|System error|
+   异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
+INVALID_ADDRESS_ERROR|11006|Invalid address
+REQUEST_NULL_ERROR|12001|Request parameter cannot be null
+CONNECTNETWORK_ERROR|11007|Failed to connect to the network
+INVALID_ASSET_CODE_ERROR|11023|The length of asset code must be between 1 and 64
+INVALID_ISSUER_ADDRESS_ERROR|11027|Invalid issuer address
+ NO_ASSET_ERROR               | 11009  | The account does not have this token              
+SYSTEM_ERROR|20000|System error
 
 > 示例
 
@@ -811,27 +811,27 @@ function getInfo($contractGetInfoRequest);
 
 > 请求参数
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
-contractAddress     |   String     |  待查询的合约账户地址   |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
+contractAddress     |   String     |  待查询的合约账户地址 
 
 > 响应数据
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 contract|[ContractInfo](#contractinfo)|合约信息
 
 #### ContractInfo
 
-   成员      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 type|Integer|合约类型，默认0
 payload|String|合约代码
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- |
+   异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
 INVALID_CONTRACTADDRESS_ERROR|11037|Invalid contract address
 CONTRACTADDRESS_NOT_CONTRACTACCOUNT_ERROR|11038|contractAddress is not a contract account
 NO_SUCH_TOKEN_ERROR|11030|No such token
@@ -874,27 +874,27 @@ function getAddress($contractGetAddressRequest)
 
 > 请求参数
 
-参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
-hash     |   String     |  创建合约交易的hash   |
+参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
+hash     |   String     |  创建合约交易的hash   
 
 > 响应数据
 
-参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 contractAddressList|List<[ContractAddressInfo](#contractaddressinfo)>|合约地址列表
 
 #### ContractAddressInfo
 
-成员      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+成员      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 contractAddress|String|合约地址
 operationIndex|Integer|所在操作的下标
 
 > 错误码
 
-异常       |     错误码   |   描述   |
------------  | ----------- | -------- |
+异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
 INVALID_HASH_ERROR|11055|Invalid transaction hash
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
@@ -935,22 +935,22 @@ function call($contractCallRequest);
 
 > 请求参数
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- | ---------------- 
-sourceAddress|String|选填，合约触发账户地址|
-contractAddress|String|选填，合约账户地址，与code不能同时为空|
-code|String|选填，合约代码，与contractAddress不能同时为空，长度限制[1, 64]|
-input|String|选填，合约入参|
-contractBalance|String|选填，赋予合约的初始 BU 余额, 单位MO，1 BU = 10^8 MO, 大小限制[1, max(int64)]|
-optType|Integer|必填，0: 调用合约的读写接口 init, 1: 调用合约的读写接口 main, 2 :调用只读接口 query|
-feeLimit|Long|交易要求的最低手续费， 大小限制[1, max(int64)]|
-gasPrice|Long|交易燃料单价，大小限制[1000, max(int64)]|
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
+sourceAddress|String|选填，合约触发账户地址
+contractAddress|String|选填，合约账户地址，与code不能同时为空
+code|String|选填，合约代码，与contractAddress不能同时为空，长度限制[1, 64]
+input|String|选填，合约入参
+contractBalance|String|选填，赋予合约的初始 BU 余额, 单位MO，1 BU = 10^8 MO, 大小限制[1, max(int64)]
+optType|Integer|必填，0: 调用合约的读写接口 init, 1: 调用合约的读写接口 main, 2 :调用只读接口 query
+feeLimit|Long|交易要求的最低手续费， 大小限制[1, max(int64)]
+gasPrice|Long|交易燃料单价，大小限制[1000, max(int64)]
 
 
 > 响应数据
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 logs|JSONObject|日志信息
 queryRets|JSONArray|查询结果集
 stat|[ContractStat](#ContractStat)|合约资源占用信息
@@ -958,7 +958,7 @@ txs|[TransactionEnvs](#TransactionEnvs)[]	交易集
 
 #### ContractStat
 
-   成员      |     类型     |        描述       |
+   成员      |     类型     |        描述       
 ----------- | ------------ | ---------------- |
   applyTime|Long|接收时间
   memoryUsage|Long|内存占用量
@@ -967,21 +967,21 @@ txs|[TransactionEnvs](#TransactionEnvs)[]	交易集
 
 #### TransactionEnvs
 
-   成员      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员      |     类型     |        描述       
+----------- | ------------ | ---------------- 
   transactionEnv|[TransactionEnv](#transactionenv)|交易
 
 #### TransactionEnv
 
-   成员      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 transaction|[TransactionInfo](#transactioninfo)|交易内容
 trigger|[ContractTrigger](#contracttrigger)|合约触发者
 
 #### TransactionInfo
 
-   成员      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 sourceAddress|String|交易发起的源账户地址
 feeLimit|Long|交易要求的最低费用
 gasPrice|Long|交易燃料单价
@@ -989,14 +989,14 @@ nonce|Long|交易序列号
 operations|[Operation](#operation)[]|操作列表
 
 #### ContractTrigger
-   成员      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 transaction|[TriggerTransaction](#triggertransaction)|触发交易
 
 #### Operation
 
-   成员      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 type|Integer|操作类型
 sourceAddress|String|操作发起源账户地址
 metadata|String|备注
@@ -1010,14 +1010,14 @@ log|[OperationLog](#operationlog)|记录日志
 
 #### TriggerTransaction
 
-   成员      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 hash|String|交易hash
 
 #### OperationCreateAccount
 
-   成员      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 destAddress|String|目标账户地址
 contract|[Contract](#contract)|合约信息
 priv|[Priv](#priv)|账户权限
@@ -1027,46 +1027,46 @@ initInput|String|合约init函数的入参
 
 #### Contract
 
-   成员      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 type|Integer| 合约的语种，默认不赋值
 payload|String|对应语种的合约代码
 
 #### MetadataInfo
 
-   成员      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 key|String|metadata的关键词
 value|String|metadata的内容
 version|Long|metadata的版本
 
 #### OperationIssueAsset
 
-   成员      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 code|String|资产编码
 assetAmount|Long|资产数量
 
 #### OperationPayAsset
 
-   成员      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 destAddress|String|待转移的目标账户地址
 asset|[AssetInfo](#assetinfo)|账户资产
 input|String|合约main函数入参
 
 #### OperationPayCoin
 
-   成员      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 destAddress|String|待转移的目标账户地址
 buAmount|Long|待转移的BU数量
 input|String|合约main函数入参
 
 #### OperationSetMetadata
 
-   成员      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 key|String|metadata的关键词
 value|String|metadata的内容
 version|Long|metadata的版本
@@ -1074,8 +1074,8 @@ deleteFlag|boolean|是否删除metadata
 
 #### OperationSetPrivilege
 
-   成员      |     类型     |        描述       |
------------ | ------------ | ---------------- | ---------------- 
+   成员      |     类型     |        描述       
+----------- | ------------ | ----------------  
 masterWeight|String|账户自身权重，大小限制[0, max(uint32)]|
 signers|[Signer](#signer)[]|签名者权重列表|
 txThreshold|String|交易门限，大小限制[0, max(int64)]|
@@ -1083,15 +1083,15 @@ typeThreshold|[TypeThreshold](#typethreshold)|指定类型交易门限|
 
 #### OperationLog
 
-   成员      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 topic|String|日志主题
 data|String[]|日志内容
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- |
+   异常       |     错误码   |   描述 
+-----------  | ----------- | -------- 
 INVALID_SOURCEADDRESS_ERROR|11002|Invalid sourceAddress
 INVALID_CONTRACTADDRESS_ERROR|11037|Invalid contract address
 CONTRACTADDRESS_CODE_BOTH_NULL_ERROR|11063|ContractAddress and code cannot be empty at the same time
@@ -1290,59 +1290,59 @@ metadata|String|选填，备注
 
 > 响应数据
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 transactionBlob|String|Transaction序列化后的16进制字符串
 hash|String|交易hash
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- | -------- 
-INVALID_SOURCEADDRESS_ERROR|11002|Invalid sourceAddress|
-INVALID_NONCE_ERROR|11048|Nonce must be between 1 and max(int64)|
-INVALID_DESTADDRESS_ERROR|11003|Invalid destAddress|
-INVALID_INITBALANCE_ERROR|11004|InitBalance must be between 1 and max(int64) |
-SOURCEADDRESS_EQUAL_DESTADDRESS_ERROR|11005|SourceAddress cannot be equal to destAddress|
-INVALID_ISSUE_AMMOUNT_ERROR|11008|AssetAmount this will be issued must be between 1 and max(int64)|
-INVALID_DATAKEY_ERROR|11011|The length of key must be between 1 and 1024|
-INVALID_DATAVALUE_ERROR|11012|The length of value must be between 0 and 256000|
-INVALID_DATAVERSION_ERROR|11013|The version must be equal to or greater than 0 |
-INVALID_MASTERWEIGHT _ERROR|11015|MasterWeight must be between 0 and max(uint32)|
-INVALID_SIGNER_ADDRESS_ERROR|11016|Invalid signer address|
-INVALID_SIGNER_WEIGHT _ERROR|11017|Signer weight must be between 0 and max(uint32)|
-INVALID_TX_THRESHOLD_ERROR|11018|TxThreshold must be between 0 and max(int64)|
-INVALID_OPERATION_TYPE_ERROR|11019|Operation type must be between 1 and 100|
-INVALID_TYPE_THRESHOLD_ERROR|11020|TypeThreshold must be between 0 and max(int64)|
-INVALID_ASSET_CODE _ERROR|11023|The length of key must be between 1 and 64|
-INVALID_ASSET_AMOUNT_ERROR|11024|AssetAmount must be between 0 and max(int64)|
-INVALID_BU_AMOUNT_ERROR|11026|BuAmount must be between 0 and max(int64)|
-INVALID_ISSUER_ADDRESS_ERROR|11027|Invalid issuer address|
-NO_SUCH_TOKEN_ERROR|11030|No such token|
-INVALID_TOKEN_NAME_ERROR|11031|The length of token name must be between 1 and 1024|
-INVALID_TOKEN_SYMBOL_ERROR|11032|The length of symbol must be between 1 and 1024|
-INVALID_TOKEN_DECIMALS_ERROR|11033|Decimals must be between 0 and 8|
-INVALID_TOKEN_TOTALSUPPLY_ERROR|11034|TotalSupply must be between 1 and max(int64)|
-INVALID_TOKENOWNER_ERRPR|11035|Invalid token owner|
-INVALID_CONTRACTADDRESS_ERROR|11037|Invalid contract address|
-CONTRACTADDRESS_NOT_CONTRACTACCOUNT_ERROR|11038|ContractAddress is not a contract account|
-INVALID_TOKEN_AMOUNT_ERROR|11039|Token amount must be between 1 and max(int64)|
-SOURCEADDRESS_EQUAL_CONTRACTADDRESS_ERROR|11040|SourceAddress cannot be equal to contractAddress|
-INVALID_FROMADDRESS_ERROR|11041|Invalid fromAddress|
-FROMADDRESS_EQUAL_DESTADDRESS_ERROR|11042|FromAddress cannot be equal to destAddress|
-INVALID_SPENDER_ERROR|11043|Invalid spender|
-PAYLOAD_EMPTY_ERROR|11044|Payload cannot be empty|
-INVALID_LOG_TOPIC_ERROR|11045|The length of a log topic must be between 1 and 128|
-INVALID_LOG_DATA_ERROR|11046|The length of one piece of log data must be between 1 and1024|
-INVALID_CONTRACT_TYPE_ERROR|11047|Type must be equal or bigger than 0 |
-INVALID_NONCE_ERROR|11048|Nonce must be between 1 and max(int64)|
-INVALID_ GASPRICE_ERROR|11049|GasPrice must be between 1000 and max(int64)|
-INVALID_FEELIMIT_ERROR|11050|FeeLimit must be between 1 and max(int64)|
-OPERATIONS_EMPTY_ERROR|11051|Operations cannot be empty|
-INVALID_CEILLEDGERSEQ_ERROR|11052|CeilLedgerSeq must be equal to or greater than 0|
-OPERATIONS_ONE_ERROR|11053|One of the operations cannot be resolved|
-REQUEST_NULL_ERROR|12001|Request parameter cannot be null|
-SYSTEM_ERROR|20000|System error|
+   异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
+INVALID_SOURCEADDRESS_ERROR|11002|Invalid sourceAddress
+INVALID_NONCE_ERROR|11048|Nonce must be between 1 and max(int64)
+INVALID_DESTADDRESS_ERROR|11003|Invalid destAddress
+INVALID_INITBALANCE_ERROR|11004|InitBalance must be between 1 and max(int64) 
+SOURCEADDRESS_EQUAL_DESTADDRESS_ERROR|11005|SourceAddress cannot be equal to destAddress
+INVALID_ISSUE_AMMOUNT_ERROR|11008|AssetAmount this will be issued must be between 1 and max(int64)
+INVALID_DATAKEY_ERROR|11011|The length of key must be between 1 and 1024
+INVALID_DATAVALUE_ERROR|11012|The length of value must be between 0 and 256000
+INVALID_DATAVERSION_ERROR|11013|The version must be equal to or greater than 0 
+INVALID_MASTERW∂EIGHT _ERROR|11015|MasterWeight must be between 0 and max(uint32)
+INVALID_SIGNER_ADDRESS_ERROR|11016|Invalid signer address
+INVALID_SIGNER_WEIGHT _ERROR|11017|Signer weight must be between 0 and max(uint32)
+INVALID_TX_THRESHOLD_ERROR|11018|TxThreshold must be between 0 and max(int64)
+INVALID_OPERATION_TYPE_ERROR|11019|Operation type must be between 1 and 100
+INVALID_TYPE_THRESHOLD_ERROR|11020|TypeThreshold must be between 0 and max(int64)
+INVALID_ASSET_CODE _ERROR|11023|The length of key must be between 1 and 64
+INVALID_ASSET_AMOUNT_ERROR|11024|AssetAmount must be between 0 and max(int64)
+INVALID_BU_AMOUNT_ERROR|11026|BuAmount must be between 0 and max(int64)
+INVALID_ISSUER_ADDRESS_ERROR|11027|Invalid issuer address
+NO_SUCH_TOKEN_ERROR|11030|No such token
+INVALID_TOKEN_NAME_ERROR|11031|The length of token name must be between 1 and 1024
+INVALID_TOKEN_SYMBOL_ERROR|11032|The length of symbol must be between 1 and 1024
+INVALID_TOKEN_DECIMALS_ERROR|11033|Decimals must be between 0 and 8
+INVALID_TOKEN_TOTALSUPPLY_ERROR|11034|TotalSupply must be between 1 and max(int64)
+INVALID_TOKENOWNER_ERRPR|11035|Invalid token owner
+INVALID_CONTRACTADDRESS_ERROR|11037|Invalid contract address
+CONTRACTADDRESS_NOT_CONTRACTACCOUNT_ERROR|11038|ContractAddress is not a contract account
+INVALID_TOKEN_AMOUNT_ERROR|11039|Token amount must be between 1 and max(int64)
+SOURCEADDRESS_EQUAL_CONTRACTADDRESS_ERROR|11040|SourceAddress cannot be equal to contractAddress
+INVALID_FROMADDRESS_ERROR|11041|Invalid fromAddress
+FROMADDRESS_EQUAL_DESTADDRESS_ERROR|11042|FromAddress cannot be equal to destAddress
+INVALID_SPENDER_ERROR|11043|Invalid spender
+PAYLOAD_EMPTY_ERROR|11044|Payload cannot be empty
+INVALID_LOG_TOPIC_ERROR|11045|The length of a log topic must be between 1 and 128
+INVALID_LOG_DATA_ERROR|11046|The length of one piece of log data must be between 1 and1024
+INVALID_CONTRACT_TYPE_ERROR|11047|Type must be equal or bigger than 0 
+INVALID_NONCE_ERROR|11048|Nonce must be between 1 and max(int64)
+INVALID_ GASPRICE_ERROR|11049|GasPrice must be between 1000 and max(int64)
+INVALID_FEELIMIT_ERROR|11050|FeeLimit must be between 1 and max(int64)
+OPERATIONS_EMPTY_ERROR|11051|Operations cannot be empty
+INVALID_CEILLEDGERSEQ_ERROR|11052|CeilLedgerSeq must be equal to or greater than 0
+OPERATIONS_ONE_ERROR|11053|One of the operations cannot be resolved
+REQUEST_NULL_ERROR|12001|Request parameter cannot be null
+SYSTEM_ERROR|20000|System error
 
 > 示例
 
@@ -1399,8 +1399,8 @@ public function evaluateFee($transactionEvaluateFeeRequest);
 
 > 请求参数
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- | ---------------- 
+   参数      |     类型     |        描述       
+----------- | ------------ | ----------------  
 sourceAddress|String|必填，发起该操作的源账户地址|
 nonce|Long|必填，待发起的交易序列号，大小限制[1, max(int64)]|
 operation|BaseOperation[]|必填，待提交的操作列表，不能为空|
@@ -1410,39 +1410,39 @@ metadata|String|选填，备注|
 
 > 响应数据
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
-txs     |   [TestTx](#testtx)[]     |  评估交易集   |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
+txs     |   [TestTx](#testtx)[]     |  评估交易集   
 
 #### TestTx
 
-   成员变量      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员变量      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 transactionEnv| [TestTransactionFees](#testtransactionfees)| 评估交易费用
 
 #### TestTransactionFees
 
-   成员变量      |     类型     |      描述      |
------------ | ------------ | ---------------- |
+   成员变量      |     类型     |      描述      
+----------- | ------------ | ---------------- 
 transactionFees|[TransactionFees](#transactionfees)|交易费用
 
 #### TransactionFees
-   成员变量      |     类型     |        描述    |
------------ | ------------ | ---------------- |
+   成员变量      |     类型     |        描述    
+----------- | ------------ | ---------------- 
 feeLimit|Long|交易要求的最低费用
 gasPrice|Long|交易燃料单价
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- | -------- 
-INVALID_SOURCEADDRESS_ERROR|11002|Invalid sourceAddress|
-INVALID_NONCE_ERROR|11045|Nonce must be between 1 and max(int64)|
-OPERATIONS_EMPTY_ERROR|11051|Operations cannot be empty|
-OPERATIONS_ONE_ERROR|11053|One of the operations cannot be resolved|
-INVALID_SIGNATURENUMBER_ERROR|11054|SignagureNumber must be between 1 and max(uint32)|
-REQUEST_NULL_ERROR|12001|Request parameter cannot be null|
-SYSTEM_ERROR|20000|System error|
+   异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
+INVALID_SOURCEADDRESS_ERROR|11002|Invalid sourceAddress
+INVALID_NONCE_ERROR|11045|Nonce must be between 1 and max(int64)
+OPERATIONS_EMPTY_ERROR|11051|Operations cannot be empty
+OPERATIONS_ONE_ERROR|11053|One of the operations cannot be resolved
+INVALID_SIGNATURENUMBER_ERROR|11054|SignagureNumber must be between 1 and max(uint32)
+REQUEST_NULL_ERROR|12001|Request parameter cannot be null
+SYSTEM_ERROR|20000|System error
 
 > 示例
 
@@ -1498,29 +1498,29 @@ public function sign($transactionSignRequest);
 
 > 请求参数
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 blob|String|必填，待签名的交易Blob
 privateKeys|String[]|必填，私钥列表
 
 
 > 响应数据
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 signatures|[Signature](#signature)	签名后的数据列表
 
 #### Signature
 
-   成员变量      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员变量      |     类型     |        描述       
+----------- | ------------ | ---------------- 
   signData|Long|签名后数据
   publicKey|Long|公钥
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- |
+   异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
 INVALID_BLOB_ERROR|11056|Invalid blob
 PRIVATEKEY_NULL_ERROR|11057|PrivateKeys cannot be empty
 PRIVATEKEY_ONE_ERROR|11058|One of privateKeys is invalid
@@ -1563,21 +1563,21 @@ public function submit($transactionSubmitRequest);
 
 > 请求参数
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
   blob|String|必填，交易blob
   signature|[Signature](#signature)[]|必填，签名列表
 
 > 响应数据
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 hash|String|交易hash
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- |
+   异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
 INVALID_BLOB_ERROR|11056|Invalid blob
 SIGNATURE_EMPTY_ERROR|11067|The signatures cannot be empty
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
@@ -1625,21 +1625,21 @@ function getInfo($transactionGetInfoRequest);
 
 > 请求参数
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 hash|String|交易hash
 
 > 响应数据
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 totalCount|Long|返回的总交易数
 transactions|[TransactionHistory](#transactionhistory)[]|交易内容
 
 #### TransactionHistory
 
-   成员变量  |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员变量  |     类型     |        描述       
+----------- | ------------ | ---------------- 
 actualFee|String|交易实际费用
 closeTime|Long|交易关闭时间
 errorCode|Long|交易错误码
@@ -1652,8 +1652,8 @@ txSize|Long|交易大小
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- |
+   异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
 INVALID_HASH_ERROR|11055|Invalid transaction hash
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
@@ -1698,15 +1698,15 @@ function getNumber()
 
 > 响应数据
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 header|BlockHeader|区块头
 blockNumber|Long|最新的区块高度，对应底层字段seq
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- |
+   异常       |     错误码   |   描述  
+-----------  | ----------- | -------- 
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
 
@@ -1740,14 +1740,14 @@ public function checkStatus()
 
 > 响应数据
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
-isSynchronous    |   Boolean     |  区块是否同步   |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
+isSynchronous    |   Boolean     |  区块是否同步   
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- |
+   异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
 
@@ -1782,21 +1782,21 @@ function getTransactions($blockGetTransactionsRequest)
 
 > 请求参数
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 blockNumber|Long|必填，待查询的区块高度，必须大于0
 
 > 响应数据
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 totalCount|Long|返回的总交易数
 transactions|[TransactionHistory](#transactionhistory)[]|交易内容
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- |
+   异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
 INVALID_BLOCKNUMBER_ERROR|11060|BlockNumber must bigger than 0
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
@@ -1838,14 +1838,14 @@ function getInfo($blockGetInfoRequest)
 
 > 请求参数
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 blockNumber|Long|必填，待查询的区块高度
 
 > 响应数据
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 closeTime|Long|区块关闭时间
 number|Long|区块高度
 txCount|Long|交易总量
@@ -1853,8 +1853,8 @@ version|String|区块版本
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- |
+   异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
 INVALID_BLOCKNUMBER_ERROR|11060|BlockNumber must bigger than 0
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
@@ -1895,8 +1895,8 @@ function getLatestInfo()
 
 > 响应数据
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 closeTime|Long|区块关闭时间
 number|Long|区块高度，对应底层字段seq
 txCount|Long|交易总量
@@ -1905,8 +1905,8 @@ version|String|区块版本
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- |
+   异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
 
@@ -1942,27 +1942,27 @@ function getValidators($blockGetValidatorsRequest)
 
 > 请求参数
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 blockNumber|Long|必填，待查询的区块高度，必须大于0
 
 > 响应数据
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 validators|[ValidatorInfo](#validatorinfo)[]|验证节点列表
 
 #### ValidatorInfo
 
-   成员变量  |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员变量  |     类型     |        描述       
+----------- | ------------ | ---------------- 
 address|String|共识节点地址
 plegeCoinAmount|Long|验证节点押金
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- |
+   异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
 INVALID_BLOCKNUMBER_ERROR|11060|BlockNumber must bigger than 0
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
@@ -2003,14 +2003,14 @@ function getLatestValidators()
 
 > 响应数据
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 validators|[ValidatorInfo](#validatorinfo)[]|验证节点列表
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- |
+   异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
 
@@ -2046,29 +2046,29 @@ function GetReward($blockGetRewardRequest)
 
 > 请求参数
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 blockNumber|Long|必填，待查询的区块高度，必须大于0
 
 > 响应数据
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 blockReward|Long|区块奖励数
 validatorsReward|[ValidatorReward](#validatorreward)[]|验证节点奖励情况
 
 #### ValidatorReward
 
-   成员变量  |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员变量  |     类型     |        描述       
+----------- | ------------ | ---------------- 
   validator|String|验证节点地址
   reward|Long|验证节点奖励
 
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- |
+   异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
 INVALID_BLOCKNUMBER_ERROR|11060|BlockNumber must bigger than 0
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
@@ -2109,15 +2109,15 @@ function GetLatestReward()
 
 > 响应数据
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 blockReward|Long|区块奖励数
 validatorsReward|[ValidatorReward](#validatorreward)[]|验证节点奖励情况
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- |
+   异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
 
@@ -2153,27 +2153,27 @@ function getFees($blockGetFeesRequest)
 
 > 请求参数
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 blockNumber|Long|必填，待查询的区块高度，必须大于0
 
 > 响应数据
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 fees|[Fees](#fees)|费用
 
 #### Fees
 
-   成员变量  |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   成员变量  |     类型     |        描述       
+----------- | ------------ | ---------------- 
 baseReserve|Long|账户最低资产限制
 gasPrice|Long|交易燃料单价，单位MO，1 BU = 10^8 MO
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- |
+   异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
 INVALID_BLOCKNUMBER_ERROR|11060|BlockNumber must bigger than 0
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
@@ -2213,14 +2213,14 @@ function getLatestFees()
 
 > 响应数据
 
-   参数      |     类型     |        描述       |
------------ | ------------ | ---------------- |
+   参数      |     类型     |        描述       
+----------- | ------------ | ---------------- 
 fees|[Fees](#fees)|费用
 
 > 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- |
+   异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
 
@@ -2238,68 +2238,68 @@ if ($response->error_code == 0) {
 
 ## 错误码
 
-   异常       |     错误码   |   描述   |
------------  | ----------- | -------- | -------- 
-ACCOUNT_CREATE_ERROR|11001|Failed to create the account |
-INVALID_SOURCEADDRESS_ERROR|11002|Invalid sourceAddress|
-INVALID_DESTADDRESS_ERROR|11003|Invalid destAddress|
-INVALID_INITBALANCE_ERROR|11004|InitBalance must be between 1 and max(int64) |
-SOURCEADDRESS_EQUAL_DESTADDRESS_ERROR|11005|SourceAddress cannot be equal to destAddress|
-INVALID_ADDRESS_ERROR|11006|Invalid address|
-CONNECTNETWORK_ERROR|11007|Failed to connect to the network|
-INVALID_ISSUE_AMOUNT_ERROR|11008|Amount of the token to be issued must be between 1 and max(int64)|
-NO_ASSET_ERROR|11009|The account does not have the asset|
-NO_METADATA_ERROR|11010|The account does not have the metadata|
-INVALID_DATAKEY_ERROR|11011|The length of key must be between 1 and 1024|
-INVALID_DATAVALUE_ERROR|11012|The length of value must be between 0 and 256000|
-INVALID_DATAVERSION_ERROR|11013|The version must be equal to or greater than 0 |
-INVALID_MASTERWEIGHT_ERROR|11015|MasterWeight must be between 0 and max(uint32)|
-INVALID_SIGNER_ADDRESS_ERROR|11016|Invalid signer address|
-INVALID_SIGNER_WEIGHT_ERROR|11017|Signer weight must be between 0 and max(uint32)|
-INVALID_TX_THRESHOLD_ERROR|11018|TxThreshold must be between 0 and max(int64)|
-INVALID_OPERATION_TYPE_ERROR|11019|Operation type must be between 1 and 100|
-INVALID_TYPE_THRESHOLD_ERROR|11020|TypeThreshold must be between 0 and max(int64)|
-INVALID_ASSET_CODE_ERROR|11023|The length of key must be between 1 and 64|
-INVALID_ASSET_AMOUNT_ERROR|11024|AssetAmount must be between 0 and max(int64)|
-INVALID_BU_AMOUNT_ERROR|11026|BuAmount must be between 0 and max(int64)|
-INVALID_ISSUER_ADDRESS_ERROR|11027|Invalid issuer address|
-NO_SUCH_TOKEN_ERROR|11030|No such token|
-INVALID_TOKEN_NAME_ERROR|11031|The length of token name must be between 1 and 1024|
-INVALID_TOKEN_SIMBOL_ERROR|11032|The length of symbol must be between 1 and 1024|
-INVALID_TOKEN_DECIMALS_ERROR|11033|Decimals must be between 0 and 8|
-INVALID_TOKEN_TOTALSUPPLY_ERROR|11034|TotalSupply must be between 1 and max(int64)|
-INVALID_TOKENOWNER_ERRPR|11035|Invalid token owner|
-INVALID_CONTRACTADDRESS_ERROR|11037|Invalid contract address|
-CONTRACTADDRESS_NOT_CONTRACTACCOUNT_ERROR|11038|contractAddress is not a contract account|
-INVALID_TOKEN_AMOUNT_ERROR|11039|TokenAmount must be between 1 and max(int64)|
-SOURCEADDRESS_EQUAL_CONTRACTADDRESS_ERROR|11040|SourceAddress cannot be equal to contractAddress|
-INVALID_FROMADDRESS_ERROR|11041|Invalid fromAddress|
-FROMADDRESS_EQUAL_DESTADDRESS_ERROR|11042|FromAddress cannot be equal to destAddress|
-INVALID_SPENDER_ERROR|11043|Invalid spender|
-PAYLOAD_EMPTY_ERROR|11044|Payload cannot be empty|
-INVALID_LOG_TOPIC_ERROR|11045|The length of a log topic must be between 1 and 128|
-INVALID_LOG_DATA_ERROR|11046|The length of one piece of log data must be between 1 and1024|
-INVALID_CONTRACT_TYPE_ERROR|11047|Invalid contract type|
-INVALID_NONCE_ERROR|11048|Nonce must be between 1 and max(int64)|
-INVALID_GASPRICE_ERROR|11049|GasPrice must be between 1000 and max(int64)|
-INVALID_FEELIMIT_ERROR|11050|FeeLimit must be between 1 and max(int64)|
-OPERATIONS_EMPTY_ERROR|11051|Operations cannot be empty|
-INVALID_CEILLEDGERSEQ_ERROR|11052|CeilLedgerSeq must be equal to or greater than 0|
-OPERATIONS_ONE_ERROR|11053|One of the operations cannot be resolved|
-INVALID_SIGNATURENUMBER_ERROR|11054|SignagureNumber must be between 1 and max(uint32)|
-INVALID_HASH_ERROR|11055|Invalid transaction hash|
-INVALID_BLOB_ERROR|11056|Invalid blob|
-PRIVATEKEY_NULL_ERROR|11057|PrivateKeys cannot be empty|
-PRIVATEKEY_ONE_ERROR|11058|One of privateKeys is invalid|
-SIGNDATA_NULL_ERROR|11059|SignData cannot be empty|
-INVALID_BLOCKNUMBER_ERROR|11060|BlockNumber must be bigger than 0|
-PUBLICKEY_NULL_ERROR|11061|PublicKey cannot be empty|
-URL_EMPTY_ERROR|11062|Url cannot be empty|
-CONTRACTADDRESS_CODE_BOTH_NULL_ERROR|11063|ContractAddress and code cannot be empty at the same time|
-INVALID_OPTTYPE_ERROR|11064|OptType must be between 0 and 2|
-GET_ALLOWANCE_ERROR|11065|Failed to get allowance|
-GET_TOKEN_INFO_ERROR|11066|Failed to get token info|
-SIGNATURE_EMPTY_ERROR|11067|The signatures cannot be empty|
-REQUEST_NULL_ERROR|12001|Request parameter cannot be null|
-CONNECTN_BLOCKCHAIN_ERROR|19999|Failed to connect to the blockchain |
-SYSTEM_ERROR|20000|System error|
+   异常       |     错误码   |   描述   
+-----------  | ----------- | -------- 
+ACCOUNT_CREATE_ERROR|11001|Failed to create the account 
+INVALID_SOURCEADDRESS_ERROR|11002|Invalid sourceAddress
+INVALID_DESTADDRESS_ERROR|11003|Invalid destAddress
+INVALID_INITBALANCE_ERROR|11004|InitBalance must be between 1 and max(int64) 
+SOURCEADDRESS_EQUAL_DESTADDRESS_ERROR|11005|SourceAddress cannot be equal to destAddress
+INVALID_ADDRESS_ERROR|11006|Invalid address
+CONNECTNETWORK_ERROR|11007|Failed to connect to the network
+INVALID_ISSUE_AMOUNT_ERROR|11008|Amount of the token to be issued must be between 1 and max(int64)
+NO_ASSET_ERROR|11009|The account does not have the asset
+NO_METADATA_ERROR|11010|The account does not have the metadata
+INVALID_DATAKEY_ERROR|11011|The length of key must be between 1 and 1024
+INVALID_DATAVALUE_ERROR|11012|The length of value must be between 0 and 256000
+INVALID_DATAVERSION_ERROR|11013|The version must be equal to or greater than 0 
+INVALID_MASTERWEIGHT_ERROR|11015|MasterWeight must be between 0 and max(uint32)
+INVALID_SIGNER_ADDRESS_ERROR|11016|Invalid signer address
+INVALID_SIGNER_WEIGHT_ERROR|11017|Signer weight must be between 0 and max(uint32)
+INVALID_TX_THRESHOLD_ERROR|11018|TxThreshold must be between 0 and max(int64)
+INVALID_OPERATION_TYPE_ERROR|11019|Operation type must be between 1 and 100
+INVALID_TYPE_THRESHOLD_ERROR|11020|TypeThreshold must be between 0 and max(int64)
+INVALID_ASSET_CODE_ERROR|11023|The length of key must be between 1 and 64
+INVALID_ASSET_AMOUNT_ERROR|11024|AssetAmount must be between 0 and max(int64)
+INVALID_BU_AMOUNT_ERROR|11026|BuAmount must be between 0 and max(int64)
+INVALID_ISSUER_ADDRESS_ERROR|11027|Invalid issuer address
+NO_SUCH_TOKEN_ERROR|11030|No such token
+INVALID_TOKEN_NAME_ERROR|11031|The length of token name must be between 1 and 1024
+INVALID_TOKEN_SIMBOL_ERROR|11032|The length of symbol must be between 1 and 1024
+INVALID_TOKEN_DECIMALS_ERROR|11033|Decimals must be between 0 and 8
+INVALID_TOKEN_TOTALSUPPLY_ERROR|11034|TotalSupply must be between 1 and max(int64)
+INVALID_TOKENOWNER_ERRPR|11035|Invalid token owner
+INVALID_CONTRACTADDRESS_ERROR|11037|Invalid contract address
+CONTRACTADDRESS_NOT_CONTRACTACCOUNT_ERROR|11038|contractAddress is not a contract account
+INVALID_TOKEN_AMOUNT_ERROR|11039|TokenAmount must be between 1 and max(int64)
+SOURCEADDRESS_EQUAL_CONTRACTADDRESS_ERROR|11040|SourceAddress cannot be equal to contractAddress
+INVALID_FROMADDRESS_ERROR|11041|Invalid fromAddress
+FROMADDRESS_EQUAL_DESTADDRESS_ERROR|11042|FromAddress cannot be equal to destAddress
+INVALID_SPENDER_ERROR|11043|Invalid spender
+PAYLOAD_EMPTY_ERROR|11044|Payload cannot be empty
+INVALID_LOG_TOPIC_ERROR|11045|The length of a log topic must be between 1 and 128
+INVALID_LOG_DATA_ERROR|11046|The length of one piece of log data must be between 1 and1024
+INVALID_CONTRACT_TYPE_ERROR|11047|Invalid contract type
+INVALID_NONCE_ERROR|11048|Nonce must be between 1 and max(int64)
+INVALID_GASPRICE_ERROR|11049|GasPrice must be between 1000 and max(int64)
+INVALID_FEELIMIT_ERROR|11050|FeeLimit must be between 1 and max(int64)
+OPERATIONS_EMPTY_ERROR|11051|Operations cannot be empty
+INVALID_CEILLEDGERSEQ_ERROR|11052|CeilLedgerSeq must be equal to or greater than 0
+OPERATIONS_ONE_ERROR|11053|One of the operations cannot be resolved
+INVALID_SIGNATURENUMBER_ERROR|11054|SignagureNumber must be between 1 and max(uint32)
+INVALID_HASH_ERROR|11055|Invalid transaction hash
+INVALID_BLOB_ERROR|11056|Invalid blob
+PRIVATEKEY_NULL_ERROR|11057|PrivateKeys cannot be empty
+PRIVATEKEY_ONE_ERROR|11058|One of privateKeys is invalid
+SIGNDATA_NULL_ERROR|11059|SignData cannot be empty
+INVALID_BLOCKNUMBER_ERROR|11060|BlockNumber must be bigger than 0
+PUBLICKEY_NULL_ERROR|11061|PublicKey cannot be empty
+URL_EMPTY_ERROR|11062|Url cannot be empty
+CONTRACTADDRESS_CODE_BOTH_NULL_ERROR|11063|ContractAddress and code cannot be empty at the same time
+INVALID_OPTTYPE_ERROR|11064|OptType must be between 0 and 2
+GET_ALLOWANCE_ERROR|11065|Failed to get allowance
+GET_TOKEN_INFO_ERROR|11066|Failed to get token info
+SIGNATURE_EMPTY_ERROR|11067|The signatures cannot be empty
+REQUEST_NULL_ERROR|12001|Request parameter cannot be null
+CONNECTN_BLOCKCHAIN_ERROR|19999|Failed to connect to the blockchain 
+SYSTEM_ERROR|20000|System error

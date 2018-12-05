@@ -721,15 +721,15 @@ asset	    | [AssetInfo](#AssetInfo)[] |Account asset
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |-----------  
-INVALID_ADDRESS_ERROR|11006|Invalid address|
-REQUEST_NULL_ERROR|12001|Request parameter cannot be null|
-CONNECTNETWORK_ERROR|11007|Failed to connect to the network|
-INVALID_ASSET_CODE_ERROR|11023|The length of asset code must be between 1 and 64|
-INVALID_ISSUER_ADDRESS_ERROR|11027|Invalid issuer address|
- NO_ASSET_ERROR               | 11009      | The account does not have this token              |
-SYSTEM_ERROR|20000|System error|
+   Exception       |     Error Code   |   Description  
+-----------  | ----------- | -------- 
+INVALID_ADDRESS_ERROR|11006|Invalid address
+REQUEST_NULL_ERROR|12001|Request parameter cannot be null
+CONNECTNETWORK_ERROR|11007|Failed to connect to the network
+INVALID_ASSET_CODE_ERROR|11023|The length of asset code must be between 1 and 64
+INVALID_ISSUER_ADDRESS_ERROR|11027|Invalid issuer address
+ NO_ASSET_ERROR               | 11009      | The account does not have this token
+SYSTEM_ERROR|20000|System error
 
 > Example
 
@@ -827,27 +827,27 @@ function getInfo($contractGetInfoRequest);
 
 > Request parameters
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
-contractAddress     |   String     |  Required, contract account address to be queried   |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ---------------- 
+contractAddress     |   String     |  Required, contract account address to be queried 
 
 > Response data
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description 
+----------- | ------------ | ---------------- 
 contract|[ContractInfo](#contractinfo)|Contract info
 
 #### ContractInfo
 
-   Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description 
+----------- | ------------ | ---------------- 
 type|Integer|Contract type, default is 0
 payload|String|Contract code
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description 
+-----------  | ----------- | -------- 
 INVALID_CONTRACTADDRESS_ERROR|11037|Invalid contract address
 CONTRACTADDRESS_NOT_CONTRACTACCOUNT_ERROR|11038|contractAddress is not a contract account
 NO_SUCH_TOKEN_ERROR|11030|No such token
@@ -890,27 +890,27 @@ function getAddress($contractGetAddressRequest)
 
 > Request parameters
 
-Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
-hash     |   String     |  Required, the hash used to create a contract transaction   |
+Parameter      |     Type     |        Description 
+----------- | ------------ | ---------------- 
+hash     |   String     |  Required, the hash used to create a contract transaction 
 
 > Response data
 
-Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+Parameter      |     Type     |        Description 
+----------- | ------------ | ---------------- 
 contractAddressList|List<[ContractAddressInfo](#contractaddressinfo)>|Contract address list
 
 #### ContractAddressInfo
 
-Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+Member      |     Type     |        Description 
+----------- | ------------ | ---------------- 
 contractAddress|String|Contract address
 operationIndex|Integer|The subscript of the operation
 
 > Error Code
 
-Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+Exception       |     Error Code   |   Description 
+-----------  | ----------- | -------- 
 INVALID_HASH_ERROR|11055|Invalid transaction hash
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
@@ -951,8 +951,8 @@ function call($contractCallRequest);
 
 > Request parameters
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ---------------- 
 sourceAddress|String|Optional, the account address to trigger the contract
 contractAddress|String|	Optional, the contract account address and code cannot be empty at the same time
 code|String|Optional, the contract code and contractAddress cannot be empty at the same time, length limit [1, 64]
@@ -965,8 +965,8 @@ gasPrice|Long|Transaction fuel price, size limit [1000, Long.MAX_VALUE]
 
 > Response data
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description 
+----------- | ------------ | ----------------
 logs|JSONObject|Log information
 queryRets|JSONArray|Query the result set
 stat|[ContractStat](#ContractStat)|Contract resource occupancy
@@ -974,8 +974,8 @@ txs|[TransactionEnvs](#TransactionEnvs)[]|Transaction set
 
 #### ContractStat
 
-   Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description
+----------- | ------------ | ----------------
   applyTime|Long|Receipt time
   memoryUsage|Long|Memory footprint
   stackUsage|Long|Stack occupancy
@@ -983,21 +983,21 @@ txs|[TransactionEnvs](#TransactionEnvs)[]|Transaction set
 
 #### TransactionEnvs
 
-   Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description
+----------- | ------------ | ----------------
   transactionEnv|[TransactionEnv](#transactionenv)|Transaction
 
 #### TransactionEnv
 
-   Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description
+----------- | ------------ | ----------------
 transaction|[TransactionInfo](#transactioninfo)|Transaction content
 trigger|[ContractTrigger](#contracttrigger)|Contract trigger
 
 #### TransactionInfo
 
-   Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description
+----------- | ------------ | ----------------
 sourceAddress|String|The source account address initiating the transaction
 feeLimit|Long|Minimum fees required for the transaction
 gasPrice|Long|Transaction fuel price
@@ -1005,14 +1005,14 @@ nonce|Long|Transaction serial number
 operations|[Operation](#operation)[]|Operation list
 
 #### ContractTrigger
-   Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description
+----------- | ------------ | ----------------
 transaction|[TriggerTransaction](#triggertransaction)|Trigger transactions
 
 #### Operation
 
-   Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description
+----------- | ------------ | ----------------
 type|Integer|Operation type
 sourceAddress|String|The source account address initiating operations
 metadata|String|Note
@@ -1026,14 +1026,14 @@ log|[OperationLog](#operationlog)|Record logs
 
 #### TriggerTransaction
 
-   Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description
+----------- | ------------ | ---------------- 
 hash|String|交易hash
 
 #### OperationCreateAccount
 
-   Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description
+----------- | ------------ | ---------------- 
 destAddress|String|Target account address
 contract|[Contract](#contract)|Contract info
 priv|[Priv](#priv)|Account privilege
@@ -1043,46 +1043,46 @@ initInput|String|The input parameter for the init function of the contract
 
 #### Contract
 
-   Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description
+----------- | ------------ | ----------------
 type|Integer|The contract language is not assigned value by default
 payload|String|The contract code for the corresponding language
 
 #### MetadataInfo
 
-   Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description
+----------- | ------------ | ----------------
 key|String|metadata key
 value|String|metadata value
 version|Long|metadata version
 
 #### OperationIssueAsset
 
-   Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description
+----------- | ------------ | ----------------
 code|String|Asset code
 assetAmount|Long|Asset amount
 
 #### OperationPayAsset
 
-   Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description
+----------- | ------------ | ----------------
 destAddress|String|The target account address to which the asset is transferred
 asset|[AssetInfo](#assetinfo)|Account asset
 input|String|Input parameters for the main function of the contract
 
 #### OperationPayCoin
 
-   Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description
+----------- | ------------ | ----------------
 destAddress|String|The target account address to which the asset is transferred
 buAmount|Long|BU amount to be transferred
 input|String|Input parameters for the main function of the contract
 
 #### OperationSetMetadata
 
-   Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description 
+----------- | ------------ | ----------------
 key|String|metadata key
 value|String|metadata value
 version|Long|metadata version
@@ -1090,8 +1090,8 @@ deleteFlag|boolean|Whether to delete metadata
 
 #### OperationSetPrivilege
 
-   Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description
+----------- | ------------ | ----------------
 masterWeight|String|Account weight, size limit[0, (Integer.MAX_VALUE * 2L + 1)]
 signers|[Signer](#signer)[]|Signer weight list
 txThreshold|String|Transaction threshold, size limit[0, Long.MAX_VALUE]
@@ -1099,15 +1099,15 @@ typeThreshold|[TypeThreshold](#typethreshold)|Threshold for specified transactio
 
 #### OperationLog
 
-   Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description
+----------- | ------------ | ---------------- 
 topic|String|Log theme
 data|String[]|Log content
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description 
+-----------  | ----------- | --------
 INVALID_SOURCEADDRESS_ERROR|11002|Invalid sourceAddress
 INVALID_CONTRACTADDRESS_ERROR|11037|Invalid contract address
 CONTRACTADDRESS_CODE_BOTH_NULL_ERROR|11063|ContractAddress and code cannot be empty at the same time
@@ -1306,15 +1306,15 @@ metadata|String|Optional, note
 
 > Response data
 
-   Parameter      |     Type     |        Description      |
+   Parameter      |     Type     |        Description
 ----------- | ------------ | ---------------- |
 transactionBlob|String|Serialized transaction hex string
 hash|String|Transaction hash
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description
+-----------  | ----------- | --------
 INVALID_SOURCEADDRESS_ERROR|11002|Invalid sourceAddress
 INVALID_NONCE_ERROR|11048|Nonce must be between 1 and Long.MAX_VALUE
 INVALID_DESTADDRESS_ERROR|11003|Invalid destAddress
@@ -1415,8 +1415,8 @@ public function evaluateFee($transactionEvaluateFeeRequest);
 
 > Request parameters
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 sourceAddress|String|Required, the source account address issuing the operation
 nonce|Long|Required, transaction serial number to be initiated, size limit [1, Long.MAX_VALUE]
 operation|BaseOperation[]|Required, list of operations to be committed which cannot be empty
@@ -1426,32 +1426,32 @@ metadata|String|Optional, note
 
 > Response data
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
-txs     |   [TestTx](#testtx)[]     |  Evaluation transaction set   |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
+txs     |   [TestTx](#testtx)[]     |  Evaluation transaction set 
 
 #### TestTx
 
-   Member      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description
+----------- | ------------ | ----------------
 transactionEnv| [TestTransactionFees](#testtransactionfees)| Assess transaction costs
 
 #### TestTransactionFees
 
-   Member      |     Type     |      Description     |
------------ | ------------ | ---------------- |
+   Member      |     Type     |      Description 
+----------- | ------------ | ----------------
 transactionFees|[TransactionFees](#transactionfees)|Transaction fees
 
 #### TransactionFees
-   Member      |     Type     |        Description   |
------------ | ------------ | ---------------- |
+   Member      |     Type     |        Description 
+----------- | ------------ | ---------------
 feeLimit|Long|Minimum fees required for the transaction
 gasPrice|Long|Transaction gas price
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description
+-----------  | ----------- | --------
 INVALID_SOURCEADDRESS_ERROR|11002|Invalid sourceAddress
 INVALID_NONCE_ERROR|11045|Nonce must be between 1 and Long.MAX_VALUE
 OPERATIONS_EMPTY_ERROR|11051|Operations cannot be empty
@@ -1514,29 +1514,29 @@ public function sign($transactionSignRequest);
 
 > Request parameters
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 blob|String|Required, pending transaction blob to be signed
 privateKeys|String[]|Required, private key list
 
 
 > Response data
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 signatures|[Signature](#signature)|Signed data list
 
 #### Signature
 
-   Member变量      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member变量      |     Type     |        Description
+----------- | ------------ | ----------------
   signData|Long|Signed data
   publicKey|Long|Public key
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description 
+-----------  | ----------- | --------
 INVALID_BLOB_ERROR|11056|Invalid blob
 PRIVATEKEY_NULL_ERROR|11057|PrivateKeys cannot be empty
 PRIVATEKEY_ONE_ERROR|11058|One of privateKeys is invalid
@@ -1579,21 +1579,21 @@ public function submit($transactionSubmitRequest);
 
 > Request parameters
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
   blob|String|Required, transaction blob
   signature|[Signature](#signature)[]|Required, signature list
 
 > Response data
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 hash|String|Transaction hash
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description
+-----------  | ----------- | --------
 INVALID_BLOB_ERROR|11056|Invalid blob
 SIGNATURE_EMPTY_ERROR|11067|The signatures cannot be empty
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
@@ -1641,20 +1641,20 @@ function getInfo($transactionGetInfoRequest);
 
 > Request parameters
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 hash|String|Transaction hash
 
 > Response data
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 totalCount|Long|Total number of transactions returned
 transactions|[TransactionHistory](#transactionhistory)[]|Transaction content
 
 #### TransactionHistory
 
-   Member变量  |     Type     |        Description      |
+   Member变量  |     Type     |        Description
 ----------- | ------------ | ---------------- |
 actualFee|String|Actual transaction cost
 closeTime|Long|Transaction closure time
@@ -1668,8 +1668,8 @@ txSize|Long|Transaction size
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description 
+-----------  | ----------- | --------
 INVALID_HASH_ERROR|11055|Invalid transaction hash
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
@@ -1714,15 +1714,15 @@ function getNumber()
 
 > Response data
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 header|BlockHeader|Block head
 blockNumber|Long|The latest block height,corresponding to the underlying field sequence
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description
+-----------  | ----------- | --------
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
 
@@ -1756,14 +1756,14 @@ public function checkStatus()
 
 > Response data
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
-isSynchronous    |   Boolean     |  Whether the block is synchronized   |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
+isSynchronous    |   Boolean     |  Whether the block is synchronized 
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description
+-----------  | ----------- | --------
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
 
@@ -1798,21 +1798,21 @@ function getTransactions($blockGetTransactionsRequest)
 
 > Request parameters
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 blockNumber|Long|Required, the height of the block to be queried must be greater than 0
 
 > Response data
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 totalCount|Long|Total number of transactions returned
 transactions|[TransactionHistory](#transactionhistory)[]|Transaction content
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description  
+-----------  | ----------- | --------
 INVALID_BLOCKNUMBER_ERROR|11060|BlockNumber must bigger than 0
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
@@ -1854,14 +1854,14 @@ function getInfo($blockGetInfoRequest)
 
 > Request parameters
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 blockNumber|Long|Required, the height of the block to be queried
 
 > Response data
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 closeTime|Long|Block closure time
 number|Long|Block height
 txCount|Long|Total transactions amount
@@ -1869,8 +1869,8 @@ version|String|Block version
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description  
+-----------  | ----------- | --------
 INVALID_BLOCKNUMBER_ERROR|11060|BlockNumber must bigger than 0
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
@@ -1911,8 +1911,8 @@ function getLatestInfo()
 
 > Response data
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 closeTime|Long|Block closure time
 number|Long|Block height,corresponding to the underlying field seq
 txCount|Long|Total transactions amount
@@ -1921,8 +1921,8 @@ version|String|Block version
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description
+-----------  | ----------- | --------
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
 
@@ -1958,27 +1958,27 @@ function getValidators($blockGetValidatorsRequest)
 
 > Request parameters
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 blockNumber|Long|Required, the height of the block to be queried must be greater than 0
 
 > Response data
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 validators|[ValidatorInfo](#validatorinfo)[]|Validators list
 
 #### ValidatorInfo
 
-   Member变量  |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member变量  |     Type     |        Description
+----------- | ------------ | ----------------
 address|String|Consensus node address
 plegeCoinAmount|Long|Validators' deposit
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description
+-----------  | ----------- | --------
 INVALID_BLOCKNUMBER_ERROR|11060|BlockNumber must bigger than 0
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
@@ -2019,14 +2019,14 @@ function getLatestValidators()
 
 > Response data
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 validators|[ValidatorInfo](#validatorinfo)[]|	Validators list
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description
+-----------  | ----------- | --------
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
 
@@ -2062,29 +2062,29 @@ function GetReward($blockGetRewardRequest)
 
 > Request parameters
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 blockNumber|Long|Required, the height of the block to be queried must be greater than 0
 
 > Response data
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 blockReward|Long|Block rewards
 validatorsReward|[ValidatorReward](#validatorreward)[]|Validators rewards
 
 #### ValidatorReward
 
-   Member变量  |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member变量  |     Type     |        Description
+----------- | ------------ | ----------------
   validator|String|Validator address
   reward|Long|Validator reward
 
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description 
+-----------  | ----------- | --------
 INVALID_BLOCKNUMBER_ERROR|11060|BlockNumber must bigger than 0
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
@@ -2125,15 +2125,15 @@ function GetLatestReward()
 
 > Response data
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 blockReward|Long|Block rewards
 validatorsReward|[ValidatorReward](#validatorreward)[]|Validator rewards
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description 
+-----------  | ----------- | --------
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
 
@@ -2169,27 +2169,27 @@ function getFees($blockGetFeesRequest)
 
 > Request parameters
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 blockNumber|Long|Required, the height of the block to be queried must be greater than 0
 
 > Response data
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 fees|[Fees](#fees)|Fees
 
 #### Fees
 
-   Member变量  |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Member变量  |     Type     |        Description
+----------- | ------------ | ----------------
 baseReserve|Long|Minimum asset limit for the account
 gasPrice|Long|Transaction fuel price, unit MO, 1 BU = 10^8 MO
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description
+-----------  | ----------- | --------
 INVALID_BLOCKNUMBER_ERROR|11060|BlockNumber must bigger than 0
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
@@ -2229,14 +2229,14 @@ function getLatestFees()
 
 > Response data
 
-   Parameter      |     Type     |        Description      |
------------ | ------------ | ---------------- |
+   Parameter      |     Type     |        Description
+----------- | ------------ | ----------------
 fees|[Fees](#fees)|Fees
 
 > Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description
+-----------  | ----------- | --------
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
 
@@ -2254,8 +2254,8 @@ if ($response->error_code == 0) {
 
 ## Error Code
 
-   Exception       |     Error Code   |   Description  |
------------  | ----------- | -------- |
+   Exception       |     Error Code   |   Description
+-----------  | ----------- | --------
 ACCOUNT_CREATE_ERROR|11001|Failed to create the account 
 INVALID_SOURCEADDRESS_ERROR|11002|Invalid sourceAddress
 INVALID_DESTADDRESS_ERROR|11003|Invalid destAddress
