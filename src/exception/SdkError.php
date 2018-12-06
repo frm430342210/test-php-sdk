@@ -29,6 +29,7 @@ class SdkError {
        "INVALID_TYPE_THRESHOLD_ERROR"=>array(11020 => "TypeThreshold must be between 0 and max(int64)"),
        "INVALID_ASSET_CODE_ERROR"=>array(11023 => "The length of code must be between 1 and 64"),
        "INVALID_ASSET_AMOUNT_ERROR"=>array(11024 => "AssetAmount must be between 0 and max(int64)"),
+       "INVALID_CONTRACT_HASH_ERROR"=>array(11025 => "Invalid transaction hash to create contract"),
        "INVALID_BU_AMOUNT_ERROR"=>array(11026 => "BuAmount must be between 0 and max(int64)"),
        "INVALID_ISSUER_ADDRESS_ERROR"=>array(11027 => "Invalid issuer address"),
        "NO_SUCH_TOKEN_ERROR"=>array(11030 => "No such token"),
