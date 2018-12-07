@@ -1115,6 +1115,8 @@ INVALID_OPTTYPE_ERROR|11064|OptType must be between 0 and 2
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
+INVALID_CONTRACT_BALANCE_ERROR|11044|The contractBalance must be between 1 and max(int64)
+INVALID_GASPRICE_ERROR|11049|GasPrice must be between 1000 and max(int64)
 
 > Example
 

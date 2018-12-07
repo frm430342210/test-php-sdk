@@ -231,7 +231,7 @@ class Contract {
             }
             $contractBalance = $contractCallRequest->getContractBalance();
             if (!Tools::isNULL($contractBalance) && (!is_int($contractBalance) || $contractBalance < 1)) {
-                throw new SDKException("INVALID_OPTTYPE_ERROR", null);
+                throw new SDKException("INVALID_CONTRACT_BALANCE_ERROR", null);
             }
             $input = $contractCallRequest->getInput();
             if (!Tools::isEmpty($input) && !is_string($input)) {
@@ -239,7 +239,7 @@ class Contract {
             }
             $gasPrice = $contractCallRequest->getGasPrice();
             if (!Tools::isNULL($gasPrice) && (!is_int($gasPrice) || $gasPrice < Constant::GAS_PRICE_MIN)) {
-                throw new SDKException("INPUT_NOT_STRING_ERROR", null);
+                throw new SDKException("INVALID_GASPRICE_ERROR", null);
             }
             if(Tools::isEmpty(General::getInstance()->getUrl())) {
                 throw new SDKException("URL_EMPTY_ERROR", null);

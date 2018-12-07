@@ -46,6 +46,7 @@ class SdkError {
        "INVALID_FROMADDRESS_ERROR"=>array(11041 => "Invalid fromAddress"),
        "FROMADDRESS_EQUAL_DESTADDRESS_ERROR"=>array(11042 => "FromAddress cannot be equal to destAddress"),
        "INVALID_SPENDER_ERROR"=>array(11043 => "Invalid spender"),
+       "INVALID_CONTRACT_BALANCE_ERROR"=>array(11044 => "The contractBalance must be between 1 and max(int64)"),
        "INVALID_LOG_TOPIC_ERROR"=>array(11045 => "The length of a log topic must be between 1 and 128"),
        "INVALID_LOG_DATA_ERROR"=>array(11046 => "The length of one piece of log data must be between 1 and 1024"),
        "INVALID_CONTRACT_TYPE_ERROR"=>array(11047 => "Invalid contract type"),
