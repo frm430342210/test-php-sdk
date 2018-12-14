@@ -14,9 +14,14 @@ $sdk = \src\SDK::getInstance("http://127.0.0.1:36002"); // localhost
 class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     public function setSDKConfigure($chainId) {
         $sdkConfigure = new \src\model\request\SDKConfigure();
-        $sdkConfigure->setChainId($chainId);
-        $sdkConfigure->setUrl("http://127.0.0.1:36002");
+        $sdkConfigure->setChainId(0);
+        $sdkConfigure->setUrl("http://52.80.206.194:6002");
         $GLOBALS['sdk'] = \src\SDK::getInstanceWithConfigure($sdkConfigure);
+    }
+    /** @test */
+    public function test() {
+        $privateKeyEnc = "1610048c6a32e2041039d104312b114c70399c7ecaaa4bf142171351980b7a35";
+        echo hex2bin($privateKeyEnc) . "\n";
     }
     /** @test */
     public function accountCheckValid() {
@@ -146,7 +151,8 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         $contract = $GLOBALS['sdk']->getContractService();
 
         $contractGetAddressRequest = new \src\model\request\ContractGetAddressRequest();
-        $contractGetAddressRequest->setHash("44246c5ba1b8b835a5cbc29bdc9454cdb9a9d049870e41227f2dcfbcf7a07689");
+        //$contractGetAddressRequest->setHash("44246c5ba1b8b835a5cbc29bdc9454cdb9a9d049870e41227f2dcfbcf7a07689");
+        $contractGetAddressRequest->setHash("68e8f1dea066cef95715de69ec067fd2eb424d85122b8bc4d5feed5a847bb7db");
         $response = $contract->getAddress($contractGetAddressRequest);
         $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
@@ -279,7 +285,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     /** @test */
     public function transactionBuildBlob() {
         $this->setSDKConfigure(10);
-        $transaction =  $GLOBALS['sdk']->getTransaction();
+        $transaction =  $GLOBALS['sdk']->getTransactionService();
 
         // Init variable
         $senderAddress = "buQfnVYgXuMo3rvCEpKA6SfRrDpaz8D8A9Ea";
@@ -310,6 +316,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         $request->setFeeLimit($feeLimit);
         $request->setGasPrice($gasPrice);
         $request->addOperation($buSendOperation);
+        $request->setCeilLedgerSeq("");
 
         // Call buildBlob
         $response = $transaction->buildBlob($request);

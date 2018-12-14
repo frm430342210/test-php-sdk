@@ -70,7 +70,7 @@ class Block {
             $blockGetNumberResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $blockGetNumberResult);
         }
         catch (\Exception $e) {
-            $blockGetNumberResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $blockGetNumberResult);
+            $blockGetNumberResponse->buildResponse(20000, $e->getMessage(), $blockGetNumberResult);
         }
         return $blockGetNumberResponse;
     }
@@ -112,7 +112,7 @@ class Block {
             $blockCheckStatusResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $blockCheckStatusResult);
         }
         catch (\Exception $e) {
-            $blockCheckStatusResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $blockCheckStatusResult);
+            $blockCheckStatusResponse->buildResponse(20000, $e->getMessage(), $blockCheckStatusResult);
         }
         return $blockCheckStatusResponse;
     }
@@ -151,7 +151,7 @@ class Block {
             $blockGetTransactionsResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $blockGetTransactionsResult);
         }
         catch (\Exception $e) {
-            $blockGetTransactionsResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $blockGetTransactionsResult);
+            $blockGetTransactionsResponse->buildResponse(20000, $e->getMessage(), $blockGetTransactionsResult);
         }
         return $blockGetTransactionsResponse;
     }
@@ -191,7 +191,7 @@ class Block {
             $blockGetInfoResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $blockGetInfoResult);
         }
         catch (\Exception $e) {
-            $blockGetInfoResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $blockGetInfoResult);
+            $blockGetInfoResponse->buildResponse(20000, $e->getMessage(), $blockGetInfoResult);
         }
         return $blockGetInfoResponse;
     }
@@ -218,7 +218,7 @@ class Block {
             $blockGetLatestInfoResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $blockGetLatestInfoResult);
         }
         catch (\Exception $e) {
-            $blockGetLatestInfoResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $blockGetLatestInfoResult);
+            $blockGetLatestInfoResponse->buildResponse(20000, $e->getMessage(), $blockGetLatestInfoResult);
         }
         return $blockGetLatestInfoResponse;
     }
@@ -258,7 +258,7 @@ class Block {
             $blockGetValidatorsResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $blockGetValidatorsResult);
         }
         catch (\Exception $e) {
-            $blockGetValidatorsResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $blockGetValidatorsResult);
+            $blockGetValidatorsResponse->buildResponse(20000, $e->getMessage(), $blockGetValidatorsResult);
         }
         return $blockGetValidatorsResponse;
     }
@@ -285,7 +285,7 @@ class Block {
             $blockGetLatestValidatorsResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $blockGetLatestValidatorsResult);
         }
         catch (\Exception $e) {
-            $blockGetLatestValidatorsResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $blockGetLatestValidatorsResult);
+            $blockGetLatestValidatorsResponse->buildResponse(20000, $e->getMessage(), $blockGetLatestValidatorsResult);
         }
         return $blockGetLatestValidatorsResponse;
     }
@@ -341,7 +341,7 @@ class Block {
             $blockGetRewardResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $blockGetRewardResult);
         }
         catch (\Exception $e) {
-            $blockGetRewardResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $blockGetRewardResult);
+            $blockGetRewardResponse->buildResponse(20000, $e->getMessage(), $blockGetRewardResult);
         }
         return $blockGetRewardResponse;
     }
@@ -385,7 +385,7 @@ class Block {
             $blockGetLatestRewardResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $blockGetLatestRewardResult);
         }
         catch (\Exception $e) {
-            $blockGetLatestRewardResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $blockGetLatestRewardResult);
+            $blockGetLatestRewardResponse->buildResponse(20000, $e->getMessage(), $blockGetLatestRewardResult);
         }
         return $blockGetLatestRewardResponse;
     }
@@ -425,7 +425,7 @@ class Block {
             $blockGetFeesResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $blockGetFeesResult);
         }
         catch (\Exception $e) {
-            $blockGetFeesResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $blockGetFeesResult);
+            $blockGetFeesResponse->buildResponse(20000, $e->getMessage(), $blockGetFeesResult);
         }
         return $blockGetFeesResponse;
     }
@@ -452,7 +452,7 @@ class Block {
             $blockGetLatestFeesResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $blockGetLatestFeesResult);
         }
         catch (\Exception $e) {
-            $blockGetLatestFeesResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $blockGetLatestFeesResult);
+            $blockGetLatestFeesResponse->buildResponse(20000, $e->getMessage(), $blockGetLatestFeesResult);
         }
         return $blockGetLatestFeesResponse;
     }

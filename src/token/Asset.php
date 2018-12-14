@@ -66,7 +66,7 @@ class Asset {
             $assetGetInfoResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $assetGetInfoResult);
         }
         catch (\Exception $e) {
-            $assetGetInfoResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $assetGetInfoResult);
+            $assetGetInfoResponse->buildResponse(20000, $e->getMessage(), $assetGetInfoResult);
         }
         return $assetGetInfoResponse;
     }

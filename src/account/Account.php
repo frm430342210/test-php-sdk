@@ -62,7 +62,7 @@ class Account {
             $accountCheckValidResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $accountCheckValidResult);
         }
         catch (\Exception $e) {
-            $accountCheckValidResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $accountCheckValidResult);
+            $accountCheckValidResponse->buildResponse(20000, $e->getMessage(), $accountCheckValidResult);
         }
         return $accountCheckValidResponse;
     }
@@ -82,7 +82,7 @@ class Account {
             $accountCreateResponse->buildResponse("SUCCESS", null, $accountCreateResult);
         }
         catch(\Exception $e){
-            $accountCreateResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $accountCreateResult);
+            $accountCreateResponse->buildResponse(20000, $e->getMessage(), $accountCreateResult);
         }
         return $accountCreateResponse;
     }
@@ -123,7 +123,7 @@ class Account {
             $accountGetInfoResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $accountGetInfoResult);
         }
         catch (\Exception $e) {
-            $accountGetInfoResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $accountGetInfoResult);
+            $accountGetInfoResponse->buildResponse(20000, $e->getMessage(), $accountGetInfoResult);
         }
         return $accountGetInfoResponse;
     }
@@ -167,7 +167,7 @@ class Account {
             $accountGetNonceResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $accountGetNonceResult);
         }
         catch (\Exception $e) {
-            $accountGetNonceResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $accountGetNonceResult);
+            $accountGetNonceResponse->buildResponse(20000, $e->getMessage(), $accountGetNonceResult);
         }
         return $accountGetNonceResponse;
     }
@@ -208,7 +208,7 @@ class Account {
             $accountGetBalanceResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $accountGetBalanceResult);
         }
         catch (\Exception $e) {
-            $accountGetBalanceResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $accountGetBalanceResult);
+            $accountGetBalanceResponse->buildResponse(20000, $e->getMessage(), $accountGetBalanceResult);
         }
         return $accountGetBalanceResponse;
     }
@@ -252,7 +252,7 @@ class Account {
             $accountGetAssetsResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $accountGetAssetsResult);
         }
         catch (\Exception $e) {
-            $accountGetAssetsResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $accountGetAssetsResult);
+            $accountGetAssetsResponse->buildResponse(20000, $e->getMessage(), $accountGetAssetsResult);
         }
         return $accountGetAssetsResponse;
     }
@@ -302,7 +302,7 @@ class Account {
             $accountGetMetadataResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $accountGetMetadataResult);
         }
         catch (\Exception $e) {
-            $accountGetMetadataResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $accountGetMetadataResult);
+            $accountGetMetadataResponse->buildResponse(20000, $e->getMessage(), $accountGetMetadataResult);
         }
         return $accountGetMetadataResponse;
     }
@@ -350,7 +350,7 @@ class Account {
             $accountCheckActivatedResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $accountCheckActivatedResult);
         }
         catch (\Exception $e) {
-            $accountCheckActivatedResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $accountCheckActivatedResult);
+            $accountCheckActivatedResponse->buildResponse(20000, $e->getMessage(), $accountCheckActivatedResult);
         }
         return $accountCheckActivatedResponse;
     }

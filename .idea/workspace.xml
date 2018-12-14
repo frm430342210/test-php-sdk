@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43897963-d783-48f6-b6c0-231fe7a9e5ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/autoload.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" beforeDir="false" afterPath="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autoload.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/account/Account.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/account/Account.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blockchain/Block.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/blockchain/Block.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blockchain/Transaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/blockchain/Transaction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contract/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/contract/Contract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/token/Asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/token/Asset.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,24 +24,31 @@
     <session id="-526938527">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.11" value="2" />
+          <entry key="project.open.time.12" value="2" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.16" value="2" />
           <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="json" value="4" />
-          <entry key="php" value="52" />
+          <entry key="json" value="5" />
+          <entry key="php" value="134" />
+          <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JSON" value="4" />
-          <entry key="PHP" value="52" />
+          <entry key="JSON" value="5" />
+          <entry key="PHP" value="134" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.composer.actions">
@@ -51,14 +61,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="json" value="48" />
-          <entry key="php" value="392" />
+          <entry key="json" value="55" />
+          <entry key="php" value="1613" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSON" value="48" />
-          <entry key="PHP" value="392" />
+          <entry key="JSON" value="55" />
+          <entry key="PHP" value="1613" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -70,65 +80,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/examples/script/DigitalAssetDemo.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/contract/Contract.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+            <state relative-caret-position="179">
+              <caret line="240" column="54" selection-start-line="240" selection-start-column="47" selection-end-line="240" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/autoload.php">
+        <entry file="file://$PROJECT_DIR$/src/contract/operation/ContractOperation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+            <state relative-caret-position="179">
+              <caret line="214" column="49" selection-start-line="214" selection-start-column="42" selection-end-line="214" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../test/test_ed25519.php">
+        <entry file="file://$PROJECT_DIR$/src/token/Asset.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+            <state relative-caret-position="460">
+              <caret line="68" column="81" selection-start-line="68" selection-start-column="81" selection-end-line="68" selection-end-column="81" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/response/AccountCreateResponse.php">
+        <entry file="file://$PROJECT_DIR$/src/token/operation/AssetOperation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+            <state relative-caret-position="4">
+              <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/response/BaseResponse.php">
+        <entry file="file://$PROJECT_DIR$/src/token/operation/BUOperation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_5.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2700">
-              <caret line="150" column="9" selection-start-line="150" selection-start-column="9" selection-end-line="150" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/response/result/AccountCreateResult.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            <state relative-caret-position="179">
+              <caret line="49" column="64" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -136,26 +128,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/blockchain/Transaction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="23" column="75" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
+            <state relative-caret-position="179">
+              <caret line="232" column="50" selection-start-line="232" selection-start-column="43" selection-end-line="232" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/request/TokenGetName.php">
+        <entry file="file://$PROJECT_DIR$/src/account/Account.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="523">
+              <caret line="352" column="90" selection-start-line="352" selection-start-column="90" selection-end-line="352" selection-end-column="90" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/request/TransactionBuildBlobRequest.php">
+        <entry file="file://$PROJECT_DIR$/src/blockchain/Block.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="189">
+              <caret line="305" column="56" selection-start-line="305" selection-start-column="49" selection-end-line="305" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/account/operation/AccountOperation.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="67" column="57" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/common/Tools.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -167,10 +177,37 @@
       <find>General::</find>
       <find>General::getInstance()-&gt;$url</find>
       <find>TransactionBuildBlobRequest</find>
+      <find>$sdk-&gt;</find>
+      <find>$sdk = \src\SDK::getInstance(&quot;http://127.0.0.1:36002&quot;);</find>
+      <find>$sdk = \src\SDK::getInstance(&quot;http://127.0.01:36002&quot;);</find>
+      <find>AssetGetInfo</find>
+      <find>string</find>
+      <find>TransactionGetInfo</find>
+      <find>json</find>
+      <find>$key$key</find>
+      <find>json_encode($response)</find>
+      <find>TransactionSign</find>
+      <find>TransactionBuildBlob</find>
+      <find>INVALID_CONTRACT_HASH_ERROR</find>
+      <find>contractBalance</find>
+      <find>BALANCE</find>
+      <find>GASPRIE</find>
+      <find>INVALID_CONTRACT_BALANCE_ERROR</find>
+      <find>buildBlob</find>
+      <find>SYSTEM_ERROR</find>
+      <find>buildResponse(&quot;SYSTEM_ERROR&quot;, $e-&gt;getMessage()</find>
+      <find>&amp;&amp; (!is_int(</find>
+      <find>&amp;&amp; is_int(</find>
+      <find>&amp;&amp; (is_int(</find>
+      <find>is_int(</find>
+      <find>is_string(</find>
     </findStrings>
     <replaceStrings>
       <replace>General::getInstance()-&gt;</replace>
       <replace>General::getInstance()-&gt;getUrl()</replace>
+      <replace>$GLOBALS['sdk']-&gt;</replace>
+      <replace>json_encode($response, JSON_UNESCAPED_UNICODE)</replace>
+      <replace>buildResponse(20000, $e-&gt;getMessage()</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src</dir>
@@ -188,20 +225,28 @@
         <option value="$PROJECT_DIR$/src/token/operation/AssetOperation.php" />
         <option value="$PROJECT_DIR$/src/token/operation/BUOperation.php" />
         <option value="$PROJECT_DIR$/src/contract/operation/ContractOperation.php" />
-        <option value="$PROJECT_DIR$/src/contract/Contract.php" />
-        <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/src/model/request/SDKConfigure.php" />
         <option value="$PROJECT_DIR$/src/common/General.php" />
-        <option value="$PROJECT_DIR$/src/account/Account.php" />
         <option value="$PROJECT_DIR$/src/model/request/ContractGetInfoRequest.php" />
         <option value="$PROJECT_DIR$/src/model/request/TokenGetName.php" />
         <option value="$PROJECT_DIR$/src/model/request/TransactionBuildBlobRequest.php" />
-        <option value="$PROJECT_DIR$/src/SDK.php" />
         <option value="$PROJECT_DIR$/src/model/response/result/data/TransactionInfo.php" />
-        <option value="$PROJECT_DIR$/src/blockchain/Transaction.php" />
         <option value="$PROJECT_DIR$/src/autoload.php" />
         <option value="$PROJECT_DIR$/autoload.php" />
+        <option value="$PROJECT_DIR$/phpunit.xml" />
+        <option value="$PROJECT_DIR$/src/model/response/result/data/AssetKey.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/src/common/Http.php" />
+        <option value="$PROJECT_DIR$/src/crypto/JsonMapper/JsonMapper.php" />
+        <option value="$PROJECT_DIR$/src/common/Tools.php" />
+        <option value="$PROJECT_DIR$/src/SDK.php" />
+        <option value="$PROJECT_DIR$/src/exception/SdkError.php" />
         <option value="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" />
+        <option value="$PROJECT_DIR$/src/blockchain/Block.php" />
+        <option value="$PROJECT_DIR$/src/account/Account.php" />
+        <option value="$PROJECT_DIR$/src/contract/Contract.php" />
+        <option value="$PROJECT_DIR$/src/token/Asset.php" />
+        <option value="$PROJECT_DIR$/src/blockchain/Transaction.php" />
       </list>
     </option>
   </component>
@@ -221,9 +266,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1440" />
     <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="805" />
+    <option name="width" value="1920" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -256,13 +302,64 @@
             <path>
               <item name="myRepertory" type="b2602c69:ProjectViewProjectNode" />
               <item name="myRepertory" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myRepertory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myRepertory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+              <item name="operation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myRepertory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myRepertory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="blockchain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myRepertory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myRepertory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="contract" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myRepertory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myRepertory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="contract" type="462c0819:PsiDirectoryNode" />
+              <item name="operation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myRepertory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myRepertory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="crypto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myRepertory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myRepertory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="exception" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myRepertory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myRepertory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="token" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myRepertory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myRepertory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="token" type="462c0819:PsiDirectoryNode" />
+              <item name="operation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="myRepertory" type="b2602c69:ProjectViewProjectNode" />
               <item name="myRepertory" type="462c0819:PsiDirectoryNode" />
               <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="composer" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -298,21 +395,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.DigitalAssetDemo.accountGetBalance">
-    <configuration name="DigitalAssetDemo.accountCreate" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="DigitalAssetDemo" file="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" method="accountCreate" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="DigitalAssetDemo.accountGetBalance" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="DigitalAssetDemo" file="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" method="accountGetBalance" scope="Method" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="PHPUnit.DigitalAssetDemo.transactionBuildBlob">
     <configuration name="DigitalAssetDemo.accountGetInfo" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="DigitalAssetDemo" file="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" method="accountGetInfo" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="DigitalAssetDemo.accountGetNonce" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="DigitalAssetDemo" file="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" method="accountGetNonce" scope="Method" />
+    <configuration name="DigitalAssetDemo.assetGetInfo" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="DigitalAssetDemo" file="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" method="assetGetInfo" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="DigitalAssetDemo.contractGetAddress" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="DigitalAssetDemo" file="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" method="contractGetAddress" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="DigitalAssetDemo.test" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="DigitalAssetDemo" file="$PROJECT_DIR$/examples/script/DigitalAssetDemo.php" method="test" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="DigitalAssetDemo.transactionBuildBlob" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -320,19 +417,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="PHPUnit.DigitalAssetDemo.assetGetInfo" />
       <item itemvalue="PHPUnit.DigitalAssetDemo.accountGetInfo" />
-      <item itemvalue="PHPUnit.DigitalAssetDemo.accountGetBalance" />
+      <item itemvalue="PHPUnit.DigitalAssetDemo.contractGetAddress" />
+      <item itemvalue="PHPUnit.DigitalAssetDemo.test" />
       <item itemvalue="PHPUnit.DigitalAssetDemo.transactionBuildBlob" />
-      <item itemvalue="PHPUnit.DigitalAssetDemo.accountCreate" />
-      <item itemvalue="PHPUnit.DigitalAssetDemo.accountGetNonce" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.DigitalAssetDemo.accountGetBalance" />
-        <item itemvalue="PHPUnit.DigitalAssetDemo.accountGetNonce" />
-        <item itemvalue="PHPUnit.DigitalAssetDemo.accountGetInfo" />
-        <item itemvalue="PHPUnit.DigitalAssetDemo.accountCreate" />
         <item itemvalue="PHPUnit.DigitalAssetDemo.transactionBuildBlob" />
+        <item itemvalue="PHPUnit.DigitalAssetDemo.test" />
+        <item itemvalue="PHPUnit.DigitalAssetDemo.contractGetAddress" />
+        <item itemvalue="PHPUnit.DigitalAssetDemo.assetGetInfo" />
+        <item itemvalue="PHPUnit.DigitalAssetDemo.accountGetInfo" />
       </list>
     </recent_temporary>
   </component>
@@ -351,56 +448,64 @@
       <workItem from="1543306980250" duration="1813000" />
       <workItem from="1543578535323" duration="260000" />
       <workItem from="1543582798727" duration="3048000" />
-      <workItem from="1543587095574" duration="423000" />
+      <workItem from="1543587095574" duration="2135000" />
+      <workItem from="1543823630171" duration="383000" />
+      <workItem from="1543825939378" duration="1356000" />
+      <workItem from="1543846099811" duration="11089000" />
+      <workItem from="1543981131381" duration="2443000" />
+      <workItem from="1544082442570" duration="632000" />
+      <workItem from="1544175501250" duration="1844000" />
+      <workItem from="1544761167449" duration="98000" />
+      <workItem from="1544781260715" duration="846000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.11.30 at 21h 31m 26s.xml">
+    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.12.14 at 17h 58m 34s.xml">
       <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="DigitalAssetDemo_accountCreate - 2018.11.30 at 22h 12m 45s.xml">
-      <configuration name="DigitalAssetDemo.accountCreate" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.12.14 at 18h 01m 58s.xml">
+      <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="DigitalAssetDemo_accountCreate - 2018.11.30 at 22h 13m 53s.xml">
-      <configuration name="DigitalAssetDemo.accountCreate" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.12.14 at 18h 02m 53s.xml">
+      <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="DigitalAssetDemo_accountCreate - 2018.11.30 at 22h 14m 55s.xml">
-      <configuration name="DigitalAssetDemo.accountCreate" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.12.14 at 18h 03m 05s.xml">
+      <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="DigitalAssetDemo_accountCreate - 2018.11.30 at 22h 15m 17s.xml">
-      <configuration name="DigitalAssetDemo.accountCreate" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.12.14 at 18h 03m 16s.xml">
+      <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="DigitalAssetDemo_accountCreate - 2018.11.30 at 22h 17m 04s.xml">
-      <configuration name="DigitalAssetDemo.accountCreate" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.12.14 at 18h 03m 35s.xml">
+      <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="DigitalAssetDemo_accountCreate - 2018.11.30 at 22h 17m 25s.xml">
-      <configuration name="DigitalAssetDemo.accountCreate" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.12.14 at 18h 03m 51s.xml">
+      <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="DigitalAssetDemo_accountCreate - 2018.11.30 at 22h 17m 40s.xml">
-      <configuration name="DigitalAssetDemo.accountCreate" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.12.14 at 18h 04m 03s.xml">
+      <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="DigitalAssetDemo_accountCreate - 2018.11.30 at 22h 18m 06s.xml">
-      <configuration name="DigitalAssetDemo.accountCreate" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.12.14 at 18h 04m 09s.xml">
+      <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="DigitalAssetDemo_accountCreate - 2018.11.30 at 22h 18m 30s.xml">
-      <configuration name="DigitalAssetDemo.accountCreate" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="DigitalAssetDemo_transactionBuildBlob - 2018.12.14 at 18h 04m 55s.xml">
+      <configuration name="DigitalAssetDemo.transactionBuildBlob" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6937000" />
+    <option name="totallyTimeSpent" value="27340000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="803" extended-state="6" />
+    <frame x="1440" y="23" width="1920" height="1057" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26251787" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.118743345" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.42053446" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.40112203" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32959327" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.36580312" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4008439" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -422,203 +527,31 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/autoload.php" />
-    <entry file="file:///private/var/folders/bv/vyxsp5fx28dbwlk4ccclbthr0000gn/T/ide-phpunit.php" />
-    <entry file="file://$PROJECT_DIR$/src/crypto/protobuf/test/test.php">
+    <entry file="file://$PROJECT_DIR$/src/model/request/operation/AssetIssueOperation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="22" column="27" lean-forward="true" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+        <state relative-caret-position="522">
+          <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/json/json.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="89" column="9" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/account/operation/AccountOperation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="185" column="67" lean-forward="true" selection-start-line="185" selection-start-column="67" selection-end-line="185" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/blockchain/Block.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-418" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/Constant.php">
+    <entry file="file://$PROJECT_DIR$/phpunit.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+          <caret line="14" column="4" selection-start-line="12" selection-start-column="13" selection-end-line="14" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/Http.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="38" column="24" lean-forward="true" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/OperationType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-534" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/Tools.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-776" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/request/operation/ContractInvokeByAssetOperation.php">
+    <entry file="file://$PROJECT_DIR$/autoload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/contract/operation/ContractOperation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2448">
-          <caret line="149" column="68" selection-start-line="149" selection-start-column="68" selection-end-line="149" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/contract/Contract.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1152">
-          <caret line="92" column="67" selection-start-line="92" selection-start-column="67" selection-end-line="92" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/exception/SdkError.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/exception/SDKException.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/log/operation/LogOperation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="9" column="65" selection-start-line="9" selection-start-column="65" selection-end-line="9" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/token/operation/AssetOperation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/token/operation/BUOperation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/token/Asset.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/General.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SDK.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
-          <folding>
-            <element signature="e#109#134#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/response/TransactionParseBlobResponse.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/response/result/TransactionParseBlobResult.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/response/result/data/TransactionInfo.php">
+    <entry file="file://$PROJECT_DIR$/../test/test_ed25519.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/request/SDKConfigure.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/request/ContractGetInfoRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/account/Account.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="71" column="29" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/response/AccountCreateResponse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/response/BaseResponse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_5.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2700">
-          <caret line="150" column="9" selection-start-line="150" selection-start-column="9" selection-end-line="150" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/response/result/AccountCreateResult.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/blockchain/Transaction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="23" column="75" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
+          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -636,24 +569,296 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../test/test_ed25519.php">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/json/json.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+        <state relative-caret-position="291">
+          <caret line="126" column="64" selection-start-line="126" selection-start-column="64" selection-end-line="126" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/autoload.php">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/curl/curl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        <state relative-caret-position="426">
+          <caret line="2267" column="9" selection-start-line="2267" selection-start-column="9" selection-end-line="2267" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/curl/curl_d.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="191" column="22" lean-forward="true" selection-start-line="191" selection-start-column="22" selection-end-line="191" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/mbstring/mbstring.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="588" column="9" selection-start-line="588" selection-start-column="9" selection-end-line="588" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/Http.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/response/result/data/AssetKey.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/response/result/AccountGetAssetsResult.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/response/AccountGetAssetsResponse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/_types.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/crypto/JsonMapper/JsonMapper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/request/AccountCheckValidRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/response/result/AccountCheckValidResult.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/General.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SDK.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="972">
+          <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
+          <folding>
+            <element signature="e#109#134#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/response/AccountCheckValidResponse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/response/result/data/AssetInfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/response/result/AssetGetInfoResult.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/response/AssetGetInfoResponse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/crypto/protobuf/Protocol/Operation/Type.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/crypto/protobuf/Protocol/Transaction/Limit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/crypto/protobuf/GPBMetadata/Chain.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/crypto/protobuf/Protocol/Contract/ContractType.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/crypto/protobuf/GPBMetadata/Consensus.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/crypto/protobuf/GPBMetadata/Common.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/crypto/protobuf/GPBMetadata/Merkeltrie.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/crypto/protobuf/GPBMetadata/Overlay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="66" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/google/protobuf/php/src/Google/Protobuf/Internal/DescriptorPool.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exception/SDKException.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/request/ContractCallRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="87" column="20" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/response/BaseResponse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+          <folding>
+            <element signature="e#158#392#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exception/SdkError.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="80" column="34" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/script/DigitalAssetDemo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+        <state relative-caret-position="298">
+          <caret line="288" lean-forward="true" selection-start-line="288" selection-end-line="288" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_5.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="215" column="9" selection-start-line="215" selection-start-column="9" selection-end-line="215" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/Tools.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/token/Asset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="68" column="81" selection-start-line="68" selection-start-column="81" selection-end-line="68" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/token/operation/BUOperation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="49" column="64" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/token/operation/AssetOperation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4">
+          <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/contract/Contract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="240" column="54" selection-start-line="240" selection-start-column="47" selection-end-line="240" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/contract/operation/ContractOperation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="214" column="49" selection-start-line="214" selection-start-column="42" selection-end-line="214" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blockchain/Transaction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="232" column="50" selection-start-line="232" selection-start-column="43" selection-end-line="232" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blockchain/Block.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="305" column="56" selection-start-line="305" selection-start-column="49" selection-end-line="305" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/account/Account.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="352" column="90" selection-start-line="352" selection-start-column="90" selection-end-line="352" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/account/operation/AccountOperation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="67" column="57" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="57" />
         </state>
       </provider>
     </entry>

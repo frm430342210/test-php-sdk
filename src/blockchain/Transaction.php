@@ -121,7 +121,7 @@ class Transaction {
                 throw new SDKException("INVALID_FEELIMIT_ERROR", null);
             }
             $ceilLedgerSeq = $transactionBuildBlobRequest->getCeilLedgerSeq();
-            if (!Tools::isNULL($ceilLedgerSeq) && (is_int($ceilLedgerSeq) || $ceilLedgerSeq < 0)) {
+            if (!Tools::isNULL($ceilLedgerSeq) && (!is_int($ceilLedgerSeq) || $ceilLedgerSeq < 0)) {
                 throw new SDKException("INVALID_CEILLEDGERSEQ_ERROR", null);
             }
             $metadata = $transactionBuildBlobRequest->getMetadata();
@@ -175,7 +175,7 @@ class Transaction {
             $transactionBuildBlobResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $transactionBuildBlobResult);
         }
         catch (\Exception $e) {
-            $transactionBuildBlobResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $transactionBuildBlobResult);
+            $transactionBuildBlobResponse->buildResponse(20000, $e->getMessage(), $transactionBuildBlobResult);
         }
         return $transactionBuildBlobResponse;
     }
@@ -207,7 +207,7 @@ class Transaction {
             $transactionParseBlobResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $transactionParseBlobResult);
         }
         catch (\Exception $e) {
-            $transactionParseBlobResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $transactionParseBlobResult);
+            $transactionParseBlobResponse->buildResponse(20000, $e->getMessage(), $transactionParseBlobResult);
         }
         return $transactionParseBlobResponse;
     }
@@ -294,7 +294,7 @@ class Transaction {
             $transactionEvaluateFeeResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $transactionEvaluateFeeResult);
         }
         catch (\Exception $e) {
-            $transactionEvaluateFeeResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $transactionEvaluateFeeResult);
+            $transactionEvaluateFeeResponse->buildResponse(20000, $e->getMessage(), $transactionEvaluateFeeResult);
         }
         return $transactionEvaluateFeeResponse;
     }
@@ -344,7 +344,7 @@ class Transaction {
             $transactionSignResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $transactionSignResult);
         }
         catch (\Exception $e) {
-            $transactionSignResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $transactionSignResult);
+            $transactionSignResponse->buildResponse(20000, $e->getMessage(), $transactionSignResult);
         }
         return $transactionSignResponse;
     }
@@ -416,7 +416,7 @@ class Transaction {
             $transactionSubmitResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $transactionSubmitResult);
         }
         catch (\Exception $e) {
-            $transactionSubmitResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $transactionSubmitResult);
+            $transactionSubmitResponse->buildResponse(20000, $e->getMessage(), $transactionSubmitResult);
         }
         return $transactionSubmitResponse;
     }
@@ -452,7 +452,7 @@ class Transaction {
             $transactionGetInfoResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $transactionGetInfoResult);
         }
         catch (\Exception $e) {
-            $transactionGetInfoResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $transactionGetInfoResult);
+            $transactionGetInfoResponse->buildResponse(20000, $e->getMessage(), $transactionGetInfoResult);
         }
         return $transactionGetInfoResponse;
     }

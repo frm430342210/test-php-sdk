@@ -71,7 +71,7 @@ class Contract {
             $contractGetInfoResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $contractGetInfoResult);
         }
         catch (\Exception $e) {
-            $contractGetInfoResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $contractGetInfoResult);
+            $contractGetInfoResponse->buildResponse(20000, $e->getMessage(), $contractGetInfoResult);
         }
         return $contractGetInfoResponse;
     }
@@ -135,7 +135,7 @@ class Contract {
             $contractGetAddressResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $contractGetAddressResult);
         }
         catch (\Exception $e) {
-            $contractGetAddressResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $contractGetAddressResult);
+            $contractGetAddressResponse->buildResponse(20000, $e->getMessage(), $contractGetAddressResult);
         }
         return $contractGetAddressResponse;
     }
@@ -187,7 +187,7 @@ class Contract {
             $contractCheckValidResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $contractCheckValidResult);
         }
         catch (\Exception $e) {
-            $contractCheckValidResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $contractCheckValidResult);
+            $contractCheckValidResponse->buildResponse(20000, $e->getMessage(), $contractCheckValidResult);
         }
         return $contractCheckValidResponse;
     }
@@ -279,7 +279,7 @@ class Contract {
             $contractCallResponse->buildResponse($e->getErrorCode(), $e->getErrorDesc(), $contractCallResult);
         }
         catch (\Exception $e) {
-            $contractCallResponse->buildResponse("SYSTEM_ERROR", $e->getMessage(), $contractCallResult);
+            $contractCallResponse->buildResponse(20000, $e->getMessage(), $contractCallResult);
         }
         return $contractCallResponse;
     }
