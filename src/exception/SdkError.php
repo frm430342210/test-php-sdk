@@ -54,7 +54,7 @@ class SdkError {
        "INVALID_GASPRICE_ERROR"=>array(11049 => "GasPrice must be between 1000 and max(int64)"),
        "INVALID_FEELIMIT_ERROR"=>array(11050 => "FeeLimit must be between 1 and max(int64)"),
        "OPERATIONS_EMPTY_ERROR"=>array(11051 => "Operations cannot be empty"),
-       "INVALID_CEILLEDGERSEQ_ERROR"=>array(11052 => "CeilLedgerSeq must be equal or bigger than 0"),
+       "INVALID_CEILLEDGERSEQ_ERROR"=>array(11052 => "CeilLedgerSeq must be equal to or bigger than 0"),
        "OPERATIONS_ONE_ERROR"=>array(11053 => "One of operations cannot be resolved"),
        "INVALID_SIGNATURENUMBER_ERROR"=>array(11054 => "SignatureNumber must be between 1 and max(int32)"),
        "INVALID_HASH_ERROR"=>array(11055 => "Invalid transaction hash"),

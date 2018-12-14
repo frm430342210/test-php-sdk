@@ -315,8 +315,9 @@ class Transaction {
             if (Tools::isEmpty($blob)) {
                 throw new SDKException("INVALID_BLOB_ERROR", null);
             }
-            $blobBytes = hex2bin($blob);
+            $blobBytes = null;
             try {
+                $blobBytes = hex2bin($blob);
                 $tranParse = new \Protocol\Transaction();
                 $tranParse->mergeFromString($blobBytes);
             }
@@ -365,8 +366,9 @@ class Transaction {
             if (Tools::isEmpty($blob)) {
                 throw new SDKException("INVALID_BLOB_ERROR", null);
             }
-            $blobBytes = hex2bin($blob);
+            $blobBytes = null;
             try {
+                $blobBytes = hex2bin($blob);
                 $tranParse = new \Protocol\Transaction();
                 $tranParse->mergeFromString($blobBytes);
             }
