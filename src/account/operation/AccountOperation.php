@@ -44,7 +44,10 @@ class AccountOperation {
      */
     public static function activate($accountActivateOperation, $tranSourceAddress) {
         try{
-            if(!($accountActivateOperation instanceof AccountActivateOperation) || Tools::isEmpty($accountActivateOperation)){
+            if (!($accountActivateOperation instanceof AccountActivateOperation)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if(Tools::isEmpty($accountActivateOperation)){
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $sourceAddress = $accountActivateOperation->getSourceAddress();
@@ -110,7 +113,10 @@ class AccountOperation {
      */
     public static function setMetadata($accountSetMetadataOperation) {
         try{
-            if(!($accountSetMetadataOperation instanceof AccountSetMetadataOperation) || Tools::isEmpty($accountSetMetadataOperation)){
+            if (!($accountSetMetadataOperation instanceof AccountSetMetadataOperation)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if(Tools::isEmpty($accountSetMetadataOperation)){
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $sourceAddress = $accountSetMetadataOperation->getSourceAddress();
@@ -170,7 +176,10 @@ class AccountOperation {
      */
     public static function setPrivilege($accountSetPrivilegeOperation){
         try{
-            if(!($accountSetPrivilegeOperation instanceof AccountSetPrivilegeOperation) || Tools::isEmpty($accountSetPrivilegeOperation)) {
+            if (!($accountSetPrivilegeOperation instanceof AccountSetPrivilegeOperation)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if(Tools::isEmpty($accountSetPrivilegeOperation)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $sourceAddress = $accountSetPrivilegeOperation->getSourceAddress();

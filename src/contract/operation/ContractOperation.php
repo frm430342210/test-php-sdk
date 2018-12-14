@@ -195,7 +195,10 @@ class ContractOperation {
      */
     public static function invokeByBU($contractInvokeByBUOperation){
         try{
-            if(!($contractInvokeByBUOperation instanceof ContractInvokeByBUOperation) || Tools::isEmpty($contractInvokeByBUOperation)){
+            if(!($contractInvokeByBUOperation instanceof ContractInvokeByBUOperation)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if(Tools::isEmpty($contractInvokeByBUOperation)){
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $sourceAddress = $contractInvokeByBUOperation->getSourceAddress();

@@ -41,7 +41,10 @@ class Contract {
         $contractGetInfoResponse = new ContractGetInfoResponse();
         $contractGetInfoResult = new ContractGetInfoResult();
         try{
-            if(!($contractGetInfoRequest instanceof ContractGetInfoRequest) || Tools::isEmpty($contractGetInfoRequest)) {
+            if(!($contractGetInfoRequest instanceof ContractGetInfoRequest)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if(Tools::isEmpty($contractGetInfoRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $contractAddress = $contractGetInfoRequest->getContractAddress();
@@ -85,7 +88,10 @@ class Contract {
         $contractGetAddressResponse = new ContractGetAddressResponse();
         $contractGetAddressResult = new ContractGetAddressResult();
         try{
-            if(!($contractGetAddressRequest instanceof ContractGetAddressRequest) || Tools::isEmpty($contractGetAddressRequest)) {
+            if(!($contractGetAddressRequest instanceof ContractGetAddressRequest)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if(Tools::isEmpty($contractGetAddressRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $hash = $contractGetAddressRequest->getHash();
@@ -149,7 +155,10 @@ class Contract {
         $contractCheckValidResponse = new ContractCheckValidResponse();
         $contractCheckValidResult = new ContractCheckValidResult();
         try{
-            if(!($contractCheckValidRequest instanceof ContractCheckValidRequest) || Tools::isEmpty($contractCheckValidRequest)) {
+            if(!($contractCheckValidRequest instanceof ContractCheckValidRequest)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if(Tools::isEmpty($contractCheckValidRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $contractAddress = $contractCheckValidRequest->getContractAddress();
@@ -201,7 +210,10 @@ class Contract {
         $contractCallResponse = new ContractCallResponse();
         $contractCallResult = new ContractCallResult();
         try{
-            if(!($contractCallRequest instanceof ContractCallRequest) || Tools::isEmpty($contractCallRequest)) {
+            if(!($contractCallRequest instanceof ContractCallRequest)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if(Tools::isEmpty($contractCallRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $sourceAddress = $contractCallRequest->getSourceAddress();

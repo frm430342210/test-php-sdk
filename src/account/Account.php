@@ -51,7 +51,10 @@ class Account {
         $accountCheckValidResponse = new AccountCheckValidResponse();
         $accountCheckValidResult = new AccountCheckValidResult();
         try{
-            if(!($accountCheckValidRequest instanceof AccountCheckValidRequest) || Tools::isEmpty($accountCheckValidRequest)) {
+            if(!($accountCheckValidRequest instanceof AccountCheckValidRequest)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if(Tools::isEmpty($accountCheckValidRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $address = $accountCheckValidRequest->getAddress();
@@ -96,7 +99,10 @@ class Account {
         $accountGetInfoResponse = new AccountGetInfoResponse();
         $accountGetInfoResult = new AccountGetInfoResult();
         try{
-            if(!($accountGetInfoRequest instanceof AccountGetInfoRequest) || Tools::isEmpty($accountGetInfoRequest)) {
+            if(!($accountGetInfoRequest instanceof AccountGetInfoRequest)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if(Tools::isEmpty($accountGetInfoRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $address = $accountGetInfoRequest->getAddress();
@@ -137,7 +143,10 @@ class Account {
         $accountGetNonceResponse = new AccountGetNonceResponse();
         $accountGetNonceResult = new AccountGetNonceResult();
         try{
-            if(!($accountGetNonceRequest instanceof AccountGetNonceRequest) || Tools::isEmpty($accountGetNonceRequest)) {
+            if(!($accountGetNonceRequest instanceof AccountGetNonceRequest)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if(Tools::isEmpty($accountGetNonceRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $address = $accountGetNonceRequest->getAddress();
@@ -181,7 +190,10 @@ class Account {
         $accountGetBalanceResponse = new AccountGetBalanceResponse();
         $accountGetBalanceResult = new AccountGetBalanceResult();
         try{
-            if(!($accountGetBalanceRequest instanceof AccountGetBalanceRequest) || Tools::isEmpty($accountGetBalanceRequest)){
+            if(!($accountGetBalanceRequest instanceof AccountGetBalanceRequest)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if(Tools::isEmpty($accountGetBalanceRequest)){
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $address = $accountGetBalanceRequest->getAddress();
@@ -222,7 +234,10 @@ class Account {
         $accountGetAssetsResponse = new AccountGetAssetsResponse();
         $accountGetAssetsResult = new AccountGetAssetsResult();
         try{
-            if(!($accountGetAssetsRequest instanceof AccountGetAssetsRequest) || Tools::isEmpty($accountGetAssetsRequest)) {
+            if(!($accountGetAssetsRequest instanceof AccountGetAssetsRequest)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if(Tools::isEmpty($accountGetAssetsRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $address = $accountGetAssetsRequest->getAddress();
@@ -266,7 +281,10 @@ class Account {
         $accountGetMetadataResponse = new AccountGetMetadataResponse();
         $accountGetMetadataResult = new AccountGetMetadataResult();
         try{
-            if(!($accountGetMetadataRequest instanceof AccountGetMetadataRequest) || Tools::isEmpty($accountGetMetadataRequest)) {
+            if(!($accountGetMetadataRequest instanceof AccountGetMetadataRequest)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if(Tools::isEmpty($accountGetMetadataRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $address = $accountGetMetadataRequest->getAddress();
@@ -316,7 +334,10 @@ class Account {
         $accountCheckActivatedResponse = new AccountCheckActivatedResponse;
         $accountCheckActivatedResult = new AccountCheckActivatedResult;
         try{
-            if(!($accountCheckActivatedRequest instanceof AccountCheckActivatedRequest) || Tools::isEmpty($accountCheckActivatedRequest)) {
+            if(!($accountCheckActivatedRequest instanceof AccountCheckActivatedRequest)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if(Tools::isEmpty($accountCheckActivatedRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $address = $accountCheckActivatedRequest->getAddress();

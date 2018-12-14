@@ -100,7 +100,10 @@ class Transaction {
         $transactionBuildBlobResponse = new TransactionBuildBlobResponse();
         $transactionBuildBlobResult = new TransactionBuildBlobResult();
         try {
-            if (!($transactionBuildBlobRequest instanceof TransactionBuildBlobRequest) || Tools::isEmpty($transactionBuildBlobRequest)) {
+            if(!($transactionBuildBlobRequest instanceof TransactionBuildBlobRequest)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if (Tools::isEmpty($transactionBuildBlobRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $sourceAddress = $transactionBuildBlobRequest->getSourceAddress();
@@ -189,7 +192,10 @@ class Transaction {
         $transactionParseBlobResponse = new TransactionParseBlobResponse();
         $transactionParseBlobResult = new TransactionParseBlobResult();
         try {
-            if (!($transactionParseBlobRequest instanceof TransactionParseBlobRequest) || Tools::isEmpty($transactionParseBlobRequest)) {
+            if(!($transactionParseBlobRequest instanceof TransactionParseBlobRequest)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if (Tools::isEmpty($transactionParseBlobRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $blob = $transactionParseBlobRequest->getBlob();
@@ -221,7 +227,10 @@ class Transaction {
         $transactionEvaluateFeeResponse = new TransactionEvaluateFeeResponse();
         $transactionEvaluateFeeResult = new TransactionEvaluateFeeResult();
         try {
-            if (!($transactionEvaluateFeeRequest instanceof TransactionEvaluateFeeRequest) || Tools::isEmpty($transactionEvaluateFeeRequest)) {
+            if(!($transactionEvaluateFeeRequest instanceof TransactionEvaluateFeeRequest)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if (Tools::isEmpty($transactionEvaluateFeeRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $sourceAddress = $transactionEvaluateFeeRequest->getSourceAddress();
@@ -308,7 +317,10 @@ class Transaction {
         $transactionSignResponse = new TransactionSignResponse();
         $transactionSignResult = new TransactionSignResult();
         try {
-            if (!($transactionSignRequest instanceof TransactionSignRequest) || Tools::isEmpty($transactionSignRequest)) {
+            if(!($transactionSignRequest instanceof TransactionSignRequest)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if (Tools::isEmpty($transactionSignRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $blob = $transactionSignRequest->getBlob();
@@ -359,7 +371,10 @@ class Transaction {
         $transactionSubmitResponse = new TransactionSubmitResponse();
         $transactionSubmitResult = new TransactionSubmitResult();
         try {
-            if (!($transactionSubmitRequest instanceof TransactionSubmitRequest) || Tools::isEmpty($transactionSubmitRequest)) {
+            if(!($transactionSubmitRequest instanceof TransactionSubmitRequest)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if (Tools::isEmpty($transactionSubmitRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $blob = $transactionSubmitRequest->getTransactionBlob();
@@ -432,7 +447,10 @@ class Transaction {
         $transactionGetInfoResponse = new TransactionGetInfoResponse();
         $transactionGetInfoResult = new TransactionGetInfoResult();
         try {
-            if (!($transactionGetInfoRequest instanceof TransactionGetInfoRequest) || Tools::isEmpty($transactionGetInfoRequest)) {
+            if(!($transactionGetInfoRequest instanceof TransactionGetInfoRequest)){
+                throw new SDKException("REQUEST_INVALID_ERROR", null);
+            }
+            if (Tools::isEmpty($transactionGetInfoRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $hash = $transactionGetInfoRequest->getHash();
