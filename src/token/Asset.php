@@ -26,7 +26,7 @@ class Asset {
         $assetGetInfoResponse = new AssetGetInfoResponse();
         $assetGetInfoResult = new AssetGetInfoResult();
         try{
-            if(Tools::isEmpty($assetGetInfoRequest)) {
+            if(!($assetGetInfoRequest instanceof AssetGetInfoRequest) || Tools::isEmpty($assetGetInfoRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $address = $assetGetInfoRequest->getAddress();

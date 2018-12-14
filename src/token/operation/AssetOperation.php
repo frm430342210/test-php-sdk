@@ -36,7 +36,7 @@ class AssetOperation {
      */
     public static function issue($assetIssueOperation) {
         try{
-            if(Tools::isEmpty($assetIssueOperation)) {
+            if(!($assetIssueOperation instanceof AssetIssueOperation) || Tools::isEmpty($assetIssueOperation)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $sourceAddress = $assetIssueOperation->getSourceAddress();
@@ -91,7 +91,7 @@ class AssetOperation {
      */
     public static function send($assetSendOperation){
         try{
-            if(Tools::isEmpty($assetSendOperation)) {
+            if(!($assetSendOperation instanceof AssetSendOperation) || Tools::isEmpty($assetSendOperation)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $sourceAddress = $assetSendOperation->getSourceAddress();

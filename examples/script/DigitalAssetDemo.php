@@ -316,7 +316,6 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         $request->setFeeLimit($feeLimit);
         $request->setGasPrice($gasPrice);
         $request->addOperation($buSendOperation);
-        $request->setCeilLedgerSeq("");
 
         // Call buildBlob
         $response = $transaction->buildBlob($request);

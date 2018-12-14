@@ -41,7 +41,7 @@ class ContractOperation {
      */
     public static function create($contractCreateOperation) {
         try {
-            if(Tools::isEmpty($contractCreateOperation)) {
+            if(!($contractCreateOperation instanceof ContractCreateOperation) || Tools::isEmpty($contractCreateOperation)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $sourceAddress = $contractCreateOperation->getSourceAddress();
@@ -114,7 +114,7 @@ class ContractOperation {
      */
     public static function invokeByAsset($contractInvokeByAssetOperation) {
         try{
-            if(Tools::isEmpty($contractInvokeByAssetOperation)){
+            if(!($contractInvokeByAssetOperation instanceof ContractInvokeByAssetOperation) || Tools::isEmpty($contractInvokeByAssetOperation)){
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $sourceAddress = $contractInvokeByAssetOperation->getSourceAddress();
@@ -195,7 +195,7 @@ class ContractOperation {
      */
     public static function invokeByBU($contractInvokeByBUOperation){
         try{
-            if(Tools::isEmpty($contractInvokeByBUOperation)){
+            if(!($contractInvokeByBUOperation instanceof ContractInvokeByBUOperation) || Tools::isEmpty($contractInvokeByBUOperation)){
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $sourceAddress = $contractInvokeByBUOperation->getSourceAddress();

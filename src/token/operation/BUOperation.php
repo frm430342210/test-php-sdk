@@ -30,7 +30,7 @@ class BUOperation {
      */
     public static function send($buSendOperation){
         try{
-            if(Tools::isEmpty($buSendOperation)) {
+            if(!($buSendOperation instanceof BUSendOperation) || Tools::isEmpty($buSendOperation)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $sourceAddress = $buSendOperation->getSourceAddress();

@@ -51,7 +51,7 @@ class Account {
         $accountCheckValidResponse = new AccountCheckValidResponse();
         $accountCheckValidResult = new AccountCheckValidResult();
         try{
-            if(Tools::isEmpty($accountCheckValidRequest)) {
+            if(!($accountCheckValidRequest instanceof AccountCheckValidRequest) || Tools::isEmpty($accountCheckValidRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $address = $accountCheckValidRequest->getAddress();
@@ -96,7 +96,7 @@ class Account {
         $accountGetInfoResponse = new AccountGetInfoResponse();
         $accountGetInfoResult = new AccountGetInfoResult();
         try{
-            if(Tools::isEmpty($accountGetInfoRequest)) {
+            if(!($accountGetInfoRequest instanceof AccountGetInfoRequest) || Tools::isEmpty($accountGetInfoRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $address = $accountGetInfoRequest->getAddress();
@@ -137,7 +137,7 @@ class Account {
         $accountGetNonceResponse = new AccountGetNonceResponse();
         $accountGetNonceResult = new AccountGetNonceResult();
         try{
-            if(Tools::isEmpty($accountGetNonceRequest)) {
+            if(!($accountGetNonceRequest instanceof AccountGetNonceRequest) || Tools::isEmpty($accountGetNonceRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $address = $accountGetNonceRequest->getAddress();
@@ -181,7 +181,7 @@ class Account {
         $accountGetBalanceResponse = new AccountGetBalanceResponse();
         $accountGetBalanceResult = new AccountGetBalanceResult();
         try{
-            if(Tools::isEmpty($accountGetBalanceRequest)){
+            if(!($accountGetBalanceRequest instanceof AccountGetBalanceRequest) || Tools::isEmpty($accountGetBalanceRequest)){
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $address = $accountGetBalanceRequest->getAddress();
@@ -222,7 +222,7 @@ class Account {
         $accountGetAssetsResponse = new AccountGetAssetsResponse();
         $accountGetAssetsResult = new AccountGetAssetsResult();
         try{
-            if(Tools::isEmpty($accountGetAssetsRequest)) {
+            if(!($accountGetAssetsRequest instanceof AccountGetAssetsRequest) || Tools::isEmpty($accountGetAssetsRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $address = $accountGetAssetsRequest->getAddress();
@@ -266,7 +266,7 @@ class Account {
         $accountGetMetadataResponse = new AccountGetMetadataResponse();
         $accountGetMetadataResult = new AccountGetMetadataResult();
         try{
-            if(Tools::isEmpty($accountGetMetadataRequest)) {
+            if(!($accountGetMetadataRequest instanceof AccountGetMetadataRequest) || Tools::isEmpty($accountGetMetadataRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $address = $accountGetMetadataRequest->getAddress();
@@ -316,7 +316,7 @@ class Account {
         $accountCheckActivatedResponse = new AccountCheckActivatedResponse;
         $accountCheckActivatedResult = new AccountCheckActivatedResult;
         try{
-            if(!$accountCheckActivatedRequest) {
+            if(!($accountCheckActivatedRequest instanceof AccountCheckActivatedRequest) || Tools::isEmpty($accountCheckActivatedRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $address = $accountCheckActivatedRequest->getAddress();

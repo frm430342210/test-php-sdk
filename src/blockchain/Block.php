@@ -126,7 +126,7 @@ class Block {
         $blockGetTransactionsResponse = new BlockGetTransactionsResponse();
         $blockGetTransactionsResult = new BlockGetTransactionsResult();
         try {
-            if (Tools::isEmpty($blockGetTransactionsRequest)) {
+            if (!($blockGetTransactionsRequest instanceof BlockGetTransactionsRequest) || Tools::isEmpty($blockGetTransactionsRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $blockNumber = $blockGetTransactionsRequest->getBlockNumber();
@@ -165,7 +165,7 @@ class Block {
         $blockGetInfoResponse = new BlockGetInfoResponse();
         $blockGetInfoResult = new BlockGetInfoResult();
         try {
-            if (Tools::isEmpty($blockGetInfoRequest)) {
+            if (!($blockGetInfoRequest instanceof BlockGetInfoRequest) || Tools::isEmpty($blockGetInfoRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $blockNumber = $blockGetInfoRequest->getBlockNumber();
@@ -232,7 +232,7 @@ class Block {
         $blockGetValidatorsResponse = new BlockGetValidatorsResponse();
         $blockGetValidatorsResult = new BlockGetValidatorsResult();
         try {
-            if (Tools::isEmpty($blockGetValidatorsRequest)) {
+            if (!($blockGetValidatorsRequest instanceof BlockGetValidatorsRequest) || Tools::isEmpty($blockGetValidatorsRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $blockNumber = $blockGetValidatorsRequest->getBlockNumber();
@@ -299,7 +299,7 @@ class Block {
         $blockGetRewardResponse = new BlockGetRewardResponse();
         $blockGetRewardResult = new BlockGetRewardResult();
         try {
-            if (Tools::isEmpty($blockGetRewardRequest)) {
+            if (!($blockGetRewardRequest instanceof BlockGetRewardRequest) || Tools::isEmpty($blockGetRewardRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $blockNumber = $blockGetRewardRequest->getBlockNumber();
@@ -399,7 +399,7 @@ class Block {
         $blockGetFeesResponse = new BlockGetFeesResponse();
         $blockGetFeesResult = new BlockGetFeesResult();
         try{
-            if(Tools::isEmpty($blockGetFeesRequest)) {
+            if(!($blockGetFeesRequest instanceof BlockGetFeesRequest) || Tools::isEmpty($blockGetFeesRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
             }
             $blockNumber = $blockGetFeesRequest->getBlockNumber();
