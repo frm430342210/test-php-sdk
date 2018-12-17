@@ -157,7 +157,7 @@ class Transaction {
                 $result = Http::get($baseUrl);
                 $blockGetNumberResponse = Tools::jsonToClass($result, new BlockGetNumberResponse());
                 $errorCode = $blockGetNumberResponse->error_code;
-                if (Tools::isEmpty($errorCode)) {
+                if (!Tools::isEmpty($errorCode)) {
                     $errorDesc = $blockGetNumberResponse->error_desc;
                     throw new SDKException($errorCode, $errorDesc);
                 }
@@ -276,7 +276,7 @@ class Transaction {
                 $result = Http::get($baseUrl);
                 $blockGetNumberResponse = Tools::jsonToClass($result, new BlockGetNumberResponse());
                 $errorCode = $blockGetNumberResponse->error_code;
-                if (Tools::isEmpty($errorCode)) {
+                if (!Tools::isEmpty($errorCode)) {
                     $errorDesc = $blockGetNumberResponse->error_desc;
                     throw new SDKException($errorCode, $errorDesc);
                 }
@@ -503,10 +503,10 @@ class Transaction {
                     $operation = AssetOperation::issue($operations[$i]);
                     break;
                 case OperationType::ASSET_SEND:
-                    $operation = AssetOperation::send($operations[$i]);
+                    $operation = AssetOperation::send($operations[$i], $tranSourceAddress);
                     break;
                 case OperationType::BU_SEND:
-                    $operation = BUOperation::send($operations[$i]);
+                    $operation = BUOperation::send($operations[$i], $tranSourceAddress);
                     break;
                 case OperationType::CONTRACT_CREATE:
                     $operation = ContractOperation::create($operations[$i]);

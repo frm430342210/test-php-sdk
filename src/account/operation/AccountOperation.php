@@ -101,7 +101,7 @@ class AccountOperation {
             throw $e;
         }
         catch (\Exception $e) {
-            throw new SDKException(SdkError::getCode("SYSTEM_ERROR"), $e->getMessage());
+            throw new SDKException(20000, $e->getMessage());
         }
     }
 
@@ -164,7 +164,7 @@ class AccountOperation {
             throw $e;
         }
         catch (\Exception $e) {
-            throw new SDKException(SdkError::getCode("SYSTEM_ERROR"), $e->getMessage());
+            throw new SDKException(20000, $e->getMessage());
         }
     }
 
@@ -266,7 +266,7 @@ class AccountOperation {
             throw $e;
         }
         catch (\Exception $e) {
-            throw new SDKException(SdkError::getCode("SYSTEM_ERROR"), $e->getMessage());
+            throw new SDKException(20000, $e->getMessage());
         }
     }
 }

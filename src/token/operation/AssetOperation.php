@@ -81,7 +81,7 @@ class AssetOperation {
             throw $e;
         }
         catch (\Exception $e) {
-            throw new SDKException(SdkError::getCode("SYSTEM_ERROR"), $e->getMessage());
+            throw new SDKException(20000, $e->getMessage());
         }
     }
 
@@ -92,7 +92,7 @@ class AssetOperation {
      * @return \Protocol\Operation
      * @throws SDKException
      */
-    public static function send($assetSendOperation){
+    public static function send($assetSendOperation, $tranSourceAddress){
         try{
             if(!($assetSendOperation instanceof AssetSendOperation)){
                 throw new SDKException("REQUEST_INVALID_ERROR", null);
@@ -102,7 +102,7 @@ class AssetOperation {
             }
             $sourceAddress = $assetSendOperation->getSourceAddress();
             $isSourceValid = KeyPair::isAddressValid($sourceAddress);
-            if(Tools::isEmpty($isSourceValid)) {
+            if(!Tools::isEmpty($sourceAddress) && Tools::isEmpty($isSourceValid)) {
                 throw new SDKException("INVALID_SOURCEADDRESS_ERROR", null);
             }
             $destAddress = $assetSendOperation->getDestAddress();
@@ -110,7 +110,7 @@ class AssetOperation {
             if(Tools::isEmpty($destAddress) || Tools::isEmpty($isDestValid)) {
                 throw new SDKException("INVALID_DESTADDRESS_ERROR", null);
             }
-            if(strcmp($sourceAddress, $destAddress) == 0) {
+            if(!Tools::isEmpty($sourceAddress) && (strcmp($sourceAddress, $destAddress) == 0 || strcmp($tranSourceAddress, $destAddress) == 0)) {
                 throw new SDKException("SOURCEADDRESS_EQUAL_DESTADDRESS_ERROR", null);
             }
             $code = $assetSendOperation->getCode();
@@ -159,7 +159,7 @@ class AssetOperation {
             throw $e;
         }
         catch (\Exception $e) {
-            throw new SDKException(SdkError::getCode("SYSTEM_ERROR"), $e->getMessage());
+            throw new SDKException(20000, $e->getMessage());
         }
     }
 

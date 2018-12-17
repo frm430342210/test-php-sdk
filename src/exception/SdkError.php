@@ -15,7 +15,7 @@ class SdkError {
        "SOURCEADDRESS_EQUAL_DESTADDRESS_ERROR"=>array(11005 => "SourceAddress cannot be equal to destAddress"),
        "INVALID_ADDRESS_ERROR"=>array(11006 => "Invalid address"),
        "CONNECTNETWORK_ERROR"=>array(11007 => "Fail to connect network"),
-       "INVALID_ISSUE_AMMOUNT_ERROR"=>array(11008 => "Amount of the token to be issued must be between 1 and Long.MAX_VALUE"),
+       "INVALID_ISSUE_AMOUNT_ERROR"=>array(11008 => "Amount of the token to be issued must be between 1 and Long.MAX_VALUE"),
        "NO_ASSET_ERROR"=>array(11009 => "The account does not have this token"),
        "NO_METADATA_ERROR"=>array(11010 => "The account does not have this metadata"),
        "INVALID_DATAKEY_ERROR"=>array(11011 => "The length of key must be between 1 and 1024"),
