@@ -1309,7 +1309,7 @@ SOURCEADDRESS_EQUAL_DESTADDRESS_ERROR|11005|SourceAddress cannot be equal to des
 INVALID_ISSUE_AMMOUNT_ERROR|11008|AssetAmount this will be issued must be between 1 and max(int64)
 INVALID_DATAKEY_ERROR|11011|The length of key must be between 1 and 1024
 INVALID_DATAVALUE_ERROR|11012|The length of value must be between 0 and 256000
-INVALID_DATAVERSION_ERROR|11013|The version must be equal to or greater than 0 
+INVALID_DATAVERSION_ERROR|11013|The version must be equal to or bigger than 0 
 INVALID_MASTERW∂EIGHT _ERROR|11015|MasterWeight must be between 0 and max(uint32)
 INVALID_SIGNER_ADDRESS_ERROR|11016|Invalid signer address
 INVALID_SIGNER_WEIGHT _ERROR|11017|Signer weight must be between 0 and max(uint32)
@@ -1341,7 +1341,7 @@ INVALID_NONCE_ERROR|11048|Nonce must be between 1 and max(int64)
 INVALID_ GASPRICE_ERROR|11049|GasPrice must be between 1000 and max(int64)
 INVALID_FEELIMIT_ERROR|11050|FeeLimit must be between 1 and max(int64)
 OPERATIONS_EMPTY_ERROR|11051|Operations cannot be empty
-INVALID_CEILLEDGERSEQ_ERROR|11052|CeilLedgerSeq must be equal to or greater than 0
+INVALID_CEILLEDGERSEQ_ERROR|11052|CeilLedgerSeq must be equal to or bigger than 0
 OPERATIONS_ONE_ERROR|11053|One of the operations cannot be resolved
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 SYSTEM_ERROR|20000|System error
@@ -2254,7 +2254,7 @@ NO_ASSET_ERROR|11009|The account does not have the asset
 NO_METADATA_ERROR|11010|The account does not have the metadata
 INVALID_DATAKEY_ERROR|11011|The length of key must be between 1 and 1024
 INVALID_DATAVALUE_ERROR|11012|The length of value must be between 0 and 256000
-INVALID_DATAVERSION_ERROR|11013|The version must be equal to or greater than 0 
+INVALID_DATAVERSION_ERROR|11013|The version must be equal to or bigger than 0 
 INVALID_MASTERWEIGHT_ERROR|11015|MasterWeight must be between 0 and max(uint32)
 INVALID_SIGNER_ADDRESS_ERROR|11016|Invalid signer address
 INVALID_SIGNER_WEIGHT_ERROR|11017|Signer weight must be between 0 and max(uint32)
@@ -2286,7 +2286,7 @@ INVALID_NONCE_ERROR|11048|Nonce must be between 1 and max(int64)
 INVALID_GASPRICE_ERROR|11049|GasPrice must be between 1000 and max(int64)
 INVALID_FEELIMIT_ERROR|11050|FeeLimit must be between 1 and max(int64)
 OPERATIONS_EMPTY_ERROR|11051|Operations cannot be empty
-INVALID_CEILLEDGERSEQ_ERROR|11052|CeilLedgerSeq must be equal to or greater than 0
+INVALID_CEILLEDGERSEQ_ERROR|11052|CeilLedgerSeq must be equal to or bigger than 0
 OPERATIONS_ONE_ERROR|11053|One of the operations cannot be resolved
 INVALID_SIGNATURENUMBER_ERROR|11054|SignagureNumber must be between 1 and max(uint32)
 INVALID_HASH_ERROR|11055|Invalid transaction hash

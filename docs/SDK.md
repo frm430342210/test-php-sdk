@@ -109,7 +109,7 @@ class AccountGetNonceResponse {
 }
 
 Note：
-1. errorCode: error code. 0 means no error, greater than 0 means there is an error
+1. errorCode: error code. 0 means no error, bigger than 0 means there is an error
 2. errorDesc: error description
 3. result: result: returns the result. A structure whose class name is [Service Name][Method Name]Result, whose members are members of the return value of each interface. For example, the result class name of the getNonce interface in Account Services is AccountGetNonceResult, and the member has a nonce. The complete structure is as follows:
 
@@ -379,7 +379,7 @@ address     |   String     |  Required, the account address to be queried on the
 --------- | ------------- | ---------------- 
 address	  |    String     |    Account address       
 balance	  |    Long       |    Account balance, unit is MO, 1 BU = 10^8 MO, the account balance must be > 0
-nonce	  |    Long       |    Account transaction serial number must be greater than 0
+nonce	  |    Long       | Account transaction serial number must be bigger than 0 
 priv	  | [Priv](#priv) |    Account privilege
 
 #### Priv
@@ -404,7 +404,7 @@ typeThresholds|[TypeThreshold](#typethreshold)[]|Thresholds for different types 
 #### TypeThreshold
    Member       |     Type     |        Description      
 -----------  | ------------ | ---------------- 
-type         |    Long	    |    The operation type must be greater than 0
+type         |    Long	    | The operation type must be bigger than 0 
 threshold    |    Long      |    Threshold, size limit[0, Long.MAX_VALUE]
 
 > Error Code
@@ -1303,7 +1303,7 @@ nonce|Long|Required, the transaction serial number to be initiated, add 1 in the
 gasPrice|Long|Required, transaction gas price, unit MO, 1 BU = 10^8 MO, size limit [1000, Long.MAX_VALUE]
 feeLimit|Long|Required, the minimum fees required for the transaction, unit MO, 1 BU = 10^8 MO, size limit [1, Long.MAX_VALUE]
 operation|BaseOperation[]|Required, list of operations to be committed which cannot be empty
-ceilLedgerSeq|long|Optional, set a value which will be combined with the current block height to restrict transactions. If transactions do not complete within the set value plus the current block height, the transactions fail. The value you set must be greater than 0. If the value is set to 0, no limit is set.
+ceilLedgerSeq|long|Optional, set a value which will be combined with the current block height to restrict transactions. If transactions do not complete within the set value plus the current block height, the transactions fail. The value you set must be bigger than 0. If the value is set to 0, no limit is set.
 metadata|String|Optional, note
 
 > Response data
@@ -1325,7 +1325,7 @@ SOURCEADDRESS_EQUAL_DESTADDRESS_ERROR|11005|SourceAddress cannot be equal to des
 INVALID_ISSUE_AMMOUNT_ERROR|11008|AssetAmount this will be issued must be between 1 and Long.MAX_VALUE
 INVALID_DATAKEY_ERROR|11011|The length of key must be between 1 and 1024
 INVALID_DATAVALUE_ERROR|11012|The length of value must be between 0 and 256000
-INVALID_DATAVERSION_ERROR|11013|The version must be equal to or greater than 0 
+INVALID_DATAVERSION_ERROR|11013|The version must be equal to or bigger than 0 
 INVALID_MASTERWEIGHT _ERROR|11015|MasterWeight must be between 0 and (Integer.MAX_VALUE * 2L + 1)
 INVALID_SIGNER_ADDRESS_ERROR|11016|Invalid signer address
 INVALID_SIGNER_WEIGHT _ERROR|11017|Signer weight must be between 0 and (Integer.MAX_VALUE * 2L + 1)
@@ -1357,7 +1357,7 @@ INVALID_NONCE_ERROR|11048|Nonce must be between 1 and Long.MAX_VALUE
 INVALID_ GASPRICE_ERROR|11049|GasPrice must be between 1000 and Long.MAX_VALUE
 INVALID_FEELIMIT_ERROR|11050|FeeLimit must be between 1 and Long.MAX_VALUE
 OPERATIONS_EMPTY_ERROR|11051|Operations cannot be empty
-INVALID_CEILLEDGERSEQ_ERROR|11052|CeilLedgerSeq must be equal to or greater than 0
+INVALID_CEILLEDGERSEQ_ERROR|11052|CeilLedgerSeq must be equal to or bigger than 0
 OPERATIONS_ONE_ERROR|11053|One of the operations cannot be resolved
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 SYSTEM_ERROR|20000|System error
@@ -1423,7 +1423,7 @@ sourceAddress|String|Required, the source account address issuing the operation
 nonce|Long|Required, transaction serial number to be initiated, size limit [1, Long.MAX_VALUE]
 operation|BaseOperation[]|Required, list of operations to be committed which cannot be empty
 signtureNumber|Integer|Optional, the number of people to sign, the default is 1, size limit [1, Integer.MAX_VALUE]
-ceilLedgerSeq|Long|Optional, set a value which will be combined with the current block height to restrict transactions. If transactions do not complete within the set value plus the current block height, the transactions fail. The value you set must be greater than 0. If the value is set to 0, no limit is set.
+ceilLedgerSeq|Long|Optional, set a value which will be combined with the current block height to restrict transactions. If transactions do not complete within the set value plus the current block height, the transactions fail. The value you set must be bigger than 0. If the value is set to 0, no limit is set.
 metadata|String|Optional, note
 
 > Response data
@@ -1802,7 +1802,7 @@ function getTransactions($blockGetTransactionsRequest)
 
    Parameter      |     Type     |        Description
 ----------- | ------------ | ----------------
-blockNumber|Long|Required, the height of the block to be queried must be greater than 0
+blockNumber|Long|Required, the height of the block to be queried must be bigger than 0
 
 > Response data
 
@@ -1962,7 +1962,7 @@ function getValidators($blockGetValidatorsRequest)
 
    Parameter      |     Type     |        Description
 ----------- | ------------ | ----------------
-blockNumber|Long|Required, the height of the block to be queried must be greater than 0
+blockNumber|Long|Required, the height of the block to be queried must be bigger than 0
 
 > Response data
 
@@ -2066,7 +2066,7 @@ function GetReward($blockGetRewardRequest)
 
    Parameter      |     Type     |        Description
 ----------- | ------------ | ----------------
-blockNumber|Long|Required, the height of the block to be queried must be greater than 0
+blockNumber|Long|Required, the height of the block to be queried must be bigger than 0
 
 > Response data
 
@@ -2173,7 +2173,7 @@ function getFees($blockGetFeesRequest)
 
    Parameter      |     Type     |        Description
 ----------- | ------------ | ----------------
-blockNumber|Long|Required, the height of the block to be queried must be greater than 0
+blockNumber|Long|Required, the height of the block to be queried must be bigger than 0
 
 > Response data
 
@@ -2270,7 +2270,7 @@ NO_ASSET_ERROR|11009|The account does not have the asset
 NO_METADATA_ERROR|11010|The account does not have the metadata
 INVALID_DATAKEY_ERROR|11011|The length of key must be between 1 and 1024
 INVALID_DATAVALUE_ERROR|11012|The length of value must be between 0 and 256000
-INVALID_DATAVERSION_ERROR|11013|The version must be equal to or greater than 0 
+INVALID_DATAVERSION_ERROR|11013|The version must be equal to or bigger than 0 
 INVALID_MASTERWEIGHT_ERROR|11015|MasterWeight must be between 0 and (Integer.MAX_VALUE * 2L + 1)
 INVALID_SIGNER_ADDRESS_ERROR|11016|Invalid signer address
 INVALID_SIGNER_WEIGHT_ERROR|11017|Signer weight must be between 0 and (Integer.MAX_VALUE * 2L + 1)
@@ -2302,7 +2302,7 @@ INVALID_NONCE_ERROR|11048|Nonce must be between 1 and Long.MAX_VALUE
 INVALID_GASPRICE_ERROR|11049|GasPrice must be between 1000 and Long.MAX_VALUE
 INVALID_FEELIMIT_ERROR|11050|FeeLimit must be between 1 and Long.MAX_VALUE
 OPERATIONS_EMPTY_ERROR|11051|Operations cannot be empty
-INVALID_CEILLEDGERSEQ_ERROR|11052|CeilLedgerSeq must be equal to or greater than 0
+INVALID_CEILLEDGERSEQ_ERROR|11052|CeilLedgerSeq must be equal to or bigger than 0
 OPERATIONS_ONE_ERROR|11053|One of the operations cannot be resolved
 INVALID_SIGNATURENUMBER_ERROR|11054|SignagureNumber must be between 1 and Integer.MAX_VALUE
 INVALID_HASH_ERROR|11055|Invalid transaction hash
