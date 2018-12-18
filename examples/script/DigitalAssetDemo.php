@@ -743,6 +743,51 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     }
 
     /** @test */
+    public function contractInvokeByAsset() {
+        // The account private key to send asset
+        $senderPrivateKey = "privbyJsNEz6oGFmXCXBHtCKSerTFidxd86Swe5JfKxyUQ5Mqt48Rg22";
+        // The account to receive asset
+        $destAddress = "buQhapCK83xPPdjQeDuBLJtFNvXYZEKb6tKB";
+        // The asset code
+        $assetCode = "";
+        // The accout address of issuing asset
+        $assetIssuer = "buQjRsKFr7HfNrBTWWgQ44fUfAQ5NwgVhaBt";
+        // The asset amount to be sent
+        $assetAmount = 100000;
+        // The fixed write 1000L, the unit is MO
+        $gasPrice = 1000;
+        //Set up the maximum cost 0.01BU
+        $feeLimit = \src\common\Tools::BU2MO(50.01);
+        // Metadata
+        $metadata = "send asset";
+
+        // 1. Get the account address to send this transaction
+        $accountAddress = \src\crypto\key\KeyPair::getEncAddressByPrivateKey($senderPrivateKey);
+        // Transaction initiation account's nonce + 1
+        $nonce = $this->getAccountNonce($accountAddress) + 1;
+
+        // 2. Build sendAsset
+        $contractInvokeByAsset = new \src\model\request\operation\ContractInvokeByAssetOperation();
+        $contractInvokeByAsset->setSourceAddress(null);
+        $contractInvokeByAsset->setContractAddress($destAddress);
+        $contractInvokeByAsset->setCode($assetCode);
+        $contractInvokeByAsset->setIssuer($assetIssuer);
+        $contractInvokeByAsset->setAssetAmount(null);
+        $contractInvokeByAsset->setMetadata($metadata);
+
+        $operations = array();
+        array_push($operations, $contractInvokeByAsset);
+
+        $privateKeys = array();
+        array_push($privateKeys, $senderPrivateKey);
+
+        $hash = DigitalAssetDemo::buildBlobAndSignAndSubmit($privateKeys, $accountAddress, $nonce, $gasPrice, $feeLimit, $metadata, $operations);
+        if ($hash) {
+            echo "Submit transaction successfully, hash: " . $hash;
+        }
+    }
+
+    /** @test */
     public function logCreate() {
         $this->setSDKConfigure(10);
 
