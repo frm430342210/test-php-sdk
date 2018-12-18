@@ -109,7 +109,7 @@ class AccountSetPrivilegeOperation extends BaseOperation {
      *
      * @return self
      */
-    public function addTypeThresholds($typeThreshold) {
+    public function addTypeThreshold($typeThreshold) {
         if ($this->typeThresholds) {
             $this->typeThresholds = [];
         }

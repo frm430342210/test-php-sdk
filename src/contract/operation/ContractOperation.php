@@ -140,7 +140,7 @@ class ContractOperation {
                 throw new SDKException("INVALID_ISSUER_ADDRESS_ERROR", null);
             }
             $amount = $contractInvokeByAssetOperation->getAssetAmount();
-            if(Tools::isNULL($amount) || !is_int($amount) || $amount < 0) {
+            if(!Tools::isNULL($amount) && (!is_int($amount) || $amount < 0)) {
                 throw new SDKException("INVALID_ASSET_AMOUNT_ERROR", null);
             }
             $metadata = $contractInvokeByAssetOperation->getMetadata();
@@ -215,7 +215,7 @@ class ContractOperation {
                 throw new SDKException("SOURCEADDRESS_EQUAL_CONTRACTADDRESS_ERROR", null);
             }
             $amount = $contractInvokeByBUOperation->getBuAmount();
-            if(Tools::isNULL($amount) || !is_int($amount) || $amount < 0) {
+            if(!Tools::isNULL($amount) && (!is_int($amount) || $amount < 0)) {
                 throw new SDKException("INVALID_BU_AMOUNT_ERROR", null);
             }
             $metadata = $contractInvokeByBUOperation->getMetadata();
@@ -230,8 +230,10 @@ class ContractOperation {
             // build sendBU operation
             $sendBU = new \Protocol\OperationPayCoin();
             $sendBU->setDestAddress($contractAddress);
-            $sendBU->setAmount($amount);
-            if(!Tools::isEmpty($initInput)) {
+            if (!Tools::isNULL($amount)) {
+                $sendBU->setAmount($amount);
+            }
+            if (!Tools::isEmpty($initInput)) {
                 $sendBU->setInput($initInput);
             }
 

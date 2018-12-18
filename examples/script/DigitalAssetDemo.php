@@ -15,7 +15,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     public function setSDKConfigure($chainId) {
         $sdkConfigure = new \src\model\request\SDKConfigure();
         $sdkConfigure->setChainId(0);
-        $sdkConfigure->setUrl("http://52.80.206.194:6002");
+        $sdkConfigure->setUrl("http://127.0.0.1:36002");
         $GLOBALS['sdk'] = \src\SDK::getInstanceWithConfigure($sdkConfigure);
     }
     /** @test */
@@ -316,6 +316,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         $request->setFeeLimit($feeLimit);
         $request->setGasPrice($gasPrice);
         $request->addOperation($buSendOperation);
+        $request->setCeilLedgerSeq(0);
 
         // Call buildBlob
         $response = $transaction->buildBlob($request);
@@ -412,7 +413,10 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
         // 1. Generate a new account to be activated
         $keyPair = new \src\crypto\key\KeyPair();
-        $destAddress = $keyPair->getEncAddress();
+        $destAddress = $keyPair->getEncAddress();//"buQjRsKFr7HfNrBTWWgQ44fUfAQ5NwgVhaBt";
+        echo $keyPair->getEncPrivateKey() . "\n";
+        echo $keyPair->getEncPublicKey() . "\n";
+        echo $keyPair->getEncAddress() . "\n";
 
         // 2. Get the account address to send this transaction
         $activateAddress = \src\crypto\key\KeyPair::getEncAddressByPrivateKey($activatePrivateKey);
@@ -466,6 +470,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         $setMetadata->setSourceAddress($accountAddress);
         $setMetadata->setKey($key);
         $setMetadata->setValue($value);
+        $setMetadata->setDeleteFlag("abc");
 
         $operations = array();
         array_push($operations, $setMetadata);
@@ -492,6 +497,10 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         $signerWeight = 2;
         // The txThreshold
         $txThreshold = "1";
+        //
+        $typeThreshold = new \src\model\response\result\data\TypeThreshold();
+        $typeThreshold->type = 1;
+        $typeThreshold->threshold = 10;
         // The fixed write 1000L, the unit is MO
         $gasPrice = 1000;
         //Set up the maximum cost 0.01BU
@@ -512,6 +521,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         $signer->weight = $signerWeight;
         $setPrivilege->addSigner($signer);
         $setPrivilege->setTxThreshold($txThreshold);
+        $setPrivilege->addTypeThreshold($typeThreshold);
 
         $operations = array();
         array_push($operations, $setPrivilege);
@@ -535,7 +545,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         // The asset code
         $assetCode = "ATP资产";
         // The asset amount
-        $assetAmount = 10000000000000;
+        $assetAmount = "";
         // The txThreshold
         $txThreshold = "1";
         // The fixed write 1000L, the unit is MO
@@ -582,7 +592,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         // The accout address of issuing asset
         $assetIssuer = "buQjRsKFr7HfNrBTWWgQ44fUfAQ5NwgVhaBt";
         // The asset amount to be sent
-        $assetAmount = 100000000;
+        $assetAmount = 100000;
         // The fixed write 1000L, the unit is MO
         $gasPrice = 1000;
         //Set up the maximum cost 0.01BU
@@ -597,7 +607,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
         // 2. Build sendAsset
         $sendAsset = new \src\model\request\operation\AssetSendOperation();
-        $sendAsset->setSourceAddress($accountAddress);
+        $sendAsset->setSourceAddress(null);
         $sendAsset->setDestAddress($destAddress);
         $sendAsset->setCode($assetCode);
         $sendAsset->setIssuer($assetIssuer);
@@ -621,9 +631,9 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         $this->setSDKConfigure(10);
 
         // The account private key to send bu
-        $senderPrivateKey = "privbUaV6dK4kLUjbLzmvJeYJeBjxTaNu1RQm5BgCrYkAwueFKGzdabH";
+        $senderPrivateKey = "privbyJsNEz6oGFmXCXBHtCKSerTFidxd86Swe5JfKxyUQ5Mqt48Rg22";
         // The account to receive bu
-        $destAddress = "buQhapCK83xPPdjQeDuBLJtFNvXYZEKb6tKB";
+        $destAddress = "buQjRsKFr7HfNrBTWWgQ44fUfAQ5NwgVhaBt";
         // The amount to be sent
         $buAmount = \src\common\Tools::BU2MO(10);
         // The fixed write 1000L, the unit is MO
@@ -647,6 +657,81 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
         $operations = array();
         array_push($operations, $sendBU);
+
+        $privateKeys = array();
+        array_push($privateKeys, $senderPrivateKey);
+
+        $hash = DigitalAssetDemo::buildBlobAndSignAndSubmit($privateKeys, $accountAddress, $nonce, $gasPrice, $feeLimit, $metadata, $operations);
+        if ($hash) {
+            echo "Submit transaction successfully, hash: " . $hash;
+        }
+    }
+
+    /** @test */
+    public function contractCreate() {
+        // The account private key to activate a new account
+        $activatePrivateKey = "privbyJsNEz6oGFmXCXBHtCKSerTFidxd86Swe5JfKxyUQ5Mqt48Rg22";
+        $initBalance = \src\common\Tools::BU2MO(0.1);
+        // The fixed write 1000L, the unit is MO
+        $gasPrice = 1000;
+        // Set up the maximum cost 0.01BU
+        $feeLimit = \src\common\Tools::BU2MO(0.01);
+        // Metadata
+        $metadata = "activate new account";
+
+        // 1. Get the account address to send this transaction
+        $activateAddress = \src\crypto\key\KeyPair::getEncAddressByPrivateKey($activatePrivateKey);
+        // Transaction initiation account's nonce + 1
+        $nonce = $this->getAccountNonce($activateAddress) + 1;
+
+        // 2. Build activateAccount
+        $contractCreate = new \src\model\request\operation\ContractCreateOperation();
+        $contractCreate->setSourceAddress($activateAddress);
+        $contractCreate->setInitBalance($initBalance);
+        $contractCreate->setPayload("123");
+        $contractCreate->setMetadata("activate a contract");
+
+        $operations = array();
+        array_push($operations, $contractCreate);
+
+        $privateKeys = array();
+        array_push($privateKeys, $activatePrivateKey);
+
+        $hash = DigitalAssetDemo::buildBlobAndSignAndSubmit($privateKeys, $activateAddress, $nonce, $gasPrice, $feeLimit, $metadata, $operations);
+        if ($hash) {
+            echo "Submit transaction successfully, hash: " . $hash;
+        }
+    }
+
+    /** @test */
+    public function contractInvokeByBU() {
+        // The account private key to send bu
+        $senderPrivateKey = "privbyJsNEz6oGFmXCXBHtCKSerTFidxd86Swe5JfKxyUQ5Mqt48Rg22";
+        // The account to receive bu
+        $destAddress = "buQmi7hbpnapiwXPmzbDPwuvxGVC9BLmWyGy";
+        // The amount to be sent
+        $buAmount = 0;
+        // The fixed write 1000L, the unit is MO
+        $gasPrice = 1000;
+        //Set up the maximum cost 0.01BU
+        $feeLimit = \src\common\Tools::BU2MO(50.01);
+        // Metadata
+        $metadata = "发送BU资产";
+
+        // 1. Get the account address to send this transaction
+        $accountAddress = \src\crypto\key\KeyPair::getEncAddressByPrivateKey($senderPrivateKey);
+        // Transaction initiation account's nonce + 1
+        $nonce = $this->getAccountNonce($accountAddress) + 1;
+
+        // 2. Build sendBU
+        $contractInvokeByBU = new \src\model\request\operation\ContractInvokeByBUOperation();
+        $contractInvokeByBU->setSourceAddress($accountAddress);
+        $contractInvokeByBU->setContractAddress($destAddress);
+        $contractInvokeByBU->setBuAmount(null);
+        $contractInvokeByBU->setMetadata($metadata);
+
+        $operations = array();
+        array_push($operations, $contractInvokeByBU);
 
         $privateKeys = array();
         array_push($privateKeys, $senderPrivateKey);
@@ -702,7 +787,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
     private function getAccountNonce($accountAddress) {
         $this->setSDKConfigure(10);
-        $account = $GLOBALS['sdk']->getAccount();
+        $account = $GLOBALS['sdk']->getAccountService();
 
         $accountGetNonceRequest = new \src\model\request\AccountGetNonceRequest();
         $accountGetNonceRequest->setAddress($accountAddress);
@@ -730,7 +815,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
         $buildBlobResponse = $transaction->buildBlob($buildBlobRequest);
         if ($buildBlobResponse->error_code != 0) {
-            echo $buildBlobResponse->error_desc . "\n";
+            echo $buildBlobResponse->error_code . ", " . $buildBlobResponse->error_desc . "\n";
             return false;
         }
         echo "blob: " . $buildBlobResponse->result->transaction_blob . "\n";
@@ -753,7 +838,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         $submitRequest->setSignatures($signResponse->result->signatures);
         $submitResponse = $transaction->submit($submitRequest);
         if ($submitResponse->error_code != 0) {
-            echo $submitResponse->error_desc . "\n";
+            echo json_encode($submitResponse). "\n";
             return false;
         }
         return $hash;
