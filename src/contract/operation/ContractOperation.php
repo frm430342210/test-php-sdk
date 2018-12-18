@@ -203,7 +203,7 @@ class ContractOperation {
             }
             $sourceAddress = $contractInvokeByBUOperation->getSourceAddress();
             $isSourceValid = KeyPair::isAddressValid($sourceAddress);
-            if(Tools::isEmpty($isSourceValid)) {
+            if(!Tools::isEmpty($sourceAddress) && Tools::isEmpty($isSourceValid)) {
                 throw new SDKException("INVALID_SOURCEADDRESS_ERROR", null);
             }
             $contractAddress = $contractInvokeByBUOperation->getContractAddress();
