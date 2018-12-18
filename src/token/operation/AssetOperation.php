@@ -110,7 +110,7 @@ class AssetOperation {
             if(Tools::isEmpty($destAddress) || Tools::isEmpty($isDestValid)) {
                 throw new SDKException("INVALID_DESTADDRESS_ERROR", null);
             }
-            if(!Tools::isEmpty($sourceAddress) && (strcmp($sourceAddress, $destAddress) == 0 || strcmp($tranSourceAddress, $destAddress) == 0)) {
+            if((!Tools::isEmpty($sourceAddress) && strcmp($sourceAddress, $destAddress) == 0) || strcmp($tranSourceAddress, $destAddress) == 0) {
                 throw new SDKException("SOURCEADDRESS_EQUAL_DESTADDRESS_ERROR", null);
             }
             $code = $assetSendOperation->getCode();
