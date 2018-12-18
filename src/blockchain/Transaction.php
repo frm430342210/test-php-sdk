@@ -512,10 +512,10 @@ class Transaction {
                     $operation = ContractOperation::create($operations[$i]);
                     break;
                 case OperationType::CONTRACT_INVOKE_BY_ASSET:
-                    $operation = ContractOperation::invokeByAsset($operations[$i]);
+                    $operation = ContractOperation::invokeByAsset($operations[$i], $tranSourceAddress);
                     break;
                 case OperationType::CONTRACT_INVOKE_BY_BU:
-                    $operation = ContractOperation::invokeByBU($operations[$i]);
+                    $operation = ContractOperation::invokeByBU($operations[$i], $tranSourceAddress);
                     break;
                 case OperationType::LOG_CREATE:
                     $operation = LogOperation::create($operations[$i]);

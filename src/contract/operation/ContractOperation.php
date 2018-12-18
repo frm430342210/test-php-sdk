@@ -112,7 +112,7 @@ class ContractOperation {
      * @return \Protocol\Operation
      * @throws SDKException
      */
-    public static function invokeByAsset($contractInvokeByAssetOperation) {
+    public static function invokeByAsset($contractInvokeByAssetOperation, $transSourceAddress) {
         try{
             if(!($contractInvokeByAssetOperation instanceof ContractInvokeByAssetOperation) || Tools::isEmpty($contractInvokeByAssetOperation)){
                 throw new SDKException("REQUEST_NULL_ERROR", null);
@@ -127,7 +127,8 @@ class ContractOperation {
             if(Tools::isEmpty($isContractValid)) {
                 throw new SDKException("INVALID_CONTRACTADDRESS_ERROR", null);
             }
-            if (!Tools::isEmpty($sourceAddress) && !Tools::isEmpty($contractAddress) && strcmp($contractAddress, $sourceAddress) === 0) {
+            if ((!Tools::isEmpty($sourceAddress) && strcmp($contractAddress, $sourceAddress) === 0) ||
+                (strcmp($contractAddress, $transSourceAddress) === 0)) {
                 throw new SDKException("SOURCEADDRESS_EQUAL_CONTRACTADDRESS_ERROR", null);
             }
             $code = $contractInvokeByAssetOperation->getCode();
@@ -193,7 +194,7 @@ class ContractOperation {
      * @return \Protocol\Operation
      * @throws SDKException
      */
-    public static function invokeByBU($contractInvokeByBUOperation){
+    public static function invokeByBU($contractInvokeByBUOperation, $transSourceAddress){
         try{
             if(!($contractInvokeByBUOperation instanceof ContractInvokeByBUOperation)){
                 throw new SDKException("REQUEST_INVALID_ERROR", null);
@@ -208,10 +209,11 @@ class ContractOperation {
             }
             $contractAddress = $contractInvokeByBUOperation->getContractAddress();
             $isContractValid = KeyPair::isAddressValid($contractAddress);
-            if(Tools::isEmpty($contractAddress) || Tools::isEmpty($isContractValid)) {
+            if(Tools::isEmpty($isContractValid)) {
                 throw new SDKException("INVALID_CONTRACTADDRESS_ERROR", null);
             }
-            if(!Tools::isEmpty($sourceAddress) && !Tools::isEmpty($contractAddress) && strcmp($sourceAddress, $contractAddress) == 0) {
+            if((!Tools::isEmpty($sourceAddress) && strcmp($sourceAddress, $contractAddress) == 0) ||
+                (strcmp($transSourceAddress, $contractAddress) == 0)) {
                 throw new SDKException("SOURCEADDRESS_EQUAL_CONTRACTADDRESS_ERROR", null);
             }
             $amount = $contractInvokeByBUOperation->getBuAmount();
