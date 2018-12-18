@@ -83,7 +83,8 @@ class SdkError {
        "METADATA_NOT_STRING_ERROR"=>array(17001 => "Metadata must be a string"),
        "INPUT_NOT_STRING_ERROR"=>array(17002 => "Input must be a string"),
        "INIT_INPUT_NOT_STRING_ERROR"=>array(17003 => "InitInput must be a string"),
-       "REQUEST_INVALID_ERROR"=>array(17004=>"Request is invalid"),
+       "INVALID_REQUEST_ERROR"=>array(17004=>"Request is invalid"),
+       "INVALID_DELETE_FLAG_ERROR"=>array(17005=>"The deleteFlag is invalid"),
         );
 
     /**

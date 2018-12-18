@@ -137,6 +137,9 @@ class AccountOperation {
                 throw new SDKException("INVALID_DATAVERSION_ERROR", null);
             }
             $deleteFlag = $accountSetMetadataOperation->getDeleteFlag();
+            if (!Tools::isNULL($deleteFlag) && !is_bool($deleteFlag)) {
+                throw new SDKException("INVALID_DELETE_FLAG_ERROR", null);
+            }
             $metadata = $accountSetMetadataOperation->getMetadata();
 
             // build setMetadata operation
