@@ -27,7 +27,7 @@ class Asset {
         $assetGetInfoResult = new AssetGetInfoResult();
         try{
             if(!($assetGetInfoRequest instanceof AssetGetInfoRequest)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($assetGetInfoRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);

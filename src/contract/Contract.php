@@ -42,7 +42,7 @@ class Contract {
         $contractGetInfoResult = new ContractGetInfoResult();
         try{
             if(!($contractGetInfoRequest instanceof ContractGetInfoRequest)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($contractGetInfoRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
@@ -89,7 +89,7 @@ class Contract {
         $contractGetAddressResult = new ContractGetAddressResult();
         try{
             if(!($contractGetAddressRequest instanceof ContractGetAddressRequest)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($contractGetAddressRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
@@ -156,7 +156,7 @@ class Contract {
         $contractCheckValidResult = new ContractCheckValidResult();
         try{
             if(!($contractCheckValidRequest instanceof ContractCheckValidRequest)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($contractCheckValidRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
@@ -211,7 +211,7 @@ class Contract {
         $contractCallResult = new ContractCallResult();
         try{
             if(!($contractCallRequest instanceof ContractCallRequest)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($contractCallRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);

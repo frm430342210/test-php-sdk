@@ -52,7 +52,7 @@ class Account {
         $accountCheckValidResult = new AccountCheckValidResult();
         try{
             if(!($accountCheckValidRequest instanceof AccountCheckValidRequest)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($accountCheckValidRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
@@ -100,7 +100,7 @@ class Account {
         $accountGetInfoResult = new AccountGetInfoResult();
         try{
             if(!($accountGetInfoRequest instanceof AccountGetInfoRequest)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($accountGetInfoRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
@@ -144,7 +144,7 @@ class Account {
         $accountGetNonceResult = new AccountGetNonceResult();
         try{
             if(!($accountGetNonceRequest instanceof AccountGetNonceRequest)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($accountGetNonceRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
@@ -191,7 +191,7 @@ class Account {
         $accountGetBalanceResult = new AccountGetBalanceResult();
         try{
             if(!($accountGetBalanceRequest instanceof AccountGetBalanceRequest)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($accountGetBalanceRequest)){
                 throw new SDKException("REQUEST_NULL_ERROR", null);
@@ -235,7 +235,7 @@ class Account {
         $accountGetAssetsResult = new AccountGetAssetsResult();
         try{
             if(!($accountGetAssetsRequest instanceof AccountGetAssetsRequest)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($accountGetAssetsRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
@@ -282,7 +282,7 @@ class Account {
         $accountGetMetadataResult = new AccountGetMetadataResult();
         try{
             if(!($accountGetMetadataRequest instanceof AccountGetMetadataRequest)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($accountGetMetadataRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
@@ -335,7 +335,7 @@ class Account {
         $accountCheckActivatedResult = new AccountCheckActivatedResult;
         try{
             if(!($accountCheckActivatedRequest instanceof AccountCheckActivatedRequest)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($accountCheckActivatedRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);

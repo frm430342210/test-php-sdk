@@ -37,7 +37,7 @@ class AssetOperation {
     public static function issue($assetIssueOperation) {
         try{
             if(!($assetIssueOperation instanceof AssetIssueOperation)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($assetIssueOperation)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
@@ -95,7 +95,7 @@ class AssetOperation {
     public static function send($assetSendOperation, $tranSourceAddress){
         try{
             if(!($assetSendOperation instanceof AssetSendOperation)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($assetSendOperation)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);

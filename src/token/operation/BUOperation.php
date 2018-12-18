@@ -31,7 +31,7 @@ class BUOperation {
     public static function send($buSendOperation, $tranSourceAddress){
         try{
             if(!($buSendOperation instanceof BUSendOperation)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($buSendOperation)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);

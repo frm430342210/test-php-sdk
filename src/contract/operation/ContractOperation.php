@@ -197,7 +197,7 @@ class ContractOperation {
     public static function invokeByBU($contractInvokeByBUOperation, $transSourceAddress){
         try{
             if(!($contractInvokeByBUOperation instanceof ContractInvokeByBUOperation)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($contractInvokeByBUOperation)){
                 throw new SDKException("REQUEST_NULL_ERROR", null);

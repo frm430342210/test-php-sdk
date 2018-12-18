@@ -127,7 +127,7 @@ class Block {
         $blockGetTransactionsResult = new BlockGetTransactionsResult();
         try {
             if(!($blockGetTransactionsRequest instanceof BlockGetTransactionsRequest)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if (Tools::isEmpty($blockGetTransactionsRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
@@ -169,7 +169,7 @@ class Block {
         $blockGetInfoResult = new BlockGetInfoResult();
         try {
             if(!($blockGetInfoRequest instanceof BlockGetInfoRequest)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if (Tools::isEmpty($blockGetInfoRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
@@ -239,7 +239,7 @@ class Block {
         $blockGetValidatorsResult = new BlockGetValidatorsResult();
         try {
             if(!($blockGetValidatorsRequest instanceof BlockGetValidatorsRequest)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if (Tools::isEmpty($blockGetValidatorsRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
@@ -309,7 +309,7 @@ class Block {
         $blockGetRewardResult = new BlockGetRewardResult();
         try {
             if(!($blockGetRewardRequest instanceof BlockGetRewardRequest)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if (Tools::isEmpty($blockGetRewardRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
@@ -412,7 +412,7 @@ class Block {
         $blockGetFeesResult = new BlockGetFeesResult();
         try{
             if(!($blockGetFeesRequest instanceof BlockGetFeesRequest)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($blockGetFeesRequest)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);

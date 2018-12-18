@@ -45,7 +45,7 @@ class AccountOperation {
     public static function activate($accountActivateOperation, $tranSourceAddress) {
         try{
             if (!($accountActivateOperation instanceof AccountActivateOperation)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($accountActivateOperation)){
                 throw new SDKException("REQUEST_NULL_ERROR", null);
@@ -114,7 +114,7 @@ class AccountOperation {
     public static function setMetadata($accountSetMetadataOperation) {
         try{
             if (!($accountSetMetadataOperation instanceof AccountSetMetadataOperation)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($accountSetMetadataOperation)){
                 throw new SDKException("REQUEST_NULL_ERROR", null);
@@ -183,7 +183,7 @@ class AccountOperation {
     public static function setPrivilege($accountSetPrivilegeOperation){
         try{
             if (!($accountSetPrivilegeOperation instanceof AccountSetPrivilegeOperation)){
-                throw new SDKException("REQUEST_INVALID_ERROR", null);
+                throw new SDKException("INVALID_REQUEST_ERROR", null);
             }
             if(Tools::isEmpty($accountSetPrivilegeOperation)) {
                 throw new SDKException("REQUEST_NULL_ERROR", null);
