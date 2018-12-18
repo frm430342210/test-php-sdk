@@ -54,7 +54,7 @@ class ContractOperation {
                 throw new SDKException("INVALID_INITBALANCE_ERROR", null);
             }
             $type = $contractCreateOperation->getType();
-            if(Tools::isNULL($type) || !is_int($type) || $type < 0) {
+            if(!Tools::isNULL($type) && (!is_int($type) || $type < 0)) {
                 throw new SDKException("INVALID_CONTRACT_TYPE_ERROR", null);
             }
             $payload = $contractCreateOperation->getPayload();
