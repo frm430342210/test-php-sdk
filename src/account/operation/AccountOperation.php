@@ -141,6 +141,9 @@ class AccountOperation {
                 throw new SDKException("INVALID_DELETE_FLAG_ERROR", null);
             }
             $metadata = $accountSetMetadataOperation->getMetadata();
+            if (!Tools::isEmpty($metadata) && !is_string($metadata)) {
+                throw new SDKException("METADATA_NOT_STRING_ERROR", null);
+            }
 
             // build setMetadata operation
             $setMetadata = new \Protocol\OperationSetMetadata();
@@ -207,6 +210,9 @@ class AccountOperation {
                 }
             }
             $metadata = $accountSetPrivilegeOperation->getMetadata();
+            if (!Tools::isEmpty($metadata) && !is_string($metadata)) {
+                throw new SDKException("METADATA_NOT_STRING_ERROR", null);
+            }
             $signers = $accountSetPrivilegeOperation->getSigners();
             $typeThresholds = $accountSetPrivilegeOperation->getTypeThresholds();
 
