@@ -1232,7 +1232,7 @@ metadata|String|选填，备注
 ------------- | --------- | ---------------------
 sourceAddress|String|选填，操作源账户地址
 contractAddress|String|必填，合约账户地址
-code|String|选填，资产编码，长度限制[0, 1024];当为空时，仅触发合约;
+code|String|选填，资产编码，长度限制[0, 64];当为空时，仅触发合约;
 issuer|String|选填，资产发行账户地址，当null时，仅触发合约
 assetAmount|Long|选填，资产数量，大小限制[0, max(int64)]，当是0时，仅触发合约
 input|String|选填，待触发的合约的main()入参

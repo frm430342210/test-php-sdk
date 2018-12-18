@@ -1248,7 +1248,7 @@ If the contract account does not exist, the contract account must be created fir
 ------------- | --------- | ---------------------
 sourceAddress|String|Optional, source account address of the operation
 contractAddress|String|Required, contract account address
-code|String|Optional, asset code, length limit [0, 1024]; when it is empty, only the contract is triggered
+code|String|Optional, asset code, length limit [0, 64]; when it is empty, only the contract is triggered
 issuer|String|Optional, the account address issuing assets; when it is null, only trigger the contract
 assetAmount|Long|Optional, asset quantity, size limit [0, Long.MAX_VALUE], when it is 0, only trigger the contract
 input|String|Optional, the input parameter of the main() method for the contract to be triggered
