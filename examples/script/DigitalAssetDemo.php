@@ -14,8 +14,8 @@ $sdk = \src\SDK::getInstance("http://127.0.0.1:36002"); // localhost
 class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     public function setSDKConfigure($chainId) {
         $sdkConfigure = new \src\model\request\SDKConfigure();
-        $sdkConfigure->setChainId(0);
-        $sdkConfigure->setUrl("http://127.0.0.1:36002");
+        $sdkConfigure->setChainId($chainId);
+        $sdkConfigure->setUrl("http://seed1.bumotest.io:26002");
         $GLOBALS['sdk'] = \src\SDK::getInstanceWithConfigure($sdkConfigure);
     }
     /** @test */
@@ -195,6 +195,18 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     }
 
     /** @test */
+    public function blockGetTransactions() {
+        $this->setSDKConfigure(0);
+        $block = $GLOBALS['sdk']->getBlockService();
+
+        $request = new \src\model\request\BlockGetTransactionsRequest();
+        $request->setBlockNumber(1991052);
+        $response = $block->getTransactions($request);
+        $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
+        var_dump($json_response);
+    }
+
+    /** @test */
     public function blockGetInfo() {
         $this->setSDKConfigure(10);
         $block = $GLOBALS['sdk']->getBlockService();
@@ -339,7 +351,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
     /** @test */
     public function transactionEvaluteFee() {
-        $this->setSDKConfigure(10);
+        $this->setSDKConfigure(0);
         $transaction =  $GLOBALS['sdk']->getTransactionService();
 
         // Init variable
@@ -363,6 +375,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         $request->setSourceAddress($senderAddress);
         $request->addOperation($buSendOperation);
         $request->setNonce($nonce);
+        $request->setCeilLedgerSeq(0);
 
         // Call evaluateFees
         $response = $transaction->evaluateFee($request);
@@ -492,11 +505,13 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         // The account private key to set privilege
         $accountPrivateKey = "privbyJsNEz6oGFmXCXBHtCKSerTFidxd86Swe5JfKxyUQ5Mqt48Rg22";
         // The signer address
-        $signerAddress = "buQhapCK83xPPdjQeDuBLJtFNvXYZEKb6tKB";
+        $signerAddress = "buQapEJ5Fo33qeSse5hU8akukwGBpajUBaGc";
+        // The master weight
+        $masterWeight = "4294967295";
         // The signer weight
-        $signerWeight = 2;
+        $signerWeight = 1;
         // The txThreshold
-        $txThreshold = "1";
+        $txThreshold = "";
         //
         $typeThreshold = new \src\model\response\result\data\TypeThreshold();
         $typeThreshold->type = 1;
@@ -516,6 +531,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         // 2. Build setPrivilege
         $setPrivilege = new \src\model\request\operation\AccountSetPrivilegeOperation();
         $setPrivilege->setSourceAddress($accountAddress);
+        $setPrivilege->setMasterWeight($masterWeight);
         $signer = new \src\model\response\result\data\Signer();
         $signer->address = $signerAddress;
         $signer->weight = $signerWeight;
@@ -747,7 +763,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         // The account private key to send asset
         $senderPrivateKey = "privbyJsNEz6oGFmXCXBHtCKSerTFidxd86Swe5JfKxyUQ5Mqt48Rg22";
         // The account to receive asset
-        $destAddress = "buQhapCK83xPPdjQeDuBLJtFNvXYZEKb6tKB";
+        $destAddress = "buQjRsKFr7HfNrBTWWgQ44fUfAQ5NwgVhaBt";
         // The asset code
         $assetCode = "";
         // The accout address of issuing asset

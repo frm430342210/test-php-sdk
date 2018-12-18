@@ -152,9 +152,12 @@ class Transaction {
             if (is_int($chainId) && $chainId > 0) {
                 $transaction->setChainId($chainId);
             }
-            if (!Tools::isNULL($ceilLedgerSeq)) {
+            if (!Tools::isEmpty($ceilLedgerSeq)) {
                 $baseUrl = General::getInstance()->blockGetNumberUrl();
                 $result = Http::get($baseUrl);
+                if (Tools::isEmpty($result)) {
+                    throw new SDKException("CONNECTNETWORK_ERROR", null);
+                }
                 $blockGetNumberResponse = Tools::jsonToClass($result, new BlockGetNumberResponse());
                 $errorCode = $blockGetNumberResponse->error_code;
                 if (!Tools::isEmpty($errorCode)) {
@@ -271,9 +274,12 @@ class Transaction {
             $transaction->setSourceAddress($sourceAddress);
             $transaction->setNonce($nonce);
             $transaction->setOperations($operationArray);
-            if (!Tools::isNULL($ceilLedgerSeq)) {
+            if (!Tools::isEmpty($ceilLedgerSeq)) {
                 $baseUrl = General::getInstance()->blockGetNumberUrl();
                 $result = Http::get($baseUrl);
+                if (Tools::isEmpty($result)) {
+                    throw new SDKException("CONNECTNETWORK_ERROR", null);
+                }
                 $blockGetNumberResponse = Tools::jsonToClass($result, new BlockGetNumberResponse());
                 $errorCode = $blockGetNumberResponse->error_code;
                 if (!Tools::isEmpty($errorCode)) {

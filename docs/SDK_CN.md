@@ -1310,7 +1310,7 @@ INVALID_ISSUE_AMMOUNT_ERROR|11008|AssetAmount this will be issued must be betwee
 INVALID_DATAKEY_ERROR|11011|The length of key must be between 1 and 1024
 INVALID_DATAVALUE_ERROR|11012|The length of value must be between 0 and 256000
 INVALID_DATAVERSION_ERROR|11013|The version must be equal to or bigger than 0 
-INVALID_MASTERW∂EIGHT _ERROR|11015|MasterWeight must be between 0 and max(uint32)
+INVALID_MASTERWEIGHT _ERROR|11015|MasterWeight must be between 0 and max(uint32)
 INVALID_SIGNER_ADDRESS_ERROR|11016|Invalid signer address
 INVALID_SIGNER_WEIGHT _ERROR|11017|Signer weight must be between 0 and max(uint32)
 INVALID_TX_THRESHOLD_ERROR|11018|TxThreshold must be between 0 and max(int64)
