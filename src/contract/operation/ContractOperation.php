@@ -131,7 +131,7 @@ class ContractOperation {
                 throw new SDKException("SOURCEADDRESS_EQUAL_CONTRACTADDRESS_ERROR", null);
             }
             $code = $contractInvokeByAssetOperation->getCode();
-            if(!Tools::isNULL($code) && (!is_string($code) || strlen($code) > Constant::ASSET_CODE_MAX || strlen($code) < 1)) {
+            if(!Tools::isNULL($code) && (!is_string($code) || strlen($code) > Constant::ASSET_CODE_MAX || strlen($code) < 0)) {
                 throw new SDKException("INVALID_ASSET_CODE_ERROR", null);
             }
             $issuer = $contractInvokeByAssetOperation->getIssuer();
