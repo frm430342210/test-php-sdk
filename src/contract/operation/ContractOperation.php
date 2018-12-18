@@ -124,7 +124,7 @@ class ContractOperation {
             }
             $contractAddress = $contractInvokeByAssetOperation->getContractAddress();
             $isContractValid = KeyPair::isAddressValid($contractAddress);
-            if(!Tools::isEmpty($contractAddress) && Tools::isEmpty($isContractValid)) {
+            if(Tools::isEmpty($isContractValid)) {
                 throw new SDKException("INVALID_CONTRACTADDRESS_ERROR", null);
             }
             if (!Tools::isEmpty($sourceAddress) && !Tools::isEmpty($contractAddress) && strcmp($contractAddress, $sourceAddress) === 0) {
