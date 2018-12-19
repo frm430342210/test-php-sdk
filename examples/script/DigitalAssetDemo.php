@@ -20,8 +20,9 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     }
     /** @test */
     public function test() {
-        $privateKeyEnc = "1610048c6a32e2041039d104312b114c70399c7ecaaa4bf142171351980b7a35";
-        echo hex2bin($privateKeyEnc) . "\n";
+        $bu = "0.000000001";
+        $mo = \src\common\Tools::BU2MO($bu);
+        var_dump($mo);
     }
     /** @test */
     public function accountCheckValid() {
@@ -200,7 +201,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         $block = $GLOBALS['sdk']->getBlockService();
 
         $request = new \src\model\request\BlockGetTransactionsRequest();
-        $request->setBlockNumber(1991052);
+        $request->setBlockNumber(581283);
         $response = $block->getTransactions($request);
         $json_response = json_encode($response, JSON_UNESCAPED_UNICODE);
         var_dump($json_response);
@@ -302,13 +303,13 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         // Init variable
         $senderAddress = "buQfnVYgXuMo3rvCEpKA6SfRrDpaz8D8A9Ea";
         $destAddress = "buQsurH1M4rjLkfjzkxR9KXJ6jSu2r9xBNEw";
-        $amount = \src\common\Tools::BU2MO(10.9);
+        $amount = \src\common\Tools::BU2MO("10.9");
         if (!$amount) {
             echo "Failed to change amount bu to mo\n";
             return;
         }
         $gasPrice = 1000;
-        $feeLimit = \src\common\Tools::BU2MO(0.01);
+        $feeLimit = \src\common\Tools::BU2MO("0.01");
         if (!$feeLimit) {
             echo "Failed to change feeLimit bu to mo\n";
             return;
@@ -357,7 +358,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         // Init variable
         $senderAddress = "buQfnVYgXuMo3rvCEpKA6SfRrDpaz8D8A9Ea";
         $destAddress = "buQsurH1M4rjLkfjzkxR9KXJ6jSu2r9xBNEw";
-        $amount = \src\common\Tools::BU2MO(0.01);
+        $amount = \src\common\Tools::BU2MO("0.01");
         if (!$amount) {
             echo "Failed to change amount bu to mo\n";
             return;
@@ -416,11 +417,11 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
         // The account private key to activate a new account
         $activatePrivateKey = "privbyJsNEz6oGFmXCXBHtCKSerTFidxd86Swe5JfKxyUQ5Mqt48Rg22";
-        $initBalance = \src\common\Tools::BU2MO(0.1);
+        $initBalance = \src\common\Tools::BU2MO("0.1");
         // The fixed write 1000L, the unit is MO
         $gasPrice = 1000;
         // Set up the maximum cost 0.01BU
-        $feeLimit = \src\common\Tools::BU2MO(0.01);
+        $feeLimit = \src\common\Tools::BU2MO("0.01");
         // Metadata
         $metadata = "activate new account";
 
@@ -438,8 +439,8 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
         // 3. Build activateAccount
         $activateAccount = new \src\model\request\operation\AccountActivateOperation();
-        $activateAccount->setSourceAddress($activateAddress);
-        $activateAccount->setDestAddress($destAddress);
+        $activateAccount->setSourceAddress(null);
+        $activateAccount->setDestAddress($activateAddress);
         $activateAccount->setInitBalance($initBalance);
         $activateAccount->setMetadata("activate an account(" . $destAddress . ")");
 
@@ -469,7 +470,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         // The fixed write 1000L, the unit is MO
         $gasPrice = 1000;
         //Set up the maximum cost 0.01BU
-        $feeLimit = \src\common\Tools::BU2MO(0.01);
+        $feeLimit = \src\common\Tools::BU2MO("0.01");
         // Metadata
         $metadata = "set metadata";
 
@@ -511,7 +512,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         // The signer weight
         $signerWeight = 1;
         // The txThreshold
-        $txThreshold = "";
+        $txThreshold = "1";
         //
         $typeThreshold = new \src\model\response\result\data\TypeThreshold();
         $typeThreshold->type = 1;
@@ -519,7 +520,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         // The fixed write 1000L, the unit is MO
         $gasPrice = 1000;
         //Set up the maximum cost 0.01BU
-        $feeLimit = \src\common\Tools::BU2MO(0.01);
+        $feeLimit = \src\common\Tools::BU2MO("0.01");
         // Metadata
         $metadata = "set privilege";
 
@@ -530,7 +531,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
 
         // 2. Build setPrivilege
         $setPrivilege = new \src\model\request\operation\AccountSetPrivilegeOperation();
-        $setPrivilege->setSourceAddress($accountAddress);
+        $setPrivilege->setSourceAddress(null);
         $setPrivilege->setMasterWeight($masterWeight);
         $signer = new \src\model\response\result\data\Signer();
         $signer->address = $signerAddress;
@@ -567,7 +568,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         // The fixed write 1000L, the unit is MO
         $gasPrice = 1000;
         //Set up the maximum cost 0.01BU
-        $feeLimit = \src\common\Tools::BU2MO(50.01);
+        $feeLimit = \src\common\Tools::BU2MO("50.01");
         // Metadata
         $metadata = "issue asset";
 
@@ -612,7 +613,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         // The fixed write 1000L, the unit is MO
         $gasPrice = 1000;
         //Set up the maximum cost 0.01BU
-        $feeLimit = \src\common\Tools::BU2MO(50.01);
+        $feeLimit = \src\common\Tools::BU2MO("50.01");
         // Metadata
         $metadata = "send asset";
 
@@ -651,11 +652,11 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         // The account to receive bu
         $destAddress = "buQjRsKFr7HfNrBTWWgQ44fUfAQ5NwgVhaBt";
         // The amount to be sent
-        $buAmount = \src\common\Tools::BU2MO(10);
+        $buAmount = \src\common\Tools::BU2MO("10");
         // The fixed write 1000L, the unit is MO
         $gasPrice = 1000;
         //Set up the maximum cost 0.01BU
-        $feeLimit = \src\common\Tools::BU2MO(50.01);
+        $feeLimit = \src\common\Tools::BU2MO("50.01");
         // Metadata
         $metadata = "发送BU资产";
 
@@ -687,11 +688,11 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     public function contractCreate() {
         // The account private key to activate a new account
         $activatePrivateKey = "privbyJsNEz6oGFmXCXBHtCKSerTFidxd86Swe5JfKxyUQ5Mqt48Rg22";
-        $initBalance = \src\common\Tools::BU2MO(0.1);
+        $initBalance = \src\common\Tools::BU2MO("0.1");
         // The fixed write 1000L, the unit is MO
         $gasPrice = 1000;
         // Set up the maximum cost 0.01BU
-        $feeLimit = \src\common\Tools::BU2MO(0.01);
+        $feeLimit = \src\common\Tools::BU2MO("0.01");
         // Metadata
         $metadata = "activate new account";
 
@@ -730,7 +731,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         // The fixed write 1000L, the unit is MO
         $gasPrice = 1000;
         //Set up the maximum cost 0.01BU
-        $feeLimit = \src\common\Tools::BU2MO(50.01);
+        $feeLimit = \src\common\Tools::BU2MO("50.01");
         // Metadata
         $metadata = "发送BU资产";
 
@@ -773,7 +774,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         // The fixed write 1000L, the unit is MO
         $gasPrice = 1000;
         //Set up the maximum cost 0.01BU
-        $feeLimit = \src\common\Tools::BU2MO(50.01);
+        $feeLimit = \src\common\Tools::BU2MO("50.01");
         // Metadata
         $metadata = "send asset";
 
@@ -817,7 +818,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         // The fixed write 1000L, the unit is MO
         $gasPrice = 1000;
         //Set up the maximum cost 0.01BU
-        $feeLimit = \src\common\Tools::BU2MO(50.01);
+        $feeLimit = \src\common\Tools::BU2MO("50.01");
         // Metadata
         $metadata = "create log";
 

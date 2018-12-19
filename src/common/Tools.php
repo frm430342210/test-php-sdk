@@ -36,17 +36,27 @@ class Tools{
         }   
    }
 
+    /**
+     * BU2MO Change bu to mo
+     * @param  [string]  $bu
+     * @return int
+     */
    static public function BU2MO($bu) {
-        if (is_string($bu) || !is_numeric($bu) || $bu < 0) {
+        if (!is_string($bu) || !is_numeric($bu) || substr_compare($bu, "0.00000001", 0) < 0) {
             return false;
         }
-        $mo = (int)bcmul($bu, pow(10, 8), 0);
+        $mo = (int)bcmul($bu, pow(10, 8));
         if (!is_int($mo)) {
             return false;
         }
         return $mo;
    }
 
+    /**
+     * MO2BU Change mo to bu
+     * @param  [int]  $mo
+     * @return string
+     */
    static public function MO2BU($mo) {
        if (!is_int($mo) || $mo < 0) {
            return false;
