@@ -1,7 +1,7 @@
 {
-  "name": "bumo/sdk-php",
+  "name": "frm430342210/test-sdk",
   "description": "PHP developers can easily operate BUMO blockchain via the BUMO PHP SDK",
-  "keywords": ["bumo", "sdk"],
+  "keywords": ["bumo", "test-sdk"],
   "homepage": "https://github.com/frm430342210/test-php-sdk.git",
   "version": "v1.0.0",
   "require": {
