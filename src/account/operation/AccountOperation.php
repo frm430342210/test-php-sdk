@@ -216,7 +216,6 @@ class AccountOperation {
                 throw new SDKException("METADATA_NOT_STRING_ERROR", null);
             }
             $signers = $accountSetPrivilegeOperation->getSigners();
-            echo is_array($signers) . "\n";
             if (!is_array($signers)) {
                 throw new SDKException("SIGNERS_NOT_ARRAY_ERROR", null);
             }
