@@ -216,6 +216,7 @@ class AccountOperation {
                 throw new SDKException("METADATA_NOT_STRING_ERROR", null);
             }
             $signers = $accountSetPrivilegeOperation->getSigners();
+            echo is_array($signers) . "\n";
             if (!is_array($signers)) {
                 throw new SDKException("SIGNERS_NOT_ARRAY_ERROR", null);
             }
@@ -231,7 +232,7 @@ class AccountOperation {
             if(!Tools::isEmpty($signers)) {
                 $signerArray = array();
                 foreach ($signers as $key => $signer) {
-                    if ($signer instanceof Signer){
+                    if (!($signer instanceof Signer)){
                         throw new SDKException("INVALID_SIGNER_ERROR", null);
                     }
                     $isSignerAddressValid = KeyPair::isAddressValid($signer->address);
@@ -252,7 +253,7 @@ class AccountOperation {
             if($typeThresholds) {
                 $typeThresholdArray = array();
                 foreach ($typeThresholds as $key => $typeThreshold) {
-                    if ($typeThreshold instanceof TypeThreshold) {
+                    if (!($typeThreshold instanceof TypeThreshold)) {
                         throw new SDKException("INVALID_TYPE_THRESHOLD_ERROR", null);
                     }
                     if(Tools::isNULL($typeThreshold->type) || !is_int($typeThreshold->type) ||
