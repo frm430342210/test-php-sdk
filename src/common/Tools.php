@@ -48,15 +48,12 @@ class Tools{
            return false;
        }
        $unitWithoutDecimals = (int)bcmul($unitWithDecimals, pow(10, $decimals));
-       if (!is_int($unitWithoutDecimals)) {
-           return false;
-       }
        return $unitWithoutDecimals;
    }
 
     /**
      * unitWithDecimals Change $unitWithoutDecimals to unitWithDecimals
-     * @param  [int]  $unitWithoutDecimals
+     * @param  [string]  $unitWithoutDecimals
      * @param  [int]  $decimals
      * @return string
      */

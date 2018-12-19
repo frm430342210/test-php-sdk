@@ -193,7 +193,7 @@ if ($getNonceResponse->error_code == 0) {
    echo "nonce: " . $result->nonce . "\n";
 }
 else {
-    echo "error" . $getNonce$response->error_desc . "\n";
+    echo "error" . $getNonceresponse->error_desc . "\n";
 }
 ```
 
@@ -203,7 +203,7 @@ else {
 ```php 
 $senderAddress = "buQnnUEBREw2hB6pWHGPzwanX7d28xk6KVcp";
 $destAddress = "buQsurH1M4rjLkfjzkxR9KXJ6jSu2r9xBNEw";
-$buAmount = \src\common\Tools::BU2MO(10.9);
+$buAmount = \src\common\Tools::BU2MO("10.9");
 
 $operation = new \src\model\request\operation\BUSendOperation();
 $operation->setSourceAddress($senderAddress);
@@ -220,12 +220,12 @@ $operation->setAmount($buAmount);
 // 初始化变量
 $senderAddress = "buQnnUEBREw2hB6pWHGPzwanX7d28xk6KVcp";
 $gasPrice = 1000;
-$feeLimit = \src\common\Tools::BU2MO(0.01);
+$feeLimit = \src\common\Tools::BU2MO("0.01");
 
 // 初始化请求参数
 $buildBlobRequest = new \src\model\request\TransactionBuildBlobRequest();
 $buildBlobRequest->setSourceAddress($senderAddress);
-$buildBlobRequest->setNonce($nonce . 1);
+$buildBlobRequest->setNonce($nonce + 1);
 $buildBlobRequest->setFeeLimit($feeLimit);
 $buildBlobRequest->setGasPrice($gasPrice);
 $buildBlobRequest->addOperation($operation);
@@ -272,7 +272,7 @@ $submitRequest->setSignatures($signResult->signatures);
 // 调用submit接口
 $response = $sdk->getTransactionService()->submit($submitRequest);
 if (0 == $response->error_code) {
-    echo "交易广播成功，hash=" . $response->result>hash . "\n";
+    echo "交易广播成功，hash=" . $response->result->hash . "\n";
 } else {
     echo "error: " . $response->error_desc . "\n";
 }
@@ -316,6 +316,7 @@ is_valid     | boolean |  是否有效
 -----------  | ----------- | -------- 
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 SYSTEM_ERROR |   20000     |  System error 
+INVALID_REQUEST_ERROR | 17004 | Request is invalid 
 
 > 示例
 
@@ -346,7 +347,7 @@ if(0 == $response->error_code) {
 /**
  * Get account info
  * @param AccountGetInfoRequest $accountGetInfoRequest
- * @return AccountGetInfoResponse, including address，balace，nonce and privilege
+ * @return AccountGetInfoResponse, including address，balance，nonce and privilege
  */
 public function getInfo($accountGetInfoRequest);
 ```
@@ -399,6 +400,7 @@ INVALID_ADDRESS_ERROR| 11006 | Invalid address
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR| 11007| Failed to connect to the network
 SYSTEM_ERROR |   20000     |  System error 
+INVALID_REQUEST_ERROR | 17004 | Request is invalid 
 
 > 示例
 
@@ -455,6 +457,7 @@ INVALID_ADDRESS_ERROR| 11006 | Invalid address
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR| 11007| Failed to connect to the network
 SYSTEM_ERROR |   20000     |  System error 
+INVALID_REQUEST_ERROR | 17004 | Request is invalid 
 
 > 示例
 
@@ -500,7 +503,7 @@ address     |   String     |  必填，待查询的区块链账户地址
 
    参数      |     类型     |        描述       
 ----------- | ------------ | ---------------- 
-balance     |   Long       |  BU的余额, 单位MO，1 BU = 10^8 MO, 
+balance     |   Long       |  BU的余额, 单位MO，1 BU = 10^8 MO 
 
 > 错误码
 
@@ -510,6 +513,7 @@ INVALID_ADDRESS_ERROR| 11006 | Invalid address
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR| 11007| Failed to connect to the network
 SYSTEM_ERROR |   20000     |  System error 
+INVALID_REQUEST_ERROR | 17004 | Request is invalid 
 
 > 示例
 
@@ -581,6 +585,7 @@ REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR| 11007| Failed to connect to the network
 NO_ASSET_ERROR|11009|The account does not have the asset
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > 示例
 
@@ -647,6 +652,7 @@ CONNECTNETWORK_ERROR | 11007 | Failed to connect to the network
 NO_METADATA_ERROR|11010|The account does not have the metadata
 INVALID_DATAKEY_ERROR | 11011 | The length of key must be between 1 and 1024
 SYSTEM_ERROR | 20000| System error
+INVALID_REQUEST_ERROR | 17004 | Request is invalid 
 
 
 > 示例
@@ -714,12 +720,13 @@ INVALID_ASSET_CODE_ERROR|11023|The length of asset code must be between 1 and 64
 INVALID_ISSUER_ADDRESS_ERROR|11027|Invalid issuer address
  NO_ASSET_ERROR               | 11009  | The account does not have this token              
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > 示例
 
 ```php
 // 初始化请求参数
-$request = new AssetGetInfoRequest();
+$request = new \src\model\request\AssetGetInfoRequest();
 $request->setAddress("buQsurH1M4rjLkfjzkxR9KXJ6jSu2r9xBNEw");
 $request->setIssuer("buQBjJD1BSJ7nzAbzdTenAhpFjmxRVEEtmxH");
 $request->setCode("HNC");
@@ -774,6 +781,7 @@ isValid     |   Boolean     |  是否有效
 INVALID_CONTRACTADDRESS_ERROR|11037|Invalid contract address
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 SYSTEM_ERROR |   20000     |  System error 
+INVALID_REQUEST_ERROR | 17004 | Request is invalid 
 
 > 示例
 
@@ -838,6 +846,7 @@ NO_SUCH_TOKEN_ERROR|11030|No such token
 GET_TOKEN_INFO_ERROR|11066|Failed to get token info
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > 示例
 
@@ -899,6 +908,7 @@ INVALID_HASH_ERROR|11055|Invalid transaction hash
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > 示例
 
@@ -954,7 +964,7 @@ gasPrice|Long|交易燃料单价，大小限制[1000, max(int64)]
 logs|JSONObject|日志信息
 queryRets|JSONArray|查询结果集
 stat|[ContractStat](#ContractStat)|合约资源占用信息
-txs|[TransactionEnvs](#TransactionEnvs)[]	交易集
+txs|[TransactionEnvs](#TransactionEnvs)[]|交易集
 
 #### ContractStat
 
@@ -1022,7 +1032,7 @@ destAddress|String|目标账户地址
 contract|[Contract](#contract)|合约信息
 priv|[Priv](#priv)|账户权限
 metadata|[MetadataInfo](#metadatainfo)[]|账户
-initBalance|Long|账户资产, 单位MO，1 BU = 10^8 MO, 
+initBalance|Long|账户资产, 单位MO，1 BU = 10^8 MO 
 initInput|String|合约init函数的入参
 
 #### Contract
@@ -1101,6 +1111,8 @@ CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
 INVALID_CONTRACT_BALANCE_ERROR|11044|The contractBalance must be between 1 and max(int64)
 INVALID_GASPRICE_ERROR|11049|GasPrice must be between 1000 and max(int64)
+INVALID_REQUEST_ERROR|17004|Request is invalid
+INPUT_NOT_STRING_ERROR|17002|Input must be a string
 
 > 示例
 
@@ -1345,6 +1357,14 @@ INVALID_CEILLEDGERSEQ_ERROR|11052|CeilLedgerSeq must be equal to or bigger than 
 OPERATIONS_ONE_ERROR|11053|One of the operations cannot be resolved
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 SYSTEM_ERROR|20000|System error
+METADATA_NOT_STRING_ERROR|17001|Metadata must be a string
+INPUT_NOT_STRING_ERROR|17002|Input must be a string
+INIT_INPUT_NOT_STRING_ERROR|17003|InitInput must be a string
+INVALID_REQUEST_ERROR|17004|Request is invalid
+INVALID_DELETE_FLAG_ERROR|17005|The deleteFlag is invalid
+SIGNERS_NOT_ARRAY_ERROR|17006 |The signers should be an array
+INVALID_SIGNER_ERROR|17007|The signer is invalid
+TYPE_THRESHOLDS_NOT_ARRAY_ERROR|17008|The typeThresholds should be an array
 
 > 示例
 
@@ -1372,7 +1392,7 @@ $request->setGasPrice($gasPrice);
 $request->addOperation($operation);
 
 // 调用buildBlob接口
-$transactionBlob = nul;
+$transactionBlob = null;
 $response = $sdk->getTransactionService()->buildBlob($request);
 if ($response->error_code == 0) {
     $result = $response->result;
@@ -1445,6 +1465,8 @@ OPERATIONS_ONE_ERROR|11053|One of the operations cannot be resolved
 INVALID_SIGNATURENUMBER_ERROR|11054|SignagureNumber must be between 1 and max(uint32)
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
+METADATA_NOT_STRING_ERROR|17001|Metadata must be a string
 
 > 示例
 
@@ -1469,7 +1491,7 @@ $request->addOperation($buSendOperation);
 $request->setSourceAddress($senderAddresss);
 $request->setNonce($nonce);
 $request->setSignatureNumber(1);
-$request->setMetadata("evaluate fees");
+$request->setMetadata(bin2hex("evaluate fees"));
 
 // 调用evaluateFee接口
 $response = $sdk->getTransactionService().evaluateFee($request);
@@ -1510,7 +1532,7 @@ privateKeys|String[]|必填，私钥列表
 
    参数      |     类型     |        描述       
 ----------- | ------------ | ---------------- 
-signatures|[Signature](#signature)	签名后的数据列表
+signatures|[Signature](#signature)|签名后的数据列表
 
 #### Signature
 
@@ -1528,6 +1550,7 @@ PRIVATEKEY_NULL_ERROR|11057|PrivateKeys cannot be empty
 PRIVATEKEY_ONE_ERROR|11058|One of privateKeys is invalid
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > 示例
 
@@ -1584,6 +1607,7 @@ INVALID_BLOB_ERROR|11056|Invalid blob
 SIGNATURE_EMPTY_ERROR|11067|The signatures cannot be empty
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > 示例
 
@@ -1660,6 +1684,7 @@ INVALID_HASH_ERROR|11055|Invalid transaction hash
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > 示例
 
@@ -1803,6 +1828,7 @@ INVALID_BLOCKNUMBER_ERROR|11060|BlockNumber must bigger than 0
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > 示例
 
@@ -1861,6 +1887,7 @@ INVALID_BLOCKNUMBER_ERROR|11060|BlockNumber must bigger than 0
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > 示例
 
@@ -1969,6 +1996,7 @@ INVALID_BLOCKNUMBER_ERROR|11060|BlockNumber must bigger than 0
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > 示例
 
@@ -2075,6 +2103,7 @@ INVALID_BLOCKNUMBER_ERROR|11060|BlockNumber must bigger than 0
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > 示例
 
@@ -2180,6 +2209,7 @@ INVALID_BLOCKNUMBER_ERROR|11060|BlockNumber must bigger than 0
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > 示例
 
@@ -2305,3 +2335,11 @@ SIGNATURE_EMPTY_ERROR|11067|The signatures cannot be empty
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTN_BLOCKCHAIN_ERROR|19999|Failed to connect to the blockchain 
 SYSTEM_ERROR|20000|System error
+METADATA_NOT_STRING_ERROR|17001|Metadata must be a string
+INPUT_NOT_STRING_ERROR|17002|Input must be a string
+INIT_INPUT_NOT_STRING_ERROR|17003|InitInput must be a string
+INVALID_REQUEST_ERROR|17004|Request is invalid
+INVALID_DELETE_FLAG_ERROR|17005|The deleteFlag is invalid
+SIGNERS_NOT_ARRAY_ERROR|17006 |The signers should be an array
+INVALID_SIGNER_ERROR|17007|The signer is invalid
+TYPE_THRESHOLDS_NOT_ARRAY_ERROR|17008|The typeThresholds should be an array

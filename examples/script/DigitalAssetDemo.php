@@ -20,12 +20,10 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     }
     /** @test */
     public function test() {
-        $bu = "0.000001111";
-        $mo = \src\common\Tools::BU2MO($bu);
-        var_dump($mo);
-        $mo = 100;
-        $bu = \src\common\Tools::MO2BU($mo);
-        var_dump($bu);
+        $signers = array();
+        $signer = new \src\model\response\result\data\Signer();
+        array_push($signers, $signer);
+
     }
     /** @test */
     public function accountCheckValid() {
@@ -380,6 +378,7 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
         $request->addOperation($buSendOperation);
         $request->setNonce($nonce);
         $request->setCeilLedgerSeq(0);
+        $request->setMetadata(bin2hex("evaluate fees"));
 
         // Call evaluateFees
         $response = $transaction->evaluateFee($request);

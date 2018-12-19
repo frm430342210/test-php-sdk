@@ -206,7 +206,7 @@ if ($getNonceResponse->error_code == 0) {
    echo "nonce: " . $result->nonce . "\n";
 }
 else {
-    echo "error" . $getNonce$response->error_desc . "\n";
+    echo "error" . $getNonceresponse->error_desc . "\n";
 }
 ```
 
@@ -217,7 +217,7 @@ The operations refer to some of the actions that are done in the transaction to 
 ```php 
 $senderAddress = "buQnnUEBREw2hB6pWHGPzwanX7d28xk6KVcp";
 $destAddress = "buQsurH1M4rjLkfjzkxR9KXJ6jSu2r9xBNEw";
-$buAmount = \src\common\Tools::BU2MO(10.9);
+$buAmount = \src\common\Tools::BU2MO("10.9");
 
 $operation = new \src\model\request\operation\BUSendOperation();
 $operation->setSourceAddress($senderAddress);
@@ -233,12 +233,12 @@ The transaction serialization interface is used to serialize transactions and ge
 // Initialize variables
 $senderAddress = "buQnnUEBREw2hB6pWHGPzwanX7d28xk6KVcp";
 $gasPrice = 1000;
-$feeLimit = \src\common\Tools::BU2MO(0.01);
+$feeLimit = \src\common\Tools::BU2MO("0.01");
 
 // Initialize request parameters
 $buildBlobRequest = new \src\model\request\TransactionBuildBlobRequest();
 $buildBlobRequest->setSourceAddress($senderAddress);
-$buildBlobRequest->setNonce($nonce . 1);
+$buildBlobRequest->setNonce($nonce + 1);
 $buildBlobRequest->setFeeLimit($feeLimit);
 $buildBlobRequest->setGasPrice($gasPrice);
 $buildBlobRequest->addOperation($operation);
@@ -287,7 +287,7 @@ $submitRequest->setSignatures($signResult->signatures);
 // Call submit
 $response = $sdk->getTransactionService()->submit($submitRequest);
 if (0 == $response->error_code) {
-    echo "hash=" . $response->result>hash . "\n";
+    echo "hash=" . $response->result->hash . "\n";
 } else {
     echo "error: " . $response->error_desc . "\n";
 }
@@ -332,6 +332,7 @@ isValid     |   String     |  Whether the response data is valid
 -----------  | ----------- | -------- 
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 SYSTEM_ERROR |   20000     |  System error 
+INVALID_REQUEST_ERROR | 17004 | Request is invalid 
 
 > Example
 
@@ -362,7 +363,7 @@ if(0 == $response->error_code) {
 /**
  * Get account info
  * @param AccountGetInfoRequest $accountGetInfoRequest
- * @return AccountGetInfoResponse, including address，balace，nonce and privilege
+ * @return AccountGetInfoResponse, including address，balance，nonce and privilege
  */
 public function getInfo($accountGetInfoRequest);
 ```
@@ -415,6 +416,7 @@ INVALID_ADDRESS_ERROR| 11006 | Invalid address
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR| 11007| Failed to connect to the network
 SYSTEM_ERROR |   20000     |  System error 
+INVALID_REQUEST_ERROR | 17004 | Request is invalid 
 
 > Example
 
@@ -471,6 +473,7 @@ INVALID_ADDRESS_ERROR| 11006 | Invalid address
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR| 11007| Failed to connect to the network
 SYSTEM_ERROR |   20000     |  System error 
+INVALID_REQUEST_ERROR | 17004 | Request is invalid 
 
 > Example
 
@@ -597,6 +600,7 @@ REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR| 11007| Failed to connect to the network
 NO_ASSET_ERROR|11009|The account does not have the asset
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > Example
 
@@ -663,6 +667,7 @@ CONNECTNETWORK_ERROR | 11007 | Failed to connect to the network
 NO_METADATA_ERROR|11010|The account does not have the metadata
 INVALID_DATAKEY_ERROR | 11011 | The length of key must be between 1 and 1024
 SYSTEM_ERROR | 20000| System error
+INVALID_REQUEST_ERROR | 17004 | Request is invalid 
 
 
 > Example
@@ -730,12 +735,13 @@ INVALID_ASSET_CODE_ERROR|11023|The length of asset code must be between 1 and 64
 INVALID_ISSUER_ADDRESS_ERROR|11027|Invalid issuer address
  NO_ASSET_ERROR               | 11009      | The account does not have this token
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > Example
 
 ```php
 // Initialize request parameters
-$request = new AssetGetInfoRequest();
+$request = new \src\model\request\AssetGetInfoRequest();
 $request->setAddress("buQsurH1M4rjLkfjzkxR9KXJ6jSu2r9xBNEw");
 $request->setIssuer("buQBjJD1BSJ7nzAbzdTenAhpFjmxRVEEtmxH");
 $request->setCode("HNC");
@@ -790,6 +796,7 @@ isValid     |   Boolean     |  Whether the response data is valid
 INVALID_CONTRACTADDRESS_ERROR|11037|Invalid contract address
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 SYSTEM_ERROR |   20000     |  System error 
+INVALID_REQUEST_ERROR | 17004 | Request is invalid 
 
 > Example
 
@@ -854,6 +861,7 @@ NO_SUCH_TOKEN_ERROR|11030|No such token
 GET_TOKEN_INFO_ERROR|11066|Failed to get token info
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > Example
 
@@ -915,6 +923,7 @@ INVALID_HASH_ERROR|11055|Invalid transaction hash
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > Example
 
@@ -1117,6 +1126,8 @@ CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
 INVALID_CONTRACT_BALANCE_ERROR|11044|The contractBalance must be between 1 and max(int64)
 INVALID_GASPRICE_ERROR|11049|GasPrice must be between 1000 and max(int64)
+INVALID_REQUEST_ERROR|17004|Request is invalid
+INPUT_NOT_STRING_ERROR|17002|Input must be a string
 
 > Example
 
@@ -1361,6 +1372,15 @@ INVALID_CEILLEDGERSEQ_ERROR|11052|CeilLedgerSeq must be equal to or bigger than 
 OPERATIONS_ONE_ERROR|11053|One of the operations cannot be resolved
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
+METADATA_NOT_STRING_ERROR|17001|Metadata must be a string
+INPUT_NOT_STRING_ERROR|17002|Input must be a string
+INIT_INPUT_NOT_STRING_ERROR|17003|InitInput must be a string
+INVALID_REQUEST_ERROR|17004|Request is invalid
+INVALID_DELETE_FLAG_ERROR|17005|The deleteFlag is invalid
+SIGNERS_NOT_ARRAY_ERROR|17006 |The signers should be an array
+INVALID_SIGNER_ERROR|17007|The signer is invalid
+TYPE_THRESHOLDS_NOT_ARRAY_ERROR|17008|The typeThresholds should be an array
 
 > Example
 
@@ -1388,7 +1408,7 @@ $request->setGasPrice($gasPrice);
 $request->addOperation($operation);
 
 // Call the buildBlob interface
-$transactionBlob = nul;
+$transactionBlob = null;
 $response = $sdk->getTransactionService()->buildBlob($request);
 if ($response->error_code == 0) {
     $result = $response->result;
@@ -1461,6 +1481,8 @@ OPERATIONS_ONE_ERROR|11053|One of the operations cannot be resolved
 INVALID_SIGNATURENUMBER_ERROR|11054|SignagureNumber must be between 1 and Integer.MAX_VALUE
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
+METADATA_NOT_STRING_ERROR|17001|Metadata must be a string
 
 > Example
 
@@ -1485,7 +1507,7 @@ $request->addOperation($buSendOperation);
 $request->setSourceAddress($senderAddresss);
 $request->setNonce($nonce);
 $request->setSignatureNumber(1);
-$request->setMetadata("evaluate fees");
+$request->setMetadata(bin2hex("evaluate fees"));
 
 // Call the evaluateFee interface
 $response = $sdk->getTransactionService().evaluateFee($request);
@@ -1544,6 +1566,7 @@ PRIVATEKEY_NULL_ERROR|11057|PrivateKeys cannot be empty
 PRIVATEKEY_ONE_ERROR|11058|One of privateKeys is invalid
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > Example
 
@@ -1600,6 +1623,7 @@ INVALID_BLOB_ERROR|11056|Invalid blob
 SIGNATURE_EMPTY_ERROR|11067|The signatures cannot be empty
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > Example
 
@@ -1676,6 +1700,7 @@ INVALID_HASH_ERROR|11055|Invalid transaction hash
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTNETWORK_ERROR|11007|Failed to connect to the network
 SYSTEM_ERROR|20000|System error
+INVALID_REQUEST_ERROR|17004|Request is invalid
 
 > Example
 
@@ -2321,3 +2346,11 @@ SIGNATURE_EMPTY_ERROR|11067|The signatures cannot be empty
 REQUEST_NULL_ERROR|12001|Request parameter cannot be null
 CONNECTN_BLOCKCHAIN_ERROR|19999|Failed to connect to the blockchain 
 SYSTEM_ERROR|20000|System error
+METADATA_NOT_STRING_ERROR|17001|Metadata must be a string
+INPUT_NOT_STRING_ERROR|17002|Input must be a string
+INIT_INPUT_NOT_STRING_ERROR|17003|InitInput must be a string
+INVALID_REQUEST_ERROR|17004|Request is invalid
+INVALID_DELETE_FLAG_ERROR|17005|The deleteFlag is invalid
+SIGNERS_NOT_ARRAY_ERROR|17006 |The signers should be an array
+INVALID_SIGNER_ERROR|17007|The signer is invalid
+TYPE_THRESHOLDS_NOT_ARRAY_ERROR|17008|The typeThresholds should be an array

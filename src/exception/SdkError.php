@@ -86,6 +86,9 @@ class SdkError {
        "INIT_INPUT_NOT_STRING_ERROR"=>array(17003 => "InitInput must be a string"),
        "INVALID_REQUEST_ERROR"=>array(17004=>"Request is invalid"),
        "INVALID_DELETE_FLAG_ERROR"=>array(17005=>"The deleteFlag is invalid"),
+       "SIGNERS_NOT_ARRAY_ERROR"=> array(17006=>"The signers should be an array"),
+       "INVALID_SIGNER_ERROR"=>array(17007=>"The signer is invalid"),
+       "TYPE_THRESHOLDS_NOT_ARRAY_ERROR"=>array(17008=>"The typeThresholds should be an array"),
         );
 
     /**
