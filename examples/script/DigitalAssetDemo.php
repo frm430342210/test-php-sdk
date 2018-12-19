@@ -20,9 +20,12 @@ class DigitalAssetDemo extends PHPUnit_Framework_TestCase {
     }
     /** @test */
     public function test() {
-        $bu = "0.000000001";
+        $bu = "0.000001111";
         $mo = \src\common\Tools::BU2MO($bu);
         var_dump($mo);
+        $mo = 100;
+        $bu = \src\common\Tools::MO2BU($mo);
+        var_dump($bu);
     }
     /** @test */
     public function accountCheckValid() {

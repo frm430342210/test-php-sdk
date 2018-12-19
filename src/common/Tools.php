@@ -37,19 +37,45 @@ class Tools{
    }
 
     /**
+     * unitWithoutDecimals Change unitWithDecimals to unitWithoutDecimals
+     * @param  [string]  $unitWithDecimals
+     * @param  [int]  $decimals
+     * @return int
+     */
+   static public function unitWithoutDecimals($unitWithDecimals, $decimals){
+       if (!is_string($unitWithDecimals) || !is_numeric($unitWithDecimals) || bccomp($unitWithDecimals, '0') < 0 ||
+           is_string($decimals) || !is_int($decimals) || $decimals > 18 || $decimals < 0) {
+           return false;
+       }
+       $unitWithoutDecimals = (int)bcmul($unitWithDecimals, pow(10, $decimals));
+       if (!is_int($unitWithoutDecimals)) {
+           return false;
+       }
+       return $unitWithoutDecimals;
+   }
+
+    /**
+     * unitWithDecimals Change $unitWithoutDecimals to unitWithDecimals
+     * @param  [int]  $unitWithoutDecimals
+     * @param  [int]  $decimals
+     * @return string
+     */
+   static public function unitWithDecimals($unitWithoutDecimals, $decimals){
+       if (is_string($unitWithoutDecimals) || !is_int($unitWithoutDecimals) || $unitWithoutDecimals < 0 ||
+           is_string($decimals) || !is_int($decimals) || $decimals > 18 || $decimals < 0) {
+           return false;
+       }
+       $bu = bcdiv($unitWithoutDecimals, pow(10, $decimals), $decimals);
+       return $bu;
+   }
+
+    /**
      * BU2MO Change bu to mo
      * @param  [string]  $bu
      * @return int
      */
    static public function BU2MO($bu) {
-        if (!is_string($bu) || !is_numeric($bu) || substr_compare($bu, "0.00000001", 0) < 0) {
-            return false;
-        }
-        $mo = (int)bcmul($bu, pow(10, 8));
-        if (!is_int($mo)) {
-            return false;
-        }
-        return $mo;
+        return Tools::unitWithoutDecimals($bu, 8);
    }
 
     /**
@@ -58,11 +84,7 @@ class Tools{
      * @return string
      */
    static public function MO2BU($mo) {
-       if (!is_int($mo) || $mo < 0) {
-           return false;
-       }
-       $bu = bcdiv($mo, pow(10, 8), 8);
-       return $bu;
+       return Tools::unitWithDecimals($mo, 8);
    }
 
    static public function jsonToClass($json, $class) {
